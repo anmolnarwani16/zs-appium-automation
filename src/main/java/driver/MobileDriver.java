@@ -22,8 +22,6 @@ public class MobileDriver {
 		JSONObject data= JsonFileRederUtils.readJSONFromFile(MobileFrameConstant.jsonFilePath());
 
 		if (Objects.isNull(MobileDriverManager.getDriver())) {
-			
-			
 
 			UiAutomator2Options option = new UiAutomator2Options();
 			// optional if not mentioned it will take by default;
@@ -36,8 +34,9 @@ public class MobileDriver {
 			option.setApp(MobileFrameConstant.getAndroidApplication());
 
 			MobileDriverManager.setDriver( new AndroidDriver(new URL(data.get("url").toString()), option));
-			}
+			
 		}
+	}
 	
 	
 	public static void quitDriver() {

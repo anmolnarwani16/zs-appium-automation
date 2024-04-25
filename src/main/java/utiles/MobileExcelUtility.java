@@ -35,7 +35,7 @@ public class MobileExcelUtility {
 			list=new ArrayList<>();
 			for (int i = 0; i < lastRowNum; i++) {
 				map=new HashMap<>();
-				for (int j = 0; j < lastCellNum; j++) {
+				for (int j = 0; j <lastCellNum; j++) {
 					
 				String key = sheet.getRow(0).getCell(j).getStringCellValue();
 				String value = sheet.getRow(i).getCell(j).getStringCellValue();

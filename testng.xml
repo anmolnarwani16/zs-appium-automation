@@ -10,8 +10,7 @@
     </listeners>
     <test thread-count="5" name="Test">
         <classes>
-
-            <class name="test.TestUsingXmlFile"/>
+            <class name="test.DynamicElementByXpathTest"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

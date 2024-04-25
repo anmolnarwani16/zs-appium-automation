@@ -13,7 +13,7 @@ public class MobileFrameConstant {
 	}
 
 	private static final String RESOURCESPATH = System.getProperty("user.dir");
-	private static final String ANDROID_APPLICATION_PATH = RESOURCESPATH + "/src/main/resources/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk";
+	private static final String ANDROID_APPLICATION_PATH = RESOURCESPATH + "/src/main/resources/app-visionstg-debug.apk";
 	private static final String CONFIGFILEPATH = RESOURCESPATH + "/src/main/resources/config/config.properties";
 	private static final String EXCELFILEPATH = RESOURCESPATH + "/src/main/resources/excelFiles/MobileTestData.xlsx";
 	private static final String JSONFILEPATH = RESOURCESPATH + "/src/main/resources/jsonFile/desireCapability.json";
