@@ -1,0 +1,8 @@
+{
+	"PlatformName":"Android",
+	"AppActivity":"com.zopsmart.platformapplication.features.pages.ui.SplashPage",
+	"DeviceName":"emulator-5554",
+	"url":"http://127.0.0.1:4723/"
+
+
+}
