@@ -7,44 +7,48 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-
 public class SignInPage {
+    @FindBy(id = "com.zopsmart.stg.scarlet:id/tv_login_instr")
+    private WebElement signUpHeader;
 
-	@FindBy(id="com.zopsmart.stg.scarlet:id/rlClickConsumer")
-	private WebElement countryCodeDropdown;
+    @FindBy(id = "com.zopsmart.stg.scarlet:id/et_username")
+    private WebElement userNameField;
 
-	@FindBy(id="com.zopsmart.stg.scarlet:id/et_username")
-	private WebElement userNameTxtField;
+    @FindBy(id = "com.zopsmart.stg.scarlet:id/et_password")
+    private WebElement passwordField;
 
-	@FindBy(id="com.zopsmart.stg.scarlet:id/et_password")
-	private WebElement passwordTxtField;
+    @FindBy(id = "com.zopsmart.stg.scarlet:id/button3")
+    private WebElement loginButton;
 
-	@FindBy(id="com.zopsmart.stg.scarlet:id/button3")
-	private WebElement loginButton;
+    @FindBy(id = "com.zopsmart.stg.scarlet:id/tv_register_now")
+    private WebElement registerNow;
 
-	public SignInPage(){
-		PageFactory.initElements(MobileDriverManager.getDriver(),this);
-	}
+    public SignInPage(){
+        PageFactory.initElements(MobileDriverManager.getDriver(),this);
+    }
 
-	public SignInPage getCountryCodeDropdown() {
-		MobileExplicitWaitFactories.click(countryCodeDropdown,WaitStrategy.CLICKABLE ," user clicked on the country code dropdown");
-		return this;
-	}
+    public HomePage performClickOnLoginButton(){
+        MobileExplicitWaitFactories.click(loginButton, WaitStrategy.CLICKABLE,"user clicked on login button");
+        return new HomePage();
+    }
 
-	public SignInPage enterUserNameInTxtField(String enterMobileNo) {
-		MobileExplicitWaitFactories.sendKeys(userNameTxtField,enterMobileNo,WaitStrategy.VISIBLE ," user entered mobile no in username text field");
-		return this;
-	}
+    public SignInPage enterUserName(String userName){
+        MobileExplicitWaitFactories.sendKeys(userNameField,userName,WaitStrategy.VISIBLE,"user entered userName");
+        return this;
+    }
 
-	public SignInPage enterPasswordInTxtField(String enterPassword) {
-		MobileExplicitWaitFactories.sendKeys(passwordTxtField,enterPassword,WaitStrategy.VISIBLE ," user entered enterPassword in password text field");
+    public SignInPage enterPassword(String password){
+        MobileExplicitWaitFactories.sendKeys(passwordField,password,WaitStrategy.VISIBLE,"user entered password");
+        return this;
+    }
 
-		return this;
-	}
+    public String getHeading(){
+        String str = MobileExplicitWaitFactories.getText(signUpHeader, WaitStrategy.VISIBLE,"verfying Heading");
+        return str;
+    }
 
-	public HomePage clickOnLoginButton() {
-		MobileExplicitWaitFactories.click(loginButton,WaitStrategy.CLICKABLE," user clicke don the login button");
-		return new HomePage();
-	}
+    public RegisterPage performClickOnRegisterNow(){
+        MobileExplicitWaitFactories.click(registerNow, WaitStrategy.CLICKABLE,"user clicked on register button");
+        return new RegisterPage();
+    }
 }
-

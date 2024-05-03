@@ -17,38 +17,37 @@ import utiles.JsonFileRederUtils;
 
 public class MobileDriver {
 
-	public static  void initDriver() throws IOException, ParseException {
-		
-		JSONObject data= JsonFileRederUtils.readJSONFromFile(MobileFrameConstant.jsonFilePath());
+    public static void initDriver() throws IOException, ParseException {
 
-		if (Objects.isNull(MobileDriverManager.getDriver())) {
+        JSONObject data = JsonFileRederUtils.readJSONFromFile(MobileFrameConstant.jsonFilePath());
 
-			UiAutomator2Options option = new UiAutomator2Options();
-			// optional if not mentioned it will take by default;
-			option.setPlatformName(data.get("PlatformName").toString());
-			option.setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2);
-			option.setAppActivity(data.get("AppActivity").toString());
+        if (Objects.isNull(MobileDriverManager.getDriver())) {
 
-			// device name have to mention
-			option.setDeviceName(data.get("DeviceName").toString());
-			option.setApp(MobileFrameConstant.getAndroidApplication());
+            UiAutomator2Options option = new UiAutomator2Options();
+            // optional if not mentioned it will take by default;
+            option.setPlatformName(data.get("PlatformName").toString());
+            option.setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2);
+            option.setAppActivity(data.get("AppActivity").toString());
 
-			MobileDriverManager.setDriver( new AndroidDriver(new URL(data.get("url").toString()), option));
-			
-		}
-	}
-	
-	
-	public static void quitDriver() {
+            // device name have to mention
+            option.setDeviceName(data.get("DeviceName").toString());
+            option.setApp(MobileFrameConstant.getAndroidApplication());
 
-		if (Objects.nonNull(MobileDriverManager.getDriver())) {
+            MobileDriverManager.setDriver(new AndroidDriver(new URL(data.get("url").toString()), option));
 
-			MobileDriverManager.getDriver().quit();
-			MobileDriverManager.unload();
+        }
+    }
 
-		}
-	}
 
-	
+    public static void quitDriver() {
+
+        if (Objects.nonNull(MobileDriverManager.getDriver())) {
+
+            MobileDriverManager.getDriver().quit();
+            MobileDriverManager.unload();
+
+        }
+    }
+
 
 }

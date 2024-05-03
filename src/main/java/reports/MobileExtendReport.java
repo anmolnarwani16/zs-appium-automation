@@ -12,45 +12,45 @@ import frameConstatnt.MobileFrameConstant;
 
 
 public class MobileExtendReport {
-	
-	private MobileExtendReport() {
 
-	}
+    private MobileExtendReport() {
 
-	private static ExtentReports extentReports;
-	//public static ExtentTest createTest;
+    }
 
-	public static void initReports() throws Exception {
+    private static ExtentReports extentReports;
+    //public static ExtentTest createTest;
 
-		if (Objects.isNull(extentReports)) {
-			extentReports = new ExtentReports();
-			ExtentSparkReporter extentSparkReporter = new ExtentSparkReporter(MobileFrameConstant.getExtentReportFilePath());
-			extentReports.attachReporter(extentSparkReporter);
+    public static void initReports() throws Exception {
 
-			extentSparkReporter.config().setTheme(Theme.DARK);
-			extentSparkReporter.config().setDocumentTitle("Mobile test report");
-			extentSparkReporter.config().setReportName("Mobile test");
-		}
-	}
+        if (Objects.isNull(extentReports)) {
+            extentReports = new ExtentReports();
+            ExtentSparkReporter extentSparkReporter = new ExtentSparkReporter(MobileFrameConstant.getExtentReportFilePath());
+            extentReports.attachReporter(extentSparkReporter);
 
-	public static void flushReports() throws Exception {
+            extentSparkReporter.config().setTheme(Theme.DARK);
+            extentSparkReporter.config().setDocumentTitle("Mobile test report");
+            extentSparkReporter.config().setReportName("Mobile test");
+        }
+    }
 
-		if (Objects.nonNull(extentReports)) {
-			extentReports.flush();
+    public static void flushReports() throws Exception {
 
-			try {
-				Desktop.getDesktop().browse(new File(MobileFrameConstant.getExtentReportFilePath()).toURI());
-			} catch (IOException e) {
+        if (Objects.nonNull(extentReports)) {
+            extentReports.flush();
 
-				e.printStackTrace();
-			}
-		}
+            try {
+                Desktop.getDesktop().browse(new File(MobileFrameConstant.getExtentReportFilePath()).toURI());
+            } catch (IOException e) {
 
-	}
+                e.printStackTrace();
+            }
+        }
 
-	public static void createTest(String testcaseName) {
-		//ExtentTest createTest = extentReports.createTest(testcaseName);
-		MobileExtentManager.setExtentTest(extentReports.createTest(testcaseName));
-	}
+    }
+
+    public static void createTest(String testcaseName) {
+        //ExtentTest createTest = extentReports.createTest(testcaseName);
+        MobileExtentManager.setExtentTest(extentReports.createTest(testcaseName));
+    }
 
 }

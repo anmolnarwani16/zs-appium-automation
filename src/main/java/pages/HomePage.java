@@ -3,74 +3,61 @@ package pages;
 import driver.MobileDriverManager;
 import enums.WaitStrategy;
 import factories.MobileExplicitWaitFactories;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
-
     @FindBy(id = "com.zopsmart.stg.scarlet:id/account")
-    private WebElement profileIcon;
+    private WebElement accountButton;
+
+    @FindBy(id = "com.android.permissioncontroller:id/permission_allow_one_time_button")
+    private WebElement locationAccessButton;
+
+    @FindBy(id = "com.android.permissioncontroller:id/permission_allow_button")
+    private WebElement allowNotificationButton;
 
     @FindBy(id = "com.zopsmart.stg.scarlet:id/notification")
     private WebElement notificationIcon;
 
-    @FindBy(id = "com.zopsmart.stg.scarlet:id/search_icon")
-    private WebElement serachIcon;
+    @FindBy(xpath = "//android.widget.FrameLayout[@content-desc='Cart']/android.widget.FrameLayout[2]")
+    private WebElement cartIcon;
 
     @FindBy(id = "com.zopsmart.stg.scarlet:id/home")
     private WebElement homeIcon;
 
-    @FindBy(xpath = "//android.widget.FrameLayout[@content-desc='Cart']/android.widget.FrameLayout[2]")
-    private WebElement cartIcon;
-
     @FindBy(xpath = "//android.widget.ImageButton[@content-desc='Open navigation drawer']")
     private WebElement hamburgerIcon;
 
-    @FindBy(id = "com.android.permissioncontroller:id/permission_allow_button")
-    private WebElement allowNotificationButton;
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_category_title' and @text='FRUITS & VEGETABLES']")
+    private WebElement fruitCategory;
 
     public HomePage() {
         PageFactory.initElements(MobileDriverManager.getDriver(), this);
     }
 
-    public SignInPage clickOnProfileIcon() {
-        MobileExplicitWaitFactories.click(profileIcon, WaitStrategy.CLICKABLE, " user clciked on the profile icon");
+    public HomePage clickOnAllowLocationAccess() {
+        MobileExplicitWaitFactories.click(locationAccessButton, WaitStrategy.CLICKABLE, "user clicked on location access");
+        return this;
+    }
+
+    public SignInPage clickOnAccountButton() {
+        MobileExplicitWaitFactories.click(accountButton, WaitStrategy.CLICKABLE, "user clicked on account button");
         return new SignInPage();
     }
 
-    public DynamicElementByXPath clickOnAllowNotificationButton() {
-        MobileExplicitWaitFactories.click(allowNotificationButton, WaitStrategy.CLICKABLE, " user clciked on the allowNotificationButton ");
-        return new DynamicElementByXPath();
-
+    public LeftHandNavigationPage clickOnHamburgerIcon() {
+        MobileExplicitWaitFactories.click(hamburgerIcon, WaitStrategy.CLICKABLE, "user clicked on hamburgerIcon");
+        return new LeftHandNavigationPage();
     }
 
-    public HomePage clickOnNotificationIcon(String locatorName) {
-        String ele = String.format("com.zopsmart.stg.scarlet:id/%s", locatorName);
-        WebElement webEle = profileIcon.findElement(By.id(ele));
-        MobileExplicitWaitFactories.click(webEle, WaitStrategy.CLICKABLE, " user clicked on the");
-        return this;
-
+    public FruitCategoryPage clickOnFruit(){
+        MobileExplicitWaitFactories.click(fruitCategory,WaitStrategy.CLICKABLE,"user clicked on fruit and vegetable category");
+        return new FruitCategoryPage();
     }
-    public DynamicXpathOfLeftHAndNavigation clickOnHamburgerIcon() {
-        MobileExplicitWaitFactories.click(hamburgerIcon, WaitStrategy.CLICKABLE, " user clciked on the hamburgerIcon ");
-        return new DynamicXpathOfLeftHAndNavigation();
 
+    public MyCartPage clickOnCartIcon(){
+        MobileExplicitWaitFactories.click(cartIcon,WaitStrategy.CLICKABLE,"user clicked on cart icon");
+        return new MyCartPage();
     }
 }
-
-   /*public WebElement clickOnCartIcon() {
-        return cartIcon;
-    }
-
-    public WebElement clickOnHomeIcon() {
-        return homeIcon;
-    }
-
-
-
-    public WebElement clickOnSerachIcon() {
-        return serachIcon;
-    }*/
-
