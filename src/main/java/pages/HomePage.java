@@ -6,6 +6,7 @@ import factories.MobileExplicitWaitFactories;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import reports.TestLogger;
 
 public class HomePage {
     @FindBy(id = "com.zopsmart.stg.scarlet:id/account")
@@ -38,34 +39,40 @@ public class HomePage {
         PageFactory.initElements(MobileDriverManager.getDriver(), this);
     }
 
-    public HomePage clickOnAllowLocationAccess() {
+
+    public HomePage clickOnAllowLocationAccess(String testname) {
         MobileExplicitWaitFactories.click(locationAccessButton, WaitStrategy.CLICKABLE, "user clicked on location access");
+        TestLogger.logTestStep(testname, "Click On Allow Location Access", "User clicked on location access");
         return this;
     }
 
-    public SignInPage clickOnAccountButton() {
+    public SignInPage clickOnAccountButton(String testname) {
         MobileExplicitWaitFactories.click(accountButton, WaitStrategy.CLICKABLE, "user clicked on account button");
+        TestLogger.logTestStep(testname, "Click On Account Button", "User clicked on account button");
         return new SignInPage();
     }
 
-    public LeftHandNavigationPage clickOnHamburgerIcon() {
+    public LeftHandNavigationPage clickOnHamburgerIcon(String testname) {
         MobileExplicitWaitFactories.click(hamburgerIcon, WaitStrategy.CLICKABLE, "user clicked on hamburgerIcon");
+        TestLogger.logTestStep(testname, "Click On Hamburger Icon", "User clicked on hamburger icon");
         return new LeftHandNavigationPage();
     }
 
-    public FruitCategoryPage clickOnFruit(){
+    public FruitCategoryPage clickOnFruit(String testname){
         MobileExplicitWaitFactories.click(fruitCategory,WaitStrategy.CLICKABLE,"user clicked on fruit and vegetable category");
+        TestLogger.logTestStep(testname, "ClickOnFruit", "User clicked on fruit and vegetable category");
         return new FruitCategoryPage();
     }
 
-    public MyCartPage clickOnCartIcon(){
+    public MyCartPage clickOnCartIcon(String testname){
         MobileExplicitWaitFactories.click(cartIcon,WaitStrategy.CLICKABLE,"user clicked on cart icon");
+        TestLogger.logTestStep(testname, "ClickOnCartIcon", "User clicked on cart icon");
         return new MyCartPage();
     }
 
-
-    public ForgotPasswordPage performClickOnResetPasswordButton() {
+    public ForgotPasswordPage performClickOnResetPasswordButton(String testname) {
         MobileExplicitWaitFactories.click(resetPassword, WaitStrategy.CLICKABLE,"user clicked on reset password button");
+        TestLogger.logTestStep(testname, "perform Click On Reset Password Button", "user clicked on reset password button");
         return new ForgotPasswordPage();
     }
 }
