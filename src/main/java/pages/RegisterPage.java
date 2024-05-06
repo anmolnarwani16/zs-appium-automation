@@ -1,14 +1,26 @@
 package pages;
 
+import com.google.common.collect.ImmutableMap;
 import driver.MobileDriverManager;
 import enums.WaitStrategy;
 import factories.MobileExplicitWaitFactories;
+import io.appium.java_client.PerformsActions;
+import io.appium.java_client.PerformsTouchActions;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.offset.PointOption;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utiles.MobileActionClassUtils;
+import utiles.MobileScrollDownUtility;
+
+import java.time.Duration;
+import java.util.Collections;
 
 public class RegisterPage {
     @FindBy(id = "com.zopsmart.stg.scarlet:id/et_username")
@@ -103,15 +115,9 @@ public class RegisterPage {
     }
 
     public RegisterPage clickSubmitButton(WebDriver driver){
-        //MobileActionClassUtils.scrollDown(driver ,submitButton);
-        scrollDown(driver);
+        MobileScrollDownUtility.scrollDown(driver);
         MobileExplicitWaitFactories.click(submitButton,WaitStrategy.CLICKABLE,"user clicked on submit button");
         return new RegisterPage();
-    }
-    private static void scrollDown(WebDriver driver) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        // Scroll down by a certain pixel value. Adjust the value as needed.
-        js.executeScript("window.scrollBy(0, 500)");
     }
 
     public RegisterPage clickValidateButton(){
