@@ -42,8 +42,8 @@ public class SignInPage {
         return this;
     }
 
-    public String getHeading(){
-        String str = MobileExplicitWaitFactories.getText(signUpHeader, WaitStrategy.VISIBLE,"verfying Heading");
+    public String getHeading(String actualText){
+        String str = MobileExplicitWaitFactories.getText(signUpHeader,actualText, WaitStrategy.VISIBLE,"verfying Heading");
         return str;
     }
 

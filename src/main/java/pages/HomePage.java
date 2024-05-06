@@ -31,6 +31,8 @@ public class HomePage {
 
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_category_title' and @text='FRUITS & VEGETABLES']")
     private WebElement fruitCategory;
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_forgot_password']")
+    private WebElement resetPassword;
 
     public HomePage() {
         PageFactory.initElements(MobileDriverManager.getDriver(), this);
@@ -59,5 +61,11 @@ public class HomePage {
     public MyCartPage clickOnCartIcon(){
         MobileExplicitWaitFactories.click(cartIcon,WaitStrategy.CLICKABLE,"user clicked on cart icon");
         return new MyCartPage();
+    }
+
+
+    public ForgotPasswordPage performClickOnResetPasswordButton() {
+        MobileExplicitWaitFactories.click(resetPassword, WaitStrategy.CLICKABLE,"user clicked on reset password button");
+        return new ForgotPasswordPage();
     }
 }
