@@ -7,10 +7,12 @@
         <listener class-name="listeners.MobileMEthodInterceptor"></listener>
         <listener class-name="listeners.MobileAnnotationTransfer"></listener>
 
+
     </listeners>
     <test thread-count="5" name="Test">
         <classes>
-            <class name="test.RegisterTest"/>
+           <class name="test.SignInSignOutTest"/>
+            <class name="test.SearchProductTest"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

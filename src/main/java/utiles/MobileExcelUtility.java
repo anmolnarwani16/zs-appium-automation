@@ -33,7 +33,7 @@ public class MobileExcelUtility {
 
 			Map<String, String> map = null;
 			list=new ArrayList<>();
-			for (int i = 0; i < lastRowNum; i++) {
+			for (int i = 0; i <= lastRowNum; i++) {
 				map=new HashMap<>();
 				for (int j = 0; j <lastCellNum; j++) {
 					
