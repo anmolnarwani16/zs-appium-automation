@@ -14,7 +14,7 @@ public class RegisterTest extends MobileBaseTest {
 
     @Test(description = "performing new user registration")
     public void newUserRegisterTest(Map<String, String> data) {
-        new HomePage().clickOnAllowLocationAccess().clickOnAccountButton();
+        new HomePage().clickOnAllowLocationAccess("User Registration").clickOnAccountButton("User Registration");
         new SignInPage().performClickOnRegisterNow();
         new RegisterPage().enterFirstName(data.get("FirstName"))
                 .enterLastName(data.get("LastName"))
