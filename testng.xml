@@ -11,8 +11,12 @@
     </listeners>
     <test thread-count="5" name="Test">
         <classes>
-           <class name="test.SavedAddressTest"/>
+<!--            <class name="test.SignInSignOutTest"/>-->
+<!--            <class name="test.AddProductToCartTest"/>-->
 <!--            <class name="test.SearchProductTest"/>-->
+<!--            <class name="test.LanguagePreferenceTest"/>-->
+            <class name="test.RegisterTest"/>
+
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->
