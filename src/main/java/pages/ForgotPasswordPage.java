@@ -62,7 +62,7 @@ public class ForgotPasswordPage {
     }
     public void performClickOnSubmit(String testname){
         MobileExplicitWaitFactories.click(submitButton, WaitStrategy.CLICKABLE,"user clicked on submit button");
-        TestLogger.logTestStep(testname, "Perform Click On Submit", "user clicked on submit button");
+        TestLogger.logTestStep(testname, "Perform Click On Submit", "User clicked on submit button");
     }
     public String getPasswordResetText(String enterActualText,String testname)  {
         TestLogger.logTestStep(testname, "Get Password Reset Text", "password reset successfully");

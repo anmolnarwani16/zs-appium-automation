@@ -1,13 +1,10 @@
 package test;
 
 import baseTest.MobileBaseTest;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.ChangePasswordPage;
 import pages.ForgotPasswordPage;
 import pages.HomePage;
 import reports.TestLogger;
-import utiles.MobileLoginUtility;
 import frameConstatnt.testConstant.Constant;
 import java.util.Map;
 
