@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class SearchProductTest extends MobileBaseTest {
 
-    @Test(description = "login and searching for a category")
+    @Test(description = "login d searching for a category")
     public void searchCategory(Map<String,String> data){
         new HomePage().clickOnAllowLocationAccess(Constant.TEST_NAME_1).clickOnAccountButton(Constant.TEST_NAME_1);
         MobileLoginUtility.login(data.get("UserName"),data.get("Password"));
@@ -24,7 +24,6 @@ public class SearchProductTest extends MobileBaseTest {
         WebElement categoryTitle = new SearchPage().getSearchedCategory(Constant.TEST_NAME_1);
         MobileAssertionUtility.assertElementIsDisplayed(categoryTitle);
         // Save test steps to Excel file
-
         TestLogger.saveExcelFile();
     }
 
