@@ -23,6 +23,7 @@ public class SearchProductTest extends MobileBaseTest {
         new SearchPage().enterValueForSearchTab(Constant.TEST_NAME_1, Constant.CATEGORY_NAME);
         WebElement categoryTitle = new SearchPage().getSearchedCategory(Constant.TEST_NAME_1);
         MobileAssertionUtility.assertElementIsDisplayed(categoryTitle);
+
         // Save test steps to Excel file
         TestLogger.saveExcelFile();
     }
