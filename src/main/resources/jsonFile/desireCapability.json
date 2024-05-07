@@ -2,6 +2,7 @@
 	"PlatformName":"Android",
 	"AppActivity":"com.zopsmart.platformapplication.features.pages.ui.SplashPage",
 	"DeviceName":"emulator-5554",
+	"app": "/Users/rararmuri/Desktop/zs-appium-automation/src/main/resources/app-visionstg-debug.apk",
 	"url":"http://127.0.0.1:4723/"
 
 

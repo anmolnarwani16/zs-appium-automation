@@ -37,10 +37,9 @@ public class MobileExplicitWaitFactories {
         }
     }
 
-    public static String getText(WebElement element, WaitStrategy waitStrategy, String description) {
-        waitUntilCondition(element, waitStrategy);
+    public static String getText(WebElement element, String enterExpectedText,WaitStrategy waitStrategy, String description) {
+        waitUntilTextVisible(element, waitStrategy,enterExpectedText);
         String str = element.getText();
-
 
         try {
             MobileExtentLogger.pass(description, true);
@@ -105,5 +104,10 @@ public class MobileExplicitWaitFactories {
         }
 
 
+    private static void waitUntilTextVisible(WebElement element, WaitStrategy waitStrategy, String enterExpectedText) {
+        WebDriverWait wait = new WebDriverWait(MobileDriverManager.getDriver(), Duration.ofSeconds(40));
+        wait.until(ExpectedConditions.textToBePresentInElement(element, enterExpectedText));
 
+
+    }
 }
