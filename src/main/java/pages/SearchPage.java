@@ -6,7 +6,7 @@ import factories.MobileExplicitWaitFactories;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import reports.TestLogger;
+import reports.MobileTestLog;
 
 public class SearchPage {
     @FindBy(xpath = "//android.widget.EditText[@resource-id='com.zopsmart.stg.scarlet:id/et_search']")
@@ -23,22 +23,22 @@ public class SearchPage {
     }
     public void enterValueForSearchTab(String testname,String text){
         MobileExplicitWaitFactories.click(searchTab,WaitStrategy.VISIBLE,"user clicked the searchTab");
-        TestLogger.logTestStep(testname, "Search Tab Clicked", "User clicked the searchTab");
+        MobileTestLog.logTestStep(testname, "Search Tab Clicked", "User clicked the searchTab");
         MobileExplicitWaitFactories.sendKeys(searchTab, text,WaitStrategy.VISIBLE,"user entered the text:- "+text);
-        TestLogger.logTestStep(testname, "Entered Value", "User entered the text:- "+text);
+        MobileTestLog.logTestStep(testname, "Entered Value", "User entered the text:- "+text);
         MobileExplicitWaitFactories.pressEnter("Pressed Enter button after entering search value");
-        TestLogger.logTestStep(testname, "View the Search", "Pressed Enter button after entering search value");
+        MobileTestLog.logTestStep(testname, "View the Search", "Pressed Enter button after entering search value");
     }
     public void itemInfo()
     {
         MobileExplicitWaitFactories.click(item,WaitStrategy.CLICKABLE,"user clicked on the item");
     }
     public WebElement getSearchedCategory(String testname){
-        TestLogger.logTestStep(testname, "Validate Category", "Valid Category is displayed");
+        MobileTestLog.logTestStep(testname, "Validate Category", "Valid Category is displayed");
         return categoryTitle;
     }
     public WebElement getSearchedItem(String testname){
-        TestLogger.logTestStep(testname, "Validate Item", "Valid Item is displayed");
+        MobileTestLog.logTestStep(testname, "Validate Item", "Valid Item is displayed");
         return itemTitle;
     }
 

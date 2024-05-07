@@ -6,6 +6,7 @@ import factories.MobileExplicitWaitFactories;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import reports.MobileTestLog;
 
 public class SignInPage {
     @FindBy(id = "com.zopsmart.stg.scarlet:id/tv_login_instr")
@@ -27,28 +28,33 @@ public class SignInPage {
         PageFactory.initElements(MobileDriverManager.getDriver(),this);
     }
 
-    public HomePage performClickOnLoginButton(){
-        MobileExplicitWaitFactories.click(loginButton, WaitStrategy.CLICKABLE,"user clicked on login button");
+    public HomePage performClickOnLoginButton(String testname){
+        MobileExplicitWaitFactories.click(loginButton, WaitStrategy.CLICKABLE,"User clicked on login button");
+        MobileTestLog.logTestStep(testname,"Login Button Clicked","User clicked on login button");
         return new HomePage();
     }
 
-    public SignInPage enterUserName(String userName){
-        MobileExplicitWaitFactories.sendKeys(userNameField,userName,WaitStrategy.VISIBLE,"user entered userName");
+    public SignInPage enterUserName(String userName,String testname){
+        MobileExplicitWaitFactories.sendKeys(userNameField,userName,WaitStrategy.VISIBLE,"User entered userName");
+        MobileTestLog.logTestStep(testname,"Username Entered","User entered UserName");
         return this;
     }
 
-    public SignInPage enterPassword(String password){
-        MobileExplicitWaitFactories.sendKeys(passwordField,password,WaitStrategy.VISIBLE,"user entered password");
+    public SignInPage enterPassword(String password,String testname){
+        MobileExplicitWaitFactories.sendKeys(passwordField,password,WaitStrategy.VISIBLE,"User entered password");
+        MobileTestLog.logTestStep(testname,"Password Entered","User entered Password");
         return this;
     }
 
-    public String getHeading(){
-        String str = MobileExplicitWaitFactories.getText(signUpHeader, WaitStrategy.VISIBLE,"verfying Heading");
+    public String getHeading(String testname){
+        String str = MobileExplicitWaitFactories.getText(signUpHeader, WaitStrategy.VISIBLE,"Verfying Heading");
+        MobileTestLog.logTestStep(testname,"Verfying Heading","Verfying the Heading");
         return str;
     }
 
-    public RegisterPage performClickOnRegisterNow(){
-        MobileExplicitWaitFactories.click(registerNow, WaitStrategy.CLICKABLE,"user clicked on register button");
+    public RegisterPage performClickOnRegisterNow(String testname){
+        MobileExplicitWaitFactories.click(registerNow, WaitStrategy.CLICKABLE,"User clicked on register button");
+        MobileTestLog.logTestStep(testname,"Register Button Clicked","User clicked on register button");
         return new RegisterPage();
     }
 }

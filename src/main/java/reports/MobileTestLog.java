@@ -1,4 +1,3 @@
-
 package reports;
 
 import org.apache.poi.ss.usermodel.*;
@@ -6,10 +5,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.*;
 
-public class MobileTestLogger {
+public class MobileTestLog {
 
 
-    private static final String FILE_PATH = "/Users/raramuri/Desktop/zs-appium-automation/src/main/java/reports/test_execution_log.xlsx";
+    private static final String FILE_PATH = "/Users/raramuri/zs-appium-automation/src/main/java/reports/test_execution_log.xlsx";
     private static Workbook workbook;
     private static Sheet sheet;
     private static int rowNum = 0;
