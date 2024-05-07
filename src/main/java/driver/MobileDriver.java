@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.Objects;
 
 
+import com.google.common.collect.ImmutableMap;
 import frameConstatnt.MobileFrameConstant;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -34,6 +35,7 @@ public class MobileDriver {
             option.setApp(MobileFrameConstant.getAndroidApplication());
 
             MobileDriverManager.setDriver(new AndroidDriver(new URL(data.get("url").toString()), option));
+
 
         }
     }

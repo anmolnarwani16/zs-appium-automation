@@ -4,6 +4,9 @@ import java.time.Duration;
 
 import driver.MobileDriverManager;
 import enums.WaitStrategy;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -90,6 +93,16 @@ public class MobileExplicitWaitFactories {
             // Add more cases for other wait strategies if needed
         }
     }
+        public static void pressEnter(String description) {
+            MobileDriverManager.getDriver().pressKey(new KeyEvent().withKey(AndroidKey.ENTER));
+            try {
+                MobileExtentLogger.pass(description, true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+
 
     private static void waitUntilTextVisible(WebElement element, WaitStrategy waitStrategy, String enterExpectedText) {
         WebDriverWait wait = new WebDriverWait(MobileDriverManager.getDriver(), Duration.ofSeconds(40));

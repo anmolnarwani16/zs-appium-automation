@@ -8,7 +8,7 @@ import java.io.*;
 public class TestLogger {
 
 
-    private static final String FILE_PATH = "/Users/rararmuri/Desktop/zs-appium-automation/src/main/java/reports/test_execution_log.xlsx";
+    private static final String FILE_PATH = "/Users/raramuri/Desktop/zs-appium-automation/src/main/java/reports/test_execution_log.xlsx";
     private static Workbook workbook;
     private static Sheet sheet;
     private static int rowNum = 0;

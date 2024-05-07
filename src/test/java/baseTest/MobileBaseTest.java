@@ -9,19 +9,16 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 
-
 public class MobileBaseTest {
-	@BeforeMethod
-	public void setUp() throws IOException, ParseException {
-		
-		
-		MobileDriver.initDriver();
-		
-	}
-	@AfterMethod
-	public void tearDown() {
-		MobileDriver.quitDriver();
-		
-	}
+    @BeforeMethod
+    public void setUp() throws IOException, ParseException {
+        MobileDriver.initDriver();
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        MobileDriver.quitDriver();
+
+    }
 
 }
