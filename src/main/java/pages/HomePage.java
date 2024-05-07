@@ -11,6 +11,7 @@ import reports.MobileTestLog;
 public class HomePage {
     @FindBy(id = "com.zopsmart.stg.scarlet:id/account")
     private WebElement accountButton;
+
     @FindBy(id = "com.android.permissioncontroller:id/permission_allow_one_time_button")
     private WebElement locationAccessButton;
 
@@ -33,6 +34,8 @@ public class HomePage {
     private WebElement fruitCategory;
     @FindBy(xpath = "//android.widget.ImageView[@resource-id='com.zopsmart.stg.scarlet:id/search_icon']")
     private WebElement searchIcon;
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_forgot_password']")
+    private WebElement resetPassword;
 
     public HomePage() {
         PageFactory.initElements(MobileDriverManager.getDriver(), this);
@@ -73,4 +76,9 @@ public class HomePage {
         return new SearchPage();
     }
 
+    public ForgotPasswordPage performClickOnResetPasswordButton(String testname) {
+        MobileExplicitWaitFactories.click(resetPassword, WaitStrategy.CLICKABLE,"user clicked on reset password button");
+        MobileTestLog.logTestStep(testname, "perform Click On Reset Password Button", "user clicked on reset password button");
+        return new ForgotPasswordPage();
+    }
 }

@@ -16,8 +16,8 @@ public class LeftHandNavigationPage {
         PageFactory.initElements(MobileDriverManager.getDriver(),this);
     }
 
-    public String getUserName(String testname){
-        String str = MobileExplicitWaitFactories.getText(signedInUser, WaitStrategy.VISIBLE,"verfying userName");
+    public String getUserName(String testname,String enterActualText){
+        String str = MobileExplicitWaitFactories.getText(signedInUser,enterActualText, WaitStrategy.VISIBLE,"verfying userName");
         MobileTestLog.logTestStep(testname,"Verifying the User","Verifying the User");
         return str;
     }

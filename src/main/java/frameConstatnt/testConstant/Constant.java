@@ -1,6 +1,18 @@
 package frameConstatnt.testConstant;
 
 public class Constant {
+    /*
+    All constants for change password test
+    * */
+    public static final String CHANGE_PASSWORD="password change test";
+
+    public static final String CLICK_ON_CHANGE_PASSWORD ="perform click on change password";
+    public static final String ENTERED_CURRENT_PASSWORD ="enter current password";
+    public static final String ENTERED_NEW_PASSWORD ="enter new password";
+    public static final String RE_ENTERED_NEW_PASSWORD ="re enter current password";
+
+
+    public static final String FORGOT_PASSWORD="forgot password Test";
 
     // Search Product Test Constants
     public static final String CATEGORY_NAME = "FRUITS AND VEGETABLES";
@@ -14,6 +26,9 @@ public class Constant {
 
    // Sign In and Sign Out Test constant
     public static final String SIGNINSIGNOUT_TEST = "Sign In Sign Out";
+    public static final String SIGNIN_HEADING="Signup / Login";
+    public static final String SIGNIN_USERNAME="Andreas Andreou";
+
 
    // Language Preference Test constants
     public static final String LANGUAGE_TEST = "Language Preference";
@@ -21,6 +36,8 @@ public class Constant {
 
     // Register User Test Constant
     public static final String REGISTER_USER = "User Registration";
+    public static final String REGISTER_USERNAME = "Sam Lamar";
+
 
 
 }
