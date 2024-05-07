@@ -16,7 +16,7 @@ public class ChangePasswordTest extends MobileBaseTest {
         HomePage homePage = new HomePage();
         ChangePasswordPage changePasswordPage = new ChangePasswordPage();
         homePage.clickOnAllowLocationAccess(Constant.CHANGE_PASSWORD).clickOnAccountButton(Constant.CHANGE_PASSWORD);
-        MobileLoginUtility.login(data.get("UserName"), data.get("Password"));
+        MobileLoginUtility.login(data.get("UserName"), data.get("Password"),Constant.CHANGE_PASSWORD);
         homePage.clickOnAccountButton(Constant.CHANGE_PASSWORD);
         changePasswordPage.performClickOnChangePasswordButton(Constant.CHANGE_PASSWORD);
         changePasswordPage.enterCurrentPassword(data.get("Password"),Constant.CHANGE_PASSWORD);

@@ -20,4 +20,13 @@ public class Constant {
     public static final String TEST_NAME_1 = "Category Search";
     public static final String TEST_NAME_2 = "Item Search";
 
+    public static final String REGISTER_USER = "User Registration";
+
+//    SAVED ADDRESS TEST CONSTANTS
+    public static final String SAVED_ADDRESS="Saved Address";
+
+    public static final String SEARCH_ADDRESS="Kumaraswamy Layout, Bengaluru, Karnataka, India";
+    public static final String HOUSE_NO="1";
+
+
 }

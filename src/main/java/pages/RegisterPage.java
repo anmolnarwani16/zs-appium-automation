@@ -16,6 +16,7 @@ import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import reports.TestLogger;
 import utiles.MobileActionClassUtils;
 import utiles.MobileScrollDownUtility;
 
@@ -69,69 +70,82 @@ public class RegisterPage {
         PageFactory.initElements(MobileDriverManager.getDriver(),this);
     }
 
-    public RegisterPage enterFirstName(String firstName){
+    public RegisterPage enterFirstName(String firstName,String testname){
         MobileExplicitWaitFactories.sendKeys(firstNameField,firstName,WaitStrategy.VISIBLE,"user entered first name");
+        TestLogger.logTestStep(testname, "Enter the first name", "User entered first name");
         return new RegisterPage();
     }
 
-    public RegisterPage enterLastName(String lastName){
+    public RegisterPage enterLastName(String lastName,String testname){
         MobileExplicitWaitFactories.sendKeys(lastNameField,lastName,WaitStrategy.VISIBLE,"user entered last name");
+        TestLogger.logTestStep(testname, "Enter the last name", "User entered last name");
         return new RegisterPage();
     }
 
-    public RegisterPage enterDay(String day){
+    public RegisterPage enterDay(String day,String testname){
         MobileExplicitWaitFactories.sendKeys(dateTextField,day,WaitStrategy.VISIBLE,"user entered day");
+        TestLogger.logTestStep(testname, "Enter day", "User entered day");
         return new RegisterPage();
     }
 
-    public RegisterPage enterMonth(String month){
+    public RegisterPage enterMonth(String month,String testname){
         MobileExplicitWaitFactories.sendKeys(monthTextField,month,WaitStrategy.VISIBLE,"user entered month");
+        TestLogger.logTestStep(testname, "Enter month", "User entered month");
         return new RegisterPage();
     }
 
-    public RegisterPage enterYear(String year){
+    public RegisterPage enterYear(String year,String testname){
         MobileExplicitWaitFactories.sendKeys(yearTextField,year,WaitStrategy.VISIBLE,"user entered year");
+        TestLogger.logTestStep(testname, "Enter year", "User entered year");
         return new RegisterPage();
     }
 
-    public RegisterPage clickMaleRadioButton(){
+    public RegisterPage clickMaleRadioButton(String testname){
         MobileExplicitWaitFactories.click(maleRadioButton,WaitStrategy.CLICKABLE,"user clicked on male radio button");
+        TestLogger.logTestStep(testname, "Select gender", "User entered gender");
         return new RegisterPage();
     }
 
-    public RegisterPage enterEmail(String email){
+    public RegisterPage enterEmail(String email,String testname){
         MobileExplicitWaitFactories.sendKeys(emailTextField,email,WaitStrategy.VISIBLE,"user entered email");
+        TestLogger.logTestStep(testname, "Enter the email", "User entered the email");
         return new RegisterPage();
     }
 
-    public RegisterPage enterPhoneNo(String phoneNo){
+    public RegisterPage enterPhoneNo(String phoneNo,String testname){
         MobileExplicitWaitFactories.sendKeys(phoneNoTextField,phoneNo,WaitStrategy.VISIBLE,"user entered phoneNo");
+        TestLogger.logTestStep(testname, "Enter the phone number", "User entered the phone number");
         return new RegisterPage();
     }
 
-    public RegisterPage enterPassword(String password){
+    public RegisterPage enterPassword(String password,String testname){
         MobileExplicitWaitFactories.sendKeys(passwordTextField,password,WaitStrategy.VISIBLE,"user entered password");
+        TestLogger.logTestStep(testname, "Enter the password", "User entered password");
         return new RegisterPage();
     }
 
-    public RegisterPage clickSubmitButton(WebDriver driver){
+    public RegisterPage clickSubmitButton(WebDriver driver,String testname){
         MobileScrollDownUtility.scrollDown(driver);
         MobileExplicitWaitFactories.click(submitButton,WaitStrategy.CLICKABLE,"user clicked on submit button");
+        TestLogger.logTestStep(testname, "Click on Submit Button", "User clicked on submit button");
         return new RegisterPage();
     }
 
-    public RegisterPage clickValidateButton(){
+    public RegisterPage clickValidateButton(String testname){
         MobileExplicitWaitFactories.click(validateButton,WaitStrategy.CLICKABLE,"user clicked on validate button");
+        TestLogger.logTestStep(testname, "Clicked on validate button", "User clicked on validate button");
         return new RegisterPage();
     }
 
-    public RegisterPage clickAlertButton(){
+    public RegisterPage clickAlertButton(String testname){
         MobileExplicitWaitFactories.click(alertButton,WaitStrategy.CLICKABLE,"user clicked on OK button");
+        TestLogger.logTestStep(testname, "Clicked on OK button", "User clicked on OK button");
         return new RegisterPage();
     }
 
-    public RegisterPage enterOtp(String otp){
+    public RegisterPage enterOtp(String otp,String testname){
         MobileExplicitWaitFactories.sendKeys(otpField,otp,WaitStrategy.VISIBLE,"user entered otp");
+        TestLogger.logTestStep(testname, "Enter otp", "User entered otp");
         return new RegisterPage();
     }
 }
