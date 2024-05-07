@@ -4,7 +4,7 @@ import baseTest.MobileBaseTest;
 import org.testng.annotations.Test;
 import pages.ForgotPasswordPage;
 import pages.HomePage;
-import reports.TestLogger;
+import reports.MobileTestLog;
 import frameConstatnt.testConstant.Constant;
 import java.util.Map;
 
@@ -22,7 +22,7 @@ public class ForgotPasswordTest extends MobileBaseTest {
         forgotPasswordPage.performClickOnSubmit(Constant.FORGOT_PASSWORD);
         forgotPasswordPage.getPasswordResetText("Password successfully reset.",Constant.FORGOT_PASSWORD);
         forgotPasswordPage.performClickOnOkButton(Constant.FORGOT_PASSWORD);
-        TestLogger.saveExcelFile();
+        MobileTestLog.saveExcelFile();
 
     }
 

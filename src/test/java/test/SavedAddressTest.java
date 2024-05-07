@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import pages.ChangePasswordPage;
 import pages.HomePage;
 import pages.SavedAddressPage;
-import reports.TestLogger;
+import reports.MobileTestLog;
 import utiles.MobileLoginUtility;
 
 import java.util.Map;
@@ -19,14 +19,14 @@ public class SavedAddressTest extends MobileBaseTest {
         SavedAddressPage savedAddressPage = new SavedAddressPage();
         homePage.clickOnAllowLocationAccess(Constant.SAVED_ADDRESS);
         homePage.clickOnAccountButton(Constant.SAVED_ADDRESS);
-        MobileLoginUtility.login(data.get("UserName"), data.get("Password"));
+        MobileLoginUtility.login(data.get("UserName"), data.get("Password"),Constant.SAVED_ADDRESS);
         homePage.clickOnAccountButton(Constant.SAVED_ADDRESS);
         savedAddressPage.performClickOnSavedAddress(Constant.SAVED_ADDRESS);
         savedAddressPage.performClickOnAddNewAddress(Constant.SAVED_ADDRESS);
         savedAddressPage.addNewAddress(Constant.SEARCH_ADDRESS, Constant.HOUSE_NO, Constant.SAVED_ADDRESS);
         savedAddressPage.getAddressAddedText("Address added!", Constant.SAVED_ADDRESS);
         savedAddressPage.performClickOnOkButton(Constant.SAVED_ADDRESS);
-        TestLogger.saveExcelFile();
+        MobileTestLog.saveExcelFile();
 
 
     }

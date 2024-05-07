@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.ChangePasswordPage;
 import pages.HomePage;
-import reports.TestLogger;
+import reports.MobileTestLog;
 import utiles.MobileLoginUtility;
 import java.util.Map;
 import frameConstatnt.testConstant.Constant;
@@ -12,7 +12,7 @@ import frameConstatnt.testConstant.Constant;
 public class ChangePasswordTest extends MobileBaseTest {
 
     @Test(description = "performing change password test")
-    public void changePasswordTest(Map<String,String> data) throws InterruptedException {
+    public void changePasswordTest(Map<String,String> data){
         HomePage homePage = new HomePage();
         ChangePasswordPage changePasswordPage = new ChangePasswordPage();
         homePage.clickOnAllowLocationAccess(Constant.CHANGE_PASSWORD).clickOnAccountButton(Constant.CHANGE_PASSWORD);
@@ -26,7 +26,7 @@ public class ChangePasswordTest extends MobileBaseTest {
         String passwordChangeText = changePasswordPage.getPasswordChangeText("Password successfully changed.",Constant.CHANGE_PASSWORD);
         Assert.assertEquals(passwordChangeText, "Password successfully changed.");
         changePasswordPage.performClickOnOkButton(Constant.CHANGE_PASSWORD);
-        TestLogger.saveExcelFile();
+        MobileTestLog.saveExcelFile();
     }
 
 }
