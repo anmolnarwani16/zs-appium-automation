@@ -6,7 +6,7 @@ import factories.MobileExplicitWaitFactories;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import reports.TestLogger;
+import reports.MobileTestLog;
 
 public class ChangePasswordPage {
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/itemTextView' and @text='Change Password']")
@@ -35,38 +35,38 @@ public class ChangePasswordPage {
     }
     public ChangePasswordPage performClickOnChangePasswordButton(String testname) {
         MobileExplicitWaitFactories.click( changePassword, WaitStrategy.CLICKABLE,"user clicked on change password button");
-        TestLogger.logTestStep(testname, "Perform Click On Change Password Button", "User clicked on change password");
+        MobileTestLog.logTestStep(testname, "Perform Click On Change Password Button", "User clicked on change password");
         return new ChangePasswordPage();
     }
     public ChangePasswordPage enterCurrentPassword(String currPassword,String testname){
         MobileExplicitWaitFactories.sendKeys(enterCurrentPassword,currPassword,WaitStrategy.VISIBLE,"currentPassword");
-        TestLogger.logTestStep(testname, "Enter Current Password", "User enter current password");
+        MobileTestLog.logTestStep(testname, "Enter Current Password", "User enter current password");
         return this;
     }
     public ChangePasswordPage enterNewPassword(String newPassword,String testname){
         MobileExplicitWaitFactories.sendKeys(enterNewPassword,newPassword,WaitStrategy.VISIBLE,"newPassword");
-        TestLogger.logTestStep(testname, "Enter New Password", "User enter new password");
+        MobileTestLog.logTestStep(testname, "Enter New Password", "User enter new password");
         return this;
     }
     public ChangePasswordPage ReEnterNewPassword(String reEnterNewPassword,String testname){
         MobileExplicitWaitFactories.sendKeys(ReEnterNewPassword,reEnterNewPassword,WaitStrategy.VISIBLE,"ReEntered newPassword");
-        TestLogger.logTestStep(testname, "Enter New Password", "User  re enter new password");
+        MobileTestLog.logTestStep(testname, "Enter New Password", "User  re enter new password");
         return this;
     }
 
     public void performClickOnSavePassword(String testname){
         MobileExplicitWaitFactories.click(SavePassword, WaitStrategy.CLICKABLE,"user clicked on save password");
-        TestLogger.logTestStep(testname, "Perform Click On Save Password", "User clicked on save password");
+        MobileTestLog.logTestStep(testname, "Perform Click On Save Password", "User clicked on save password");
     }
     public String getPasswordChangeText(String text,String testname) {
 
-        TestLogger.logTestStep(testname, "Get Password Change Text", "Change Password Successfully");
+        MobileTestLog.logTestStep(testname, "Get Password Change Text", "Change Password Successfully");
         return MobileExplicitWaitFactories.getText(ChangePasswordSuccessfully,text, WaitStrategy.ELEMENT_TO_HAVE_TEXT,"ChangePasswordSuccessfully");
 
 
     }
     public void performClickOnOkButton(String testname){
-        TestLogger.logTestStep(testname, "Perform Click On Ok Button", "User clicked on OK button");
+        MobileTestLog.logTestStep(testname, "Perform Click On Ok Button", "User clicked on OK button");
         MobileExplicitWaitFactories.click(ok, WaitStrategy.CLICKABLE,"User clicked on ok button");
     }
 

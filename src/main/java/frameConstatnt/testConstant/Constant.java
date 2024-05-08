@@ -1,18 +1,13 @@
 package frameConstatnt.testConstant;
 
 public class Constant {
-    /*
-    All constants for change password test
-    * */
-    public static final String CHANGE_PASSWORD="password change test";
 
-    public static final String CLICK_ON_CHANGE_PASSWORD ="perform click on change password";
-    public static final String ENTERED_CURRENT_PASSWORD ="enter current password";
-    public static final String ENTERED_NEW_PASSWORD ="enter new password";
-    public static final String RE_ENTERED_NEW_PASSWORD ="re enter current password";
+    //    All constant for change password test
+    public static final String CHANGE_PASSWORD = "password change test";
 
+   //   Forgot Password Test constant
+    public static final String FORGOT_PASSWORD = "forgot password Test";
 
-    public static final String FORGOT_PASSWORD="forgot password Test";
 
     // Search Product Test Constants
     public static final String CATEGORY_NAME = "FRUITS AND VEGETABLES";
@@ -24,13 +19,14 @@ public class Constant {
     // Add Product To Cart Test Constants
     public static final String ADD_PRODUCT_TEST_NAME = "Add Product To Cart";
 
-   // Sign In and Sign Out Test constant
+
+    // Sign In and Sign Out Test constant
     public static final String SIGNINSIGNOUT_TEST = "Sign In Sign Out";
-    public static final String SIGNIN_HEADING="Signup / Login";
-    public static final String SIGNIN_USERNAME="Andreas Andreou";
+    public static final String SIGNIN_HEADING = "Signup / Login";
+    public static final String SIGNIN_USERNAME = "Andreas Andreou";
 
 
-   // Language Preference Test constants
+    // Language Preference Test constants
     public static final String LANGUAGE_TEST = "Language Preference";
     public static final String ARABIC_TEXT = "تسوق حسب القسم";
 
@@ -39,14 +35,10 @@ public class Constant {
     public static final String REGISTER_USERNAME = "Sam Lamar";
 
 
-
-    public static final String REGISTER_USER = "User Registration";
-
-//    SAVED ADDRESS TEST CONSTANTS
-    public static final String SAVED_ADDRESS="Saved Address";
-
-    public static final String SEARCH_ADDRESS="Kumaraswamy Layout, Bengaluru, Karnataka, India";
-    public static final String HOUSE_NO="1";
+    //    SAVED ADDRESS TEST CONSTANTS
+    public static final String SAVED_ADDRESS = "Saved Address";
+    public static final String SEARCH_ADDRESS = "Kumaraswamy Layout, Bengaluru, Karnataka, India";
+    public static final String HOUSE_NO = "1";
 
 
 }
