@@ -7,6 +7,7 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import reports.MobileExtendReport;
 import reports.MobileExtentLogger;
+import reports.MobileTestFailure;
 
 
 public class MobileListenersClass implements ITestListener, ISuiteListener {
@@ -47,16 +48,24 @@ public class MobileListenersClass implements ITestListener, ISuiteListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
+
         MobileExtentLogger.fail(result.getMethod().getMethodName() + " is failed");
         MobileExtentLogger.fail(result.getThrowable().toString());
 
-        System.out.println("Test failed: " + result.getMethod().getMethodName());
+//        System.out.println("Test failed: " + result.getMethod().getMethodName());
+        String methodName = result.getMethod().getMethodName();
+        String failureReason = result.getThrowable().toString();
+
+        // Log failure to console
+        System.out.println("Test failed: " + methodName);
+        System.out.println("Failure reason: " + failureReason);
         // Print each line of the stack trace on a new line
         StackTraceElement[] stackTrace = result.getThrowable().getStackTrace();
-        for (StackTraceElement element : stackTrace) {
-            MobileExtentLogger.fail(element.toString());
-            System.out.println("    " + element.toString());
-        }
+        MobileTestFailure.logTestStep(methodName,failureReason);
+//        for (StackTraceElement element : stackTrace) {
+//            MobileExtentLogger.fail(element.toString());
+//            System.out.println("    " + element.toString());
+//        }
     }
 
     @Override

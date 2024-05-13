@@ -11,6 +11,9 @@ import reports.MobileTestLog;
 public class LeftHandNavigationPage {
     @FindBy(id = "com.zopsmart.stg.scarlet:id/tv_sign_in")
     private WebElement signedInUser;
+    @FindBy(xpath = "//android.widget.ImageButton[@content-desc='Close navigation drawer']")
+    private WebElement SignInLogo;
+
 
     public LeftHandNavigationPage(){
         PageFactory.initElements(MobileDriverManager.getDriver(),this);
@@ -26,5 +29,10 @@ public class LeftHandNavigationPage {
         MobileExplicitWaitFactories.click(signedInUser,WaitStrategy.CLICKABLE,"user clicked on userName");
         MobileTestLog.logTestStep(testname,"Verifying the User","Verifying the User");
         return new MyAccountPage();
+    }
+    public WebElement getSignedInUser(String testname)
+    {
+        MobileTestLog.logTestStep(testname,"Verifying SignIn Logo","Verifying the Signed In Logo");
+        return SignInLogo;
     }
 }

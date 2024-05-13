@@ -41,10 +41,11 @@ public class MobileExtentLogger {
 
 	public static void fail(String message, boolean isScreenshotNeeded) throws Exception {
 		if (MobilePropertyUtils.get(ConfigProperties.FAILEDSTEPSCREENSHOT).equalsIgnoreCase("yes") && isScreenshotNeeded) {
-			MobileExtentManager.getExtentTest().fail(message,
-					MediaEntityBuilder.createScreenCaptureFromBase64String(MobileScreenShotUtils.getBase64Image()).build());
+			MobileExtentManager.getExtentTest().fail(message, MediaEntityBuilder.createScreenCaptureFromBase64String(MobileScreenShotUtils.getBase64Image()).build());
 
 		} else {
+			MobileExtentManager.getExtentTest().fail(message, MediaEntityBuilder.createScreenCaptureFromBase64String(MobileScreenShotUtils.getBase64Image()).build());
+
 			fail(message);
 
 		}

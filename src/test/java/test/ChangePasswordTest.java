@@ -23,8 +23,8 @@ public class ChangePasswordTest extends MobileBaseTest {
         changePasswordPage.enterNewPassword(data.get("NewPassword"),Constant.CHANGE_PASSWORD);
         changePasswordPage.ReEnterNewPassword(data.get("ReEnterCnfPassword"),Constant.CHANGE_PASSWORD);
         changePasswordPage.performClickOnSavePassword(Constant.CHANGE_PASSWORD);
-        String passwordChangeText = changePasswordPage.getPasswordChangeText("Password successfully changed.",Constant.CHANGE_PASSWORD);
-        Assert.assertEquals(passwordChangeText, "Password successfully changed.");
+        String passwordChangeText = changePasswordPage.getPasswordChangeText("Password successfully changed",Constant.CHANGE_PASSWORD);
+        Assert.assertEquals(passwordChangeText, "Password successfully changed");
         changePasswordPage.performClickOnOkButton(Constant.CHANGE_PASSWORD);
         MobileTestLog.saveExcelFile();
     }

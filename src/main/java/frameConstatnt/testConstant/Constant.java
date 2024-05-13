@@ -18,6 +18,16 @@ public class Constant {
 
     // Add Product To Cart Test Constants
     public static final String ADD_PRODUCT_TEST_NAME = "Add Product To Cart";
+    public static final String ADDORSUBTRACT_PRODUCT_TEST_NAME = "Subtract Or Add Product From Cart";
+
+    // Home Page Element Visibility Test Constants
+
+    public static final String HOMEPAGE_ELEMENT_TEST = "Home Page Element Visibility";
+    public static final String MYCART_TEXT= "My cart";
+
+    public static final String WeeklyOffers_TEXT= "Weekly Offers";
+    public static final String ExclusiveDeals_TEXT= "Exclusive Deals";
+    public static final String SubCategory_Text= "IMPORTED ✈";
 
 
     // Sign In and Sign Out Test constant

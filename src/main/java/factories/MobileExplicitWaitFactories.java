@@ -38,8 +38,14 @@ public class MobileExplicitWaitFactories {
     }
 
     public static String getText(WebElement element, String enterExpectedText,WaitStrategy waitStrategy, String description) {
-        waitUntilTextVisible(element, waitStrategy,enterExpectedText);
-        String str = element.getText();
+        String str=null;
+        if(enterExpectedText!=null) {
+            waitUntilTextVisible(element, waitStrategy, enterExpectedText);
+            str = element.getText();
+        }
+        else{
+            str = element.getText();
+        }
 
         try {
             MobileExtentLogger.pass(description, true);

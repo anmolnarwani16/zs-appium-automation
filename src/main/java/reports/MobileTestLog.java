@@ -8,7 +8,7 @@ import java.io.*;
 public class MobileTestLog {
 
 
-    private static final String FILE_PATH = "/Users/raramuri/zs-appium-automation/src/main/java/reports/test_execution_log.xlsx";
+    private static final String FILE_PATH = "/Users/raramuri/zs-appium-automation/src/main/java/reports/TestExecutionLog.xlsx";
     private static Workbook workbook;
     private static Sheet sheet;
     private static int rowNum = 0;

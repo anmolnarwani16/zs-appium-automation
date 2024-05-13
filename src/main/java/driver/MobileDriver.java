@@ -33,6 +33,7 @@ public class MobileDriver {
             // device name have to mention
             option.setDeviceName(data.get("DeviceName").toString());
             option.setApp(MobileFrameConstant.getAndroidApplication());
+//            option.setMjpegServerPort()
 
             MobileDriverManager.setDriver(new AndroidDriver(new URL(data.get("url").toString()), option));
 

@@ -13,6 +13,8 @@ public class MyAccountPage {
     private WebElement logoutButton;
     @FindBy(xpath = "(//android.widget.ImageView[@resource-id='com.zopsmart.stg.scarlet:id/itemImage'])[8]")
     private WebElement languageButton;
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/itemTextView' and @text='Change Password']")
+    private WebElement changePassword;
 
     public MyAccountPage(){
         PageFactory.initElements(MobileDriverManager.getDriver(),this);
@@ -27,5 +29,10 @@ public class MyAccountPage {
         MobileExplicitWaitFactories.click(languageButton, WaitStrategy.CLICKABLE,"User clicked on LogoutButton");
         MobileTestLog.logTestStep(testname,"Click on Language Tab ","User clicked on Language Tab");
         return new HomePage();
+    }
+    public WebElement getChangePasswordElement(String testname)
+    {
+        MobileTestLog.logTestStep(testname,"Change Password Visibility","Verifying the change password");
+        return changePassword;
     }
 }
