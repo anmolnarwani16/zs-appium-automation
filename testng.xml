@@ -9,7 +9,7 @@
 
 
     </listeners>
-    <test thread-count="5" name="Test" parallel="true">
+    <test thread-count="5" name="Test" parallel="false">
         <classes>
             <class name="test.SignInSignOutTest"/>
             <class name="test.AddProductToCartTest"/>
@@ -19,6 +19,7 @@
             <class name="test.ForgotPasswordTest"/>
             <class name="test.SavedAddressTest"/>
             <class name="test.RegisterTest"/>
+            <class name="test.PlacingOrderTest"/>
 
         </classes>
     </test> <!-- Test -->

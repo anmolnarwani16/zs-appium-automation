@@ -1,6 +1,7 @@
 package test;
 
 import baseTest.MobileBaseTest;
+import com.github.javafaker.Faker;
 import driver.MobileDriverManager;
 import frameConstatnt.testConstant.Constant;
 import org.testng.Assert;
@@ -9,6 +10,7 @@ import pages.HomePage;
 import pages.RegisterPage;
 import pages.SignInPage;
 import reports.MobileTestLog;
+import utiles.MobileDataGenerator;
 
 import java.util.Map;
 
@@ -22,7 +24,7 @@ public class RegisterTest extends MobileBaseTest {
         new RegisterPage().enterFirstName(data.get("FirstName"), Constant.REGISTER_USER)
                 .enterLastName(data.get("LastName"), Constant.REGISTER_USER)
                 .enterDay(data.get("Day"), Constant.REGISTER_USER).enterMonth(data.get("Month"), Constant.REGISTER_USER).enterYear(data.get("Year"), Constant.REGISTER_USER)
-                .clickMaleRadioButton(Constant.REGISTER_USER).enterEmail(data.get("Email"), Constant.REGISTER_USER).enterPhoneNo(data.get("PhoneNo"), Constant.REGISTER_USER)
+                .clickMaleRadioButton(Constant.REGISTER_USER).enterEmail(data.get("Email"), Constant.REGISTER_USER).enterPhoneNo(MobileDataGenerator.getPhoneNo(), Constant.REGISTER_USER)
                 .enterPassword(data.get("RegisterPassword"), Constant.REGISTER_USER).clickValidateButton(Constant.REGISTER_USER)
                 .clickAlertButton(Constant.REGISTER_USER).enterOtp(data.get("OTP"), Constant.REGISTER_USER)
                 .clickSubmitButton(MobileDriverManager.getDriver(), Constant.REGISTER_USER);

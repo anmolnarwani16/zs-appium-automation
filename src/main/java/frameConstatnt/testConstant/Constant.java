@@ -40,5 +40,7 @@ public class Constant {
     public static final String SEARCH_ADDRESS = "Kumaraswamy Layout, Bengaluru, Karnataka, India";
     public static final String HOUSE_NO = "1";
 
+     //Placing Order Test Constants
+    public static final String PLACE_ORDER = "Placing Order";
 
 }

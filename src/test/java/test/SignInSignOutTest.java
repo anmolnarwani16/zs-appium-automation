@@ -21,7 +21,7 @@ public class SignInSignOutTest extends MobileBaseTest {
         MobileLoginUtility.login(data.get("UserName"),data.get("Password"),Constant.SIGNINSIGNOUT_TEST);
         String loggedInUser = new HomePage().clickOnHamburgerIcon(Constant.SIGNINSIGNOUT_TEST).getUserName(Constant.SIGNINSIGNOUT_TEST,Constant.SIGNIN_USERNAME);
         Assert.assertNotEquals(loggedInUser,"Sign In / Sign Up");
-        new LeftHandNavigationPage().clickOnUserName(Constant.SIGNINSIGNOUT_TEST);
+        new LeftHandNavigationPage().clickOnUserName(Constant.SIGNINSIGNOUT_TEST,loggedInUser);
         MobileLogoutUtility.logout(Constant.SIGNINSIGNOUT_TEST);
         new HomePage().clickOnAccountButton(Constant.SIGNINSIGNOUT_TEST);
         String signUpHeading = new SignInPage().getHeading(Constant.SIGNINSIGNOUT_TEST,Constant.SIGNIN_HEADING);

@@ -53,10 +53,11 @@ public class MobileListenersClass implements ITestListener, ISuiteListener {
         System.out.println("Test failed: " + result.getMethod().getMethodName());
         // Print each line of the stack trace on a new line
         StackTraceElement[] stackTrace = result.getThrowable().getStackTrace();
-        for (StackTraceElement element : stackTrace) {
-            MobileExtentLogger.fail(element.toString());
-            System.out.println("    " + element.toString());
-        }
+//        for (StackTraceElement element : stackTrace) {
+//            MobileExtentLogger.fail(element.toString());
+//            System.out.println("    " + element.toString());
+//            break;
+//        }
     }
 
     @Override
