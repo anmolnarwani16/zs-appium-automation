@@ -15,12 +15,12 @@ public class ForgotPasswordTest extends MobileBaseTest {
         ForgotPasswordPage forgotPasswordPage=new ForgotPasswordPage();
         homePage.clickOnAllowLocationAccess(Constant.FORGOT_PASSWORD).clickOnAccountButton(Constant.FORGOT_PASSWORD);
         homePage.performClickOnResetPasswordButton(Constant.FORGOT_PASSWORD);
-        forgotPasswordPage.enterPhoneNumber(data.get("UserName"),"OTP sent to your number",Constant.FORGOT_PASSWORD);
+        forgotPasswordPage.enterPhoneNumber(data.get("UserName"),Constant.OTP_SENT,Constant.FORGOT_PASSWORD);
         forgotPasswordPage.enterOtp(data.get("OTP"),Constant.FORGOT_PASSWORD);
         forgotPasswordPage.enterNewPassword(data.get("NewPassword"),Constant.FORGOT_PASSWORD);
         forgotPasswordPage.enterConfirmPassword(data.get("ReEnterCnfPassword"),Constant.FORGOT_PASSWORD);
         forgotPasswordPage.performClickOnSubmit(Constant.FORGOT_PASSWORD);
-        forgotPasswordPage.getPasswordResetText("Password successfully reset.",Constant.FORGOT_PASSWORD);
+        forgotPasswordPage.getPasswordResetText(Constant.PASSWORD_SUCCESSFULLY_RESET,Constant.FORGOT_PASSWORD);
         forgotPasswordPage.performClickOnOkButton(Constant.FORGOT_PASSWORD);
         MobileTestLog.saveExcelFile();
 

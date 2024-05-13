@@ -24,7 +24,7 @@ public class SavedAddressTest extends MobileBaseTest {
         savedAddressPage.performClickOnSavedAddress(Constant.SAVED_ADDRESS);
         savedAddressPage.performClickOnAddNewAddress(Constant.SAVED_ADDRESS);
         savedAddressPage.addNewAddress(Constant.SEARCH_ADDRESS, Constant.HOUSE_NO, Constant.SAVED_ADDRESS);
-        savedAddressPage.getAddressAddedText("Address added!", Constant.SAVED_ADDRESS);
+        savedAddressPage.getAddressAddedText(Constant.SAVED_ADDRESS, Constant.SAVED_ADDRESS);
         savedAddressPage.performClickOnOkButton(Constant.SAVED_ADDRESS);
         MobileTestLog.saveExcelFile();
 

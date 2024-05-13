@@ -104,7 +104,7 @@ public class MobileExplicitWaitFactories {
         }
 
 
-    private static void waitUntilTextVisible(WebElement element, WaitStrategy waitStrategy, String enterExpectedText) {
+    public static void waitUntilTextVisible(WebElement element, WaitStrategy waitStrategy, String enterExpectedText) {
         WebDriverWait wait = new WebDriverWait(MobileDriverManager.getDriver(), Duration.ofSeconds(40));
         wait.until(ExpectedConditions.textToBePresentInElement(element, enterExpectedText));
 

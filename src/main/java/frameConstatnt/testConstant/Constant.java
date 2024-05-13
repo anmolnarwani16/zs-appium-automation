@@ -4,9 +4,15 @@ public class Constant {
 
     //    All constant for change password test
     public static final String CHANGE_PASSWORD = "password change test";
+ public static final String PASSWORD_SUCCESSFULLY_CHANGE= "Password successfully changed.";
 
    //   Forgot Password Test constant
     public static final String FORGOT_PASSWORD = "forgot password Test";
+
+ public static final String OTP_SENT= "OTP sent to your number";
+ public static final String PASSWORD_SUCCESSFULLY_RESET= "Password successfully reset.";
+
+
 
 
     // Search Product Test Constants
@@ -36,9 +42,25 @@ public class Constant {
 
 
     //    SAVED ADDRESS TEST CONSTANTS
-    public static final String SAVED_ADDRESS = "Saved Address";
+    public static final String SAVED_ADDRESS = "Address added!";
+    public static final String ADDRESS_ADDED= "Saved Address";
     public static final String SEARCH_ADDRESS = "Kumaraswamy Layout, Bengaluru, Karnataka, India";
     public static final String HOUSE_NO = "1";
 
+//    MY ACCOUNT TEST CONSTANTS
+
+    public static final String MY_ACCOUNT = "My Account";
+    public static final String WELCOME="Welcome";
+
+    public static final String SAVED_ADDRESS_TEXT="Select your delivery Location";
+
+    public static final String SAVE_PASSWORD="SAVE PASSWORD";
+
+    public static final String CHECK_CARD="Debit Card";
+    public static final String BALANCE="Available Balance";
+    public static final String DELIVERING="Delivering To";
+    public static final String LANGUAGE_PREFERENCE="Choose your favorite language";
+
+    public static final String CONTACT_TEXT="Company Information";
 
 }
