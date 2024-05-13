@@ -1,21 +1,16 @@
 package test;
-
 import baseTest.MobileBaseTest;
-import enums.WaitStrategy;
-import factories.MobileExplicitWaitFactories;
 import frameConstatnt.testConstant.Constant;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
 import reports.MobileTestLog;
-import utiles.MobileAssertionUtility;
 import utiles.MobileLoginUtility;
 
 import java.util.Map;
 
 public class MyAccountTest  extends MobileBaseTest {
-    @Test(description = "performing my account text visibility test")
+    @Test(description = "performing my account test for  text visibility")
     public void myAccountTestForTextVisibility(Map<String, String> data) {
 
         HomePage homePage = new HomePage();
