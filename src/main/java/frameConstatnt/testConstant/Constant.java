@@ -42,8 +42,8 @@ public class Constant {
 
 
     //    SAVED ADDRESS TEST CONSTANTS
-    public static final String SAVED_ADDRESS = "Address added!";
-    public static final String ADDRESS_ADDED= "Saved Address";
+    public static final String SAVED_ADDRESS = "Saved Address";
+    public static final String ADDRESS_ADDED= "Address added!";
     public static final String SEARCH_ADDRESS = "Kumaraswamy Layout, Bengaluru, Karnataka, India";
     public static final String HOUSE_NO = "1";
 
@@ -62,5 +62,10 @@ public class Constant {
     public static final String LANGUAGE_PREFERENCE="Choose your favorite language";
 
     public static final String CONTACT_TEXT="Company Information";
+
+
+//    SORT BY TEST CONSTANTS
+   public static final String SORT_BY="sort by test";
+
 
 }
