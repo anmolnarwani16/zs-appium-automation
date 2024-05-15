@@ -66,6 +66,9 @@ public class Constant {
 
 //    SORT BY TEST CONSTANTS
    public static final String SORT_BY="sort by test";
+   //    CONTACT US  TEST CONSTANTS
+   public static final String CONTACT_US ="contact us";
+   public static final String PHONE_NO="8003030010";
 
 
 }

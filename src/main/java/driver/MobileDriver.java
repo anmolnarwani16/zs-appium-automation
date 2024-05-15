@@ -44,7 +44,6 @@ public class MobileDriver {
     public static void quitDriver() {
 
         if (Objects.nonNull(MobileDriverManager.getDriver())) {
-
             MobileDriverManager.getDriver().quit();
             MobileDriverManager.unload();
 

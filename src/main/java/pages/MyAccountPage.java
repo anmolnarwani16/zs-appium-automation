@@ -163,8 +163,8 @@ public class MyAccountPage {
     public void contactUs(String text,String testname) {
         MobileExplicitWaitFactories.click(contactUs, WaitStrategy.CLICKABLE, "user clicked on contact Us");
         MobileTestLog.logTestStep(testname, "User clicked on contact Us", "user clicked on contact Us");
-        String checkBalance = MobileExplicitWaitFactories.getText(contactUsText, text, WaitStrategy.ELEMENT_TO_HAVE_TEXT, "Check my language preferences");
-        Assert.assertEquals(checkBalance, Constant.CONTACT_TEXT);
+        String contactUs = MobileExplicitWaitFactories.getText(contactUsText, text, WaitStrategy.ELEMENT_TO_HAVE_TEXT, "Check my language preferences");
+        Assert.assertEquals(contactUs, Constant.CONTACT_TEXT);
         MobileDriverManager.getDriver().navigate().back();
 
     }
