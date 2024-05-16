@@ -19,8 +19,16 @@ public class MyCartPage {
     private WebElement AddButton;
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_quantity']")
     private static WebElement ProductQuantity;
+    @FindBy(xpath = "(//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_quantity'])[1]")
+    private static WebElement ItemQuantity;
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/toolbar_title']")
     private static WebElement CartTag;
+    @FindBy(xpath = "//android.widget.CheckedTextView[@resource-id='android:id/text1' and @text='Replace with equivalent']")
+    private WebElement replaceButton;
+    @FindBy(id = "com.zopsmart.stg.scarlet:id/select_substitution_spinner")
+    private WebElement selectSubstitutionButton;
+    @FindBy(xpath = "(//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_item_name'])[1]")
+    private WebElement firstItemName;
     public MyCartPage(){
         PageFactory.initElements(MobileDriverManager.getDriver(),this);
     }
@@ -29,16 +37,16 @@ public class MyCartPage {
         return checkOutButton;
     }
 
-    public void ClickOnAddButton(String testname) {
+    public void clickOnAddButton(String testname) {
         MobileExplicitWaitFactories.click(AddButton, WaitStrategy.CLICKABLE,"Clicking the Add Button");
         MobileTestLog.logTestStep(testname,"Add Button Clicked","User clicked on Add Button");
     }
-    public void ClickOnSubtractButton(String testname) {
+    public void clickOnSubtractButton(String testname) {
         MobileExplicitWaitFactories.click(SubtractButton, WaitStrategy.CLICKABLE,"Clicking the Subtract Button");
         MobileTestLog.logTestStep(testname,"Subtract Button Clicked","User clicked on Subtract Button");
     }
     public static int  checkTheAddedItemValue(String testname) {
-       int value = Integer.parseInt(MobileExplicitWaitFactories.getText(ProductQuantity,null,WaitStrategy.VISIBLE,"Quantity of item in the Cart"));
+       int value = Integer.parseInt(MobileExplicitWaitFactories.getText(ItemQuantity,null,WaitStrategy.VISIBLE,"Quantity of item in the Cart"));
         if(value<2)
         {
             new FruitCategoryPage().clickOnAddIcon(Constant.ADDORSUBTRACT_PRODUCT_TEST_NAME);
@@ -53,10 +61,30 @@ public class MyCartPage {
     }
     public static WebElement getQuantityElement(String testname) {
          MobileTestLog.logTestStep(testname,"Verifying the Quantity Value","Verifying the Quantity Value from Cart");
-         return ProductQuantity;
+         return ItemQuantity;
     }
     public static WebElement getCartTag(String testname)
     {
         return CartTag;
+    }
+    public MyCartPage selectReplaceWithEquivalent(String testname){
+        MobileExplicitWaitFactories.click(replaceButton,WaitStrategy.CLICKABLE,"user clicked on replace with equivalent option");
+        MobileTestLog.logTestStep(testname,"user clicked on substitution preference","user clicked on replace with equivalent option");
+        return new MyCartPage();
+    }
+    public MyCartPage selectSubstitution(String testname){
+        MobileExplicitWaitFactories.click(selectSubstitutionButton, WaitStrategy.CLICKABLE,"user clicked on select substitution button");
+        MobileTestLog.logTestStep(testname,"user clicked select substitution","user clicked on select substitution button for choosing substition preference");
+        return new MyCartPage();
+    }
+    public CheckoutPage clickOnCheckoutButton(String testname){
+        MobileExplicitWaitFactories.click(checkOutButton,WaitStrategy.CLICKABLE,"user clicked on chechout button");
+        MobileTestLog.logTestStep(testname,"clicked checkout button","user clicked on checkout button");
+        return new CheckoutPage();
+    }
+    public String clickOnItemName(String testname)
+    {
+       String ItemName=MobileExplicitWaitFactories.getText(firstItemName,null,WaitStrategy.VISIBLE,"User clicked on Item Name");
+       return ItemName;
     }
 }

@@ -13,10 +13,9 @@ public class MobileScrollDownUtility {
     public static void scrollDown(WebDriver driver) {
 
         Dimension dimension = driver.manage().window().getSize();
-        int startX = (int) (dimension.getWidth() * 0.5);
-        int startY = (int) (dimension.getHeight() * 0.9);
-        int endX = (int) (dimension.getWidth() * 0.2);
-        int endY = (int) (dimension.getHeight() * 0.1);
+        int startX = dimension.getWidth() / 2;
+        int startY = (int) (dimension.getHeight() * 0.8);
+        int endY = (int) (dimension.getHeight() * 0.2);
 
         // Create the PointerInput and Sequence
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
@@ -25,7 +24,7 @@ public class MobileScrollDownUtility {
         // Add the scroll actions to the Sequence
         scroll.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY));
         scroll.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
-        scroll.addAction(finger.createPointerMove(Duration.ofSeconds(1), PointerInput.Origin.viewport(), endX, endY));
+        scroll.addAction(finger.createPointerMove(Duration.ofSeconds(1), PointerInput.Origin.viewport(), startX, endY));
         scroll.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 
         // Perform the scroll action

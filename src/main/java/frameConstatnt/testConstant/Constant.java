@@ -8,7 +8,8 @@ public class Constant {
    //   Forgot Password Test constant
     public static final String FORGOT_PASSWORD = "forgot password Test";
 
-
+    //  Filter Product Test Constants
+    public static final String FILTER_TEST = "filter Product Test";
     // Search Product Test Constants
     public static final String CATEGORY_NAME = "FRUITS AND VEGETABLES";
     public static final String ITEM_NAME = "Chilli Red - 100G";
@@ -50,5 +51,8 @@ public class Constant {
     public static final String SEARCH_ADDRESS = "Kumaraswamy Layout, Bengaluru, Karnataka, India";
     public static final String HOUSE_NO = "1";
 
-
+    //Placing Order Test Constants
+    public static final String PLACE_ORDER = "Placing Order";
+    // Order Notification Test Constants
+    public static final String ORDER_NOTIFICATION = "Order Notification";
 }

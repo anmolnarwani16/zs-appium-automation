@@ -79,11 +79,11 @@ public class MobileAssertionUtility {
                 "Current URL does not contain the expected text. Expected: " + expectedText + ", Actual: " + actualUrl);
     }
 
-    // Add more assertion methods as needed
+    public static boolean ElementIsDisplayed(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(MobileDriverManager.getDriver(), Duration.ofSeconds(DEFAULT_TIMEOUT_SECONDS));
+        wait.until(ExpectedConditions.visibilityOf(element));
+        return true;
+    }
 
-   
-    // AssertionUtility.assertElementIsDisplayed(yourElement);
-    // AssertionUtility.assertElementTextEquals(yourElement, "Expected Text");
-    // AssertionUtility.assertElementAttributeEquals(yourElement, "attributeName", "expectedValue");
 
 }

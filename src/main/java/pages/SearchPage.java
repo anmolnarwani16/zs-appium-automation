@@ -13,7 +13,7 @@ public class SearchPage {
     private WebElement searchTab;
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_page_name']")
     private WebElement categoryTitle;
-    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_item_name' and @text='Cut Mixed Fruit - 350G']")
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_item_name' and @text='Chilli Red - 100G']")
     private WebElement item;
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_item_name']")
     private WebElement itemTitle;

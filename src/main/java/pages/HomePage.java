@@ -8,9 +8,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import reports.MobileTestLog;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class HomePage {
     @FindBy(id = "com.zopsmart.stg.scarlet:id/account")
     private WebElement accountButton;
@@ -32,8 +29,7 @@ public class HomePage {
 
     @FindBy(xpath = "//android.widget.ImageButton[@content-desc='Open navigation drawer']")
     private WebElement hamburgerIcon;
-
-    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_category_title' and @text='FRUITS & VEGETABLES']")
+     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_category_title' and @text='BAKERY']")
     private WebElement fruitCategory;
     @FindBy(xpath = "//android.widget.ImageView[@resource-id='com.zopsmart.stg.scarlet:id/search_icon']")
     private WebElement searchIcon;
@@ -77,11 +73,16 @@ public class HomePage {
     }
 
     public FruitCategoryPage clickOnFruit(String testname) {
-        MobileExplicitWaitFactories.click(fruitCategory, WaitStrategy.CLICKABLE, "user clicked on fruit and vegetable category");
-        MobileTestLog.logTestStep(testname, "Click On Fruit", "User clicked on fruit and vegetable category");
-        return new FruitCategoryPage();
+        try {
+            MobileExplicitWaitFactories.click(fruitCategory, WaitStrategy.CLICKABLE, "user clicked on fruit and vegetable category");
+            MobileTestLog.logTestStep(testname, "Click On Fruit", "User clicked on fruit and vegetable category");
+            return new FruitCategoryPage();
+        } catch (Exception e) {
+            MobileExplicitWaitFactories.click(fruitCategory, WaitStrategy.CLICKABLE, "user clicked on fruit and vegetable category");
+            MobileTestLog.logTestStep(testname, "Click On Fruit", "User clicked on fruit and vegetable category");
+            return new FruitCategoryPage();
+        }
     }
-
     public MyCartPage clickOnCartIcon(String testname) {
         MobileExplicitWaitFactories.click(cartIcon, WaitStrategy.CLICKABLE, "user clicked on cart icon");
         MobileTestLog.logTestStep(testname, "Click On CartIcon", "User clicked on cart icon");
@@ -152,28 +153,4 @@ public class HomePage {
         MobileTestLog.logTestStep(testname, "Sub-Category Visibility", "Verifying the Sub-Category");
         return importedSubCategory;
     }
-
-
-//    List<WebElement> webElements = new ArrayList<>(List.of(searchIcon, notificationIcon));
-
-//    public WebElement getClickableElement() {
-//        for (WebElement element : webElements) {
-//            {
-//                return element;
-//            }
-//        }
-//        return null;
-//    }
-
-//    public void clickOnIcon(String testname) {
-//        for (WebElement element : webElements) {
-//            if (element.getClass().equals("android.widget.ImageView")) {
-//                    MobileExplicitWaitFactories.click(searchIcon, WaitStrategy.CLICKABLE, "user clicked on search icon");
-//                    MobileTestLog.logTestStep(testname, "ClickOnSearchIcon", "User clicked on search icon");
-//            else if(element.getClass().equals(""))
-//                    MobileExplicitWaitFactories.click(notificationIcon, WaitStrategy.CLICKABLE, "User clicked on Notification Icon");
-//                    MobileTestLog.logTestStep(testname, "Click On NotificationIcon", "User clicked on Notification Icon");
-//            }
-//        }
-//    }
 }

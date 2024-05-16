@@ -1,22 +1,25 @@
 package test;
 
 import baseTest.MobileBaseTest;
+import driver.MobileDriverManager;
 import frameConstatnt.testConstant.Constant;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.*;
 import reports.MobileTestLog;
 import utiles.MobileAssertionUtility;
-import utiles.MobileLoginUtility;
 
 import java.util.Map;
 
 public class HomepageElementVisibilityTest extends MobileBaseTest {
-    @Test(description = "Visibility of Homepage Elements")
+    /**
+     * Test to verify visibilty of HomePage Elements.
+     *
+     * @param data Test data containing username, password, Execution(Yes or No), udid, platformName.
+     *             Author:-Satyajeet Kumar
+     */
+    @Test(description = "Visibility of Homepage Elements", groups = {"smoke","regression"})
     public void homePageElement(Map<String, String> data) {
-        new HomePage().clickOnAllowLocationAccess(Constant.HOMEPAGE_ELEMENT_TEST).clickOnAccountButton(Constant.HOMEPAGE_ELEMENT_TEST);
-        MobileLoginUtility.login(data.get("UserName"), data.get("Password"), Constant.HOMEPAGE_ELEMENT_TEST);
-
         //Search Icon Visibility
         new HomePage().clickOnSearchIcon(Constant.HOMEPAGE_ELEMENT_TEST);
         WebElement searchTab = new SearchPage().getSearchTabElement(Constant.HOMEPAGE_ELEMENT_TEST);
@@ -56,7 +59,7 @@ public class HomepageElementVisibilityTest extends MobileBaseTest {
         new HomePage().clickOnHamburgerIcon(Constant.HOMEPAGE_ELEMENT_TEST);
         WebElement signInLogo = new LeftHandNavigationPage().getSignedInUser(Constant.HOMEPAGE_ELEMENT_TEST);
         MobileAssertionUtility.assertElementIsDisplayed(signInLogo);
-
+        MobileDriverManager.getDriver().navigate().back();
         // Save test steps to Excel file
         MobileTestLog.saveExcelFile();
     }

@@ -14,8 +14,13 @@ import java.util.Map;
 
 public class RegisterTest extends MobileBaseTest {
 
-
-    @Test(description = "performing new user registration")
+    /**
+     * Test to verify Registering of New User.
+     *
+     * @param data Test data containing username, password, Execution(Yes or No), udid, platformName.
+     *             Author:-Anmol Narwani
+     */
+    @Test(description = "performing new user registration", groups={"smoke","regression"})
     public void newUserRegisterTest(Map<String, String> data) {
         new HomePage().clickOnAllowLocationAccess(Constant.REGISTER_USER).clickOnAccountButton(Constant.REGISTER_USER);
         new SignInPage().performClickOnRegisterNow(Constant.REGISTER_USER);
@@ -26,8 +31,9 @@ public class RegisterTest extends MobileBaseTest {
                 .enterPassword(data.get("RegisterPassword"), Constant.REGISTER_USER).clickValidateButton(Constant.REGISTER_USER)
                 .clickAlertButton(Constant.REGISTER_USER).enterOtp(data.get("OTP"), Constant.REGISTER_USER)
                 .clickSubmitButton(MobileDriverManager.getDriver(), Constant.REGISTER_USER);
-        String loggedInUser = new HomePage().clickOnHamburgerIcon(Constant.REGISTER_USER).getUserName(Constant.REGISTER_USER,Constant.REGISTER_USERNAME);
+        String loggedInUser = new HomePage().clickOnHamburgerIcon(Constant.REGISTER_USER).getUserName(Constant.REGISTER_USER, Constant.REGISTER_USERNAME);
         Assert.assertNotEquals(loggedInUser, "Sign In / Sign Up");
+        MobileDriverManager.getDriver().navigate().back();
         MobileTestLog.saveExcelFile();
     }
 }

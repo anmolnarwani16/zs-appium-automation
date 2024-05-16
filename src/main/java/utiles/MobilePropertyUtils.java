@@ -27,15 +27,10 @@ public class MobilePropertyUtils {
 			file = new FileInputStream(MobileFrameConstant.getConfigFilePath().trim());
 			properties.load(file);
 			
-			/*for(Object key: properties.keySet()) {
-				CONFIGMAP.put(String.valueOf(key),String.valueOf(properties.get(key)));
-			}*/
-			
 			for(Map.Entry<Object, Object>entry:properties.entrySet()) {
 				CONFIGMAP.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()));
 			}
-			//properties.entrySet().forEach(entry ->CONFIGMAP.put(entry.getKey()), String.valueOf(entry.getValue()));
-			//if we good in lambda function use above line of code
+
 			
 			
 		} catch (IOException e) {
@@ -54,14 +49,5 @@ public class MobilePropertyUtils {
 		
 		return CONFIGMAP.get(key.name().toLowerCase());
 	}
-	//once a load properties file its behave like a hash table its little slow but tread safe
-	//converting a property to hashmap need some time
-
-/*	public static String getValue(String key) throws Exception {
-
-		if (Objects.isNull(properties.getProperty(key))|| Objects.isNull(key)) {
-			throw new Exception("Properties name " + key + " is not found please check config properties");
-		}
-		return properties.getProperty(key);*/
 
 }

@@ -62,8 +62,6 @@ public class ChangePasswordPage {
 
         MobileTestLog.logTestStep(testname, "Get Password Change Text", "Change Password Successfully");
         return MobileExplicitWaitFactories.getText(ChangePasswordSuccessfully,text, WaitStrategy.ELEMENT_TO_HAVE_TEXT,"ChangePasswordSuccessfully");
-
-
     }
     public void performClickOnOkButton(String testname){
         MobileTestLog.logTestStep(testname, "Perform Click On Ok Button", "User clicked on OK button");

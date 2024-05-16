@@ -13,6 +13,8 @@ import java.util.Objects;
 public class LanguagePreferencePage {
     @FindBy(xpath = "//android.view.ViewGroup[@resource-id='com.zopsmart.stg.scarlet:id/tv_select_arab']")
     private WebElement arabicLanguage;
+    @FindBy(xpath = "//android.view.ViewGroup[@resource-id='com.zopsmart.stg.scarlet:id/tv_select_eng']")
+    private WebElement englishLanguage;
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_header']")
     private WebElement languageTitle;
 
@@ -20,9 +22,17 @@ public class LanguagePreferencePage {
         PageFactory.initElements(MobileDriverManager.getDriver(), this);
     }
 
-    public void selectLanguage(String testname) {
-        MobileExplicitWaitFactories.click(arabicLanguage, WaitStrategy.CLICKABLE, "User selected Arabic Language");
-        MobileTestLog.logTestStep(testname, "Arabic Language selected", "User selected Arabic Language");
+    public void selectLanguage(String testname,String language) {
+        if(language.equalsIgnoreCase("Arabic")) {
+            MobileExplicitWaitFactories.click(arabicLanguage, WaitStrategy.CLICKABLE, "User selected Arabic Language");
+            MobileTestLog.logTestStep(testname, "Arabic Language selected", "User selected Arabic Language");
+
+        }else
+        {
+                MobileExplicitWaitFactories.click(englishLanguage, WaitStrategy.CLICKABLE, "User selected English Language");
+                MobileTestLog.logTestStep(testname, "English Language selected", "User selected English Language");
+            }
+
     }
 
     public WebElement getLanguage(String testname) {
