@@ -59,26 +59,34 @@ public class HomePage {
         return new LeftHandNavigationPage();
     }
 
-    public FruitCategoryPage clickOnFruit(String testname){
-        MobileExplicitWaitFactories.click(fruitCategory,WaitStrategy.CLICKABLE,"user clicked on fruit and vegetable category");
+    public FruitCategoryPage clickOnFruit(String testname) {
+        MobileExplicitWaitFactories.click(fruitCategory, WaitStrategy.CLICKABLE, "user clicked on fruit and vegetable category");
         MobileTestLog.logTestStep(testname, "ClickOnFruit", "User clicked on fruit and vegetable category");
         return new FruitCategoryPage();
     }
 
-    public MyCartPage clickOnCartIcon(String testname){
-        MobileExplicitWaitFactories.click(cartIcon,WaitStrategy.CLICKABLE,"user clicked on cart icon");
+    public MyCartPage clickOnCartIcon(String testname) {
+        MobileExplicitWaitFactories.click(cartIcon, WaitStrategy.CLICKABLE, "user clicked on cart icon");
         MobileTestLog.logTestStep(testname, "ClickOnCartIcon", "User clicked on cart icon");
         return new MyCartPage();
     }
-    public SearchPage clickOnSearchIcon(String testname){
-        MobileExplicitWaitFactories.click(searchIcon,WaitStrategy.CLICKABLE,"user clicked on search icon");
+
+    public SearchPage clickOnSearchIcon(String testname) {
+        MobileExplicitWaitFactories.click(searchIcon, WaitStrategy.CLICKABLE, "user clicked on search icon");
         MobileTestLog.logTestStep(testname, "ClickOnSearchIcon", "User clicked on search icon");
         return new SearchPage();
     }
 
     public ForgotPasswordPage performClickOnResetPasswordButton(String testname) {
-        MobileExplicitWaitFactories.click(resetPassword, WaitStrategy.CLICKABLE,"user clicked on reset password button");
+        MobileExplicitWaitFactories.click(resetPassword, WaitStrategy.CLICKABLE, "user clicked on reset password button");
         MobileTestLog.logTestStep(testname, "perform Click On Reset Password Button", "user clicked on reset password button");
         return new ForgotPasswordPage();
     }
+
+    public void clickOnHomeIcon(String testname) {
+        MobileExplicitWaitFactories.click(homeIcon, WaitStrategy.CLICKABLE, "User clicked on Home Icon");
+        MobileTestLog.logTestStep(testname, "Click On HomeIcon", "User clicked on Home Icon");
+
+    }
+
 }

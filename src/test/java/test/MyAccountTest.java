@@ -1,41 +1,54 @@
 package test;
+
 import baseTest.MobileBaseTest;
+import driver.MobileDriverManager;
 import frameConstatnt.testConstant.Constant;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.*;
+import pages.ChangePasswordPage;
+import pages.HomePage;
+import pages.MyAccountPage;
+import pages.SavedAddressPage;
 import reports.MobileTestLog;
-import utiles.MobileLoginUtility;
-
 import java.util.Map;
 
 public class MyAccountTest  extends MobileBaseTest {
-    @Test(description = "performing my account test for  text visibility")
+
+    /**
+     * Test to verify visibility of all the text in my account
+     *
+     * @param data Test data containing username, password, Execution(Yes or No), udid, platformName.
+     *
+     *  Author:-Ashif Alam
+     */
+    @Test(description = "performing my account test for  text visibility",groups = {"regression"})
     public void myAccountTestForTextVisibility(Map<String, String> data) {
 
         HomePage homePage = new HomePage();
         MyAccountPage myAccount = new MyAccountPage();
-        homePage.clickOnAllowLocationAccess(Constant.MY_ACCOUNT);
-        homePage.clickOnAccountButton(Constant.MY_ACCOUNT);
-        MobileLoginUtility.login(data.get("UserName"), data.get("Password"), Constant.MY_ACCOUNT);
         homePage.clickOnAccountButton(Constant.MY_ACCOUNT);
         String welcomeText= myAccount.getElementTextForWelcome(Constant.WELCOME,Constant.MY_ACCOUNT);
         Assert.assertEquals(welcomeText, Constant.WELCOME);
         myAccount.verifyElementTexts(Constant.MY_ACCOUNT);
+        homePage.clickOnHomeIcon(Constant.MY_ACCOUNT);
         MobileTestLog.saveExcelFile();
 
     }
+    /**
+     * Test to verify each page in my account
+     *
+     * @param data Test data containing username, password, Execution(Yes or No), udid, platformName.
+     *
+     *  Author:-Ashif Alam
+     */
 
-    @Test(description = "performing my account test for each page")
+    @Test(description = "performing my account test for each page",groups = {"regression"})
     public void myAccountTestForPages(Map<String, String> data){
 
         HomePage homePage = new HomePage();
         MyAccountPage myAccount = new MyAccountPage();
         SavedAddressPage savedAddressPage = new SavedAddressPage();
         ChangePasswordPage changePasswordPage = new ChangePasswordPage();
-        homePage.clickOnAllowLocationAccess(Constant.MY_ACCOUNT);
-        homePage.clickOnAccountButton(Constant.MY_ACCOUNT);
-        MobileLoginUtility.login(data.get("UserName"), data.get("Password"), Constant.MY_ACCOUNT);
         homePage.clickOnAccountButton(Constant.MY_ACCOUNT);
         savedAddressPage.performClickOnSavedAddress(Constant.SAVED_ADDRESS);
         savedAddressPage.performClickOnAddNewAddress(Constant.SAVED_ADDRESS);
@@ -48,6 +61,8 @@ public class MyAccountTest  extends MobileBaseTest {
         myAccount.myOrders(Constant.MY_ACCOUNT);
         myAccount.changeLanguage(Constant.LANGUAGE_PREFERENCE,Constant.MY_ACCOUNT);
         myAccount.contactUs(Constant.CONTACT_TEXT,Constant.MY_ACCOUNT);
+        MobileDriverManager.getDriver().navigate().back();
+        homePage.clickOnHomeIcon(Constant.MY_ACCOUNT);
         MobileTestLog.saveExcelFile();
 
     }

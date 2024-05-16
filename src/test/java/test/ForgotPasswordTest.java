@@ -9,7 +9,15 @@ import frameConstatnt.testConstant.Constant;
 import java.util.Map;
 
 public class ForgotPasswordTest extends MobileBaseTest {
-    @Test(description = "performing reset password test")
+
+    /**
+     * Test to verify forgot password
+     *
+     * @param data Test data containing username, password, Execution(Yes or No), udid, platformName.
+     *
+     *  Author:-Ashif Alam
+     */
+    @Test(description = "performing reset password test",groups = {"regression"})
     public void forgotPasswordTest(Map<String,String> data){
         HomePage homePage = new HomePage();
         ForgotPasswordPage forgotPasswordPage=new ForgotPasswordPage();

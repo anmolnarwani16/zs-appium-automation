@@ -10,7 +10,6 @@ import reports.MobileTestLog;
 import utiles.MobileAssertionUtility;
 import utiles.MobileLoginUtility;
 import frameConstatnt.testConstant.Constant;
-
 import java.util.Map;
 
 

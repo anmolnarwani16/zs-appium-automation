@@ -70,5 +70,13 @@ public class Constant {
    public static final String CONTACT_US ="contact us";
    public static final String PHONE_NO="8003030010";
 
+   public static final String SUBMIT = "SUBMIT";
+   public static final String USER_NAME= "Andrew";
+   public static final String PHONE_NUMBER = "99123456";
+   public static final String COMPLAIN_DESCRIPTION="not able to add items";
+   public static final String SUBMIT_BUTTON="SUBMIT";
+
+
+
 
 }

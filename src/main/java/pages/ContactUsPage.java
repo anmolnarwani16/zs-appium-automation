@@ -35,25 +35,42 @@ public class ContactUsPage {
     @FindBy(xpath = "//android.widget.EditText[@resource-id='com.zopsmart.stg.scarlet:id/et_number']")
     private WebElement phoneNo;
 
+    @FindBy(xpath = "//android.widget.Button[@resource-id='com.zopsmart.stg.scarlet:id/btn_submit']")
+    private WebElement submitButton;
+
     @FindBy(xpath = "//android.widget.EditText[@resource-id='com.zopsmart.stg.scarlet:id/et_description']")
     private WebElement description;
+
     public ContactUsPage clickOnContactUs(String testname) {
         MobileExplicitWaitFactories.click(contactUs, WaitStrategy.CLICKABLE, "user clicked on contact Us");
         MobileTestLog.logTestStep(testname, "User clicked on contact Us", "user clicked on contact Us");
         return this;
 
     }
-    public ContactUsPage validateCallOption(String text,String testname) {
+
+    public ContactUsPage validateCallOption(String text, String testname) {
         MobileExplicitWaitFactories.click(callOption, WaitStrategy.CLICKABLE, "user clicked on call option");
         String phoneNo = MobileExplicitWaitFactories.getText(phoneNumber, text, WaitStrategy.ELEMENT_TO_HAVE_TEXT, "Check mobile number");
-        Assert.assertEquals(phoneNo, Constant.CONTACT_TEXT);
+        Assert.assertEquals(phoneNo, Constant.PHONE_NO);
         MobileTestLog.logTestStep(testname, "User clicked on call option", "user clicked on call option");
         return this;
 
     }
-    public ContactUsPage validateWriteToUs(String text,String testname) {
+
+    public ContactUsPage validateWriteToUs(String userName, String phoneNumber, String complainDescription, String submitText, String testname) {
 
         MobileExplicitWaitFactories.click(writeToUs, WaitStrategy.CLICKABLE, "user clicked on write to us");
+        MobileExplicitWaitFactories.click(name, WaitStrategy.CLICKABLE, "user click on name section");
+        MobileExplicitWaitFactories.sendKeys(name, userName, WaitStrategy.VISIBLE, " their name");
+        MobileDriverManager.getDriver().navigate().back();
+        MobileExplicitWaitFactories.click(phoneNo, WaitStrategy.CLICKABLE, "user click on  phoneNumber section");
+        MobileExplicitWaitFactories.sendKeys(phoneNo, phoneNumber, WaitStrategy.VISIBLE, "user enter their phoneNo.");
+        MobileDriverManager.getDriver().navigate().back();
+        MobileExplicitWaitFactories.click(description, WaitStrategy.CLICKABLE, "user click on description");
+        MobileExplicitWaitFactories.sendKeys(description, complainDescription, WaitStrategy.VISIBLE, " description ");
+        MobileDriverManager.getDriver().navigate().back();
+        String submit = MobileExplicitWaitFactories.getText(submitButton, submitText, WaitStrategy.ELEMENT_TO_HAVE_TEXT, "Check submit button is enable or not ");
+        Assert.assertEquals(submit, Constant.SUBMIT);
         MobileTestLog.logTestStep(testname, "User clicked on write to us", "user clicked on write to us");
         return this;
 

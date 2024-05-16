@@ -9,7 +9,6 @@ import pages.HomePage;
 import pages.RegisterPage;
 import pages.SignInPage;
 import reports.MobileTestLog;
-
 import java.util.Map;
 
 public class RegisterTest extends MobileBaseTest {

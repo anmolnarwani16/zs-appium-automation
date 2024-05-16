@@ -114,6 +114,7 @@ public class MyAccountPage {
         MobileExplicitWaitFactories.click(crossButton, WaitStrategy.CLICKABLE, "user clicked on back button");
 
     }
+
     public void validateChangePassword(String text, String testname) {
         MobileTestLog.logTestStep(testname, "Get Change Password Text", "Get Change Password Text");
         String changePassword = MobileExplicitWaitFactories.getText(changePasswordButton, text, WaitStrategy.ELEMENT_TO_HAVE_TEXT, "Get Change Password Text");
@@ -121,6 +122,7 @@ public class MyAccountPage {
         MobileExplicitWaitFactories.click(navigateButton, WaitStrategy.CLICKABLE, "user clicked on back button");
 
     }
+
     public void validateSavedCard(String text, String testname) {
         MobileExplicitWaitFactories.click(savedCards, WaitStrategy.CLICKABLE, "user clicked on saved cards");
         MobileTestLog.logTestStep(testname, "User clicked on saved cards ", "user clicked on saved cards");
@@ -129,6 +131,7 @@ public class MyAccountPage {
         MobileExplicitWaitFactories.click(navigateButton, WaitStrategy.CLICKABLE, "user clicked on back button");
 
     }
+
     public void validateMyWallet(String text, String testname) {
         MobileExplicitWaitFactories.click(myWallet, WaitStrategy.CLICKABLE, "user clicked on my walllet");
         MobileTestLog.logTestStep(testname, "User clicked on my walllet ", "user clicked on my walllet");
@@ -137,6 +140,7 @@ public class MyAccountPage {
         MobileDriverManager.getDriver().navigate().back();
 
     }
+
     public void myProducts(String text, String testname) {
         MobileExplicitWaitFactories.click(myProducts, WaitStrategy.CLICKABLE, "user clicked on my products");
         MobileTestLog.logTestStep(testname, "User clicked on my products ", "user clicked on my products");
@@ -152,25 +156,24 @@ public class MyAccountPage {
         MobileDriverManager.getDriver().navigate().back();
 
     }
-    public void changeLanguage(String text,String testname) {
+
+    public void changeLanguage(String text, String testname) {
         MobileExplicitWaitFactories.click(languageText, WaitStrategy.CLICKABLE, "user clicked on change language preference");
         MobileTestLog.logTestStep(testname, "User clicked on change language preference", "user clicked on my orders");
-        String checkBalance = MobileExplicitWaitFactories.getText(languagePreference, text, WaitStrategy.ELEMENT_TO_HAVE_TEXT, "Check my language preferences");
-        Assert.assertEquals(checkBalance, Constant.LANGUAGE_PREFERENCE);
+        String changeLanguage = MobileExplicitWaitFactories.getText(languagePreference, text, WaitStrategy.ELEMENT_TO_HAVE_TEXT, "Check my language preferences");
+        Assert.assertEquals(changeLanguage, Constant.LANGUAGE_PREFERENCE);
         MobileDriverManager.getDriver().navigate().back();
 
     }
-    public void contactUs(String text,String testname) {
+
+    public void contactUs(String text, String testname) {
         MobileExplicitWaitFactories.click(contactUs, WaitStrategy.CLICKABLE, "user clicked on contact Us");
         MobileTestLog.logTestStep(testname, "User clicked on contact Us", "user clicked on contact Us");
-        String contactUs = MobileExplicitWaitFactories.getText(contactUsText, text, WaitStrategy.ELEMENT_TO_HAVE_TEXT, "Check my language preferences");
+        String contactUs = MobileExplicitWaitFactories.getText(contactUsText, text, WaitStrategy.ELEMENT_TO_HAVE_TEXT, "User check contact us text");
         Assert.assertEquals(contactUs, Constant.CONTACT_TEXT);
         MobileDriverManager.getDriver().navigate().back();
 
     }
-
-
-
 
 
     List<String> expectedTexts = Arrays.asList(

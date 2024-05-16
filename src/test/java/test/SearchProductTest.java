@@ -9,7 +9,6 @@ import reports.MobileTestLog;
 import utiles.MobileAssertionUtility;
 import utiles.MobileLoginUtility;
 import frameConstatnt.testConstant.Constant;
-
 import java.util.Map;
 
 
@@ -36,7 +35,6 @@ public class SearchProductTest extends MobileBaseTest {
         new SearchPage().itemInfo();
         WebElement itemTitle = new SearchPage().getSearchedItem(Constant.SEARCH_TEST_NAME_2);
         MobileAssertionUtility.assertElementIsDisplayed(itemTitle);
-        // Save test steps to Excel file
         MobileTestLog.saveExcelFile();
     }
 }
