@@ -17,21 +17,11 @@
             <class name="test.SavedAddressTest"/>
             <class name="test.ChangePasswordTest"/>
             <class name="test.ContactUsTest"/>
-
-
-
-
-
-<!--            <class name="test.AddProductToCartTest"/>-->
-<!--              <class name="test.SearchProductTest"/>-->
-<!--            <class name="test.LanguagePreferenceTest"/>-->
-
-<!--            <class name="test.ForgotPasswordTest"/>-->
-
-<!--            <class name="test.RegisterTest"/>-->
-
-
-
+            <class name="test.AddProductToCartTest"/>
+            <class name="test.SearchProductTest"/>
+            <class name="test.LanguagePreferenceTest"/>
+            <class name="test.ForgotPasswordTest"/>
+            <class name="test.RegisterTest"/>
 
         </classes>
     </test>
