@@ -11,7 +11,7 @@ import org.testng.Assert;
 import reports.MobileTestLog;
 
 
-public class SavedAddressPage {
+public final class SavedAddressPage {
 
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/itemTextView' and @text='Saved Address']")
     private WebElement savedAddress;

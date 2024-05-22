@@ -18,6 +18,11 @@ public class Constant {
     // Search Product Test Constants
     public static final String CATEGORY_NAME = "FRUITS AND VEGETABLES";
     public static final String ITEM_NAME = "Cut Mixed Fruit -350G";
+   public static final String ITEM_NAME1 = "Pineapple - 1PCS";
+    public static final String ITEM_NAME2 = "Chinese Fresh Ginger - 500 g";
+
+    public static final String ITEM_NAME3 = "Red Currants Holland - 125G";
+
     public static final String SEARCH_TEST_NAME_1 = "Category Search";
     public static final String SEARCH_TEST_NAME_2 = "Item Search";
 
@@ -75,6 +80,11 @@ public class Constant {
    public static final String PHONE_NUMBER = "99123456";
    public static final String COMPLAIN_DESCRIPTION="not able to add items";
    public static final String SUBMIT_BUTTON="SUBMIT";
+
+   //Placing Order Test Constants
+   public static final String PLACE_ORDER = "Placing Order";
+   public static final String OUT_OF_STOCK="OUT OF STOCK";
+   public static final String MAX_LIMIT="You cannot add more items of this product";
 
 
 

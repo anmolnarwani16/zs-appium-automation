@@ -9,6 +9,8 @@ import pages.HomePage;
 import pages.RegisterPage;
 import pages.SignInPage;
 import reports.MobileTestLog;
+import utiles.LoginChecker;
+
 import java.util.Map;
 
 public class RegisterTest extends MobileBaseTest {
@@ -16,6 +18,7 @@ public class RegisterTest extends MobileBaseTest {
 
     @Test(description = "performing new user registration")
     public void newUserRegisterTest(Map<String, String> data) {
+        new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver());
         new HomePage().clickOnAllowLocationAccess(Constant.REGISTER_USER).clickOnAccountButton(Constant.REGISTER_USER);
         new SignInPage().performClickOnRegisterNow(Constant.REGISTER_USER);
         new RegisterPage().enterFirstName(data.get("FirstName"), Constant.REGISTER_USER)

@@ -3,6 +3,7 @@ package factories;
 import java.time.Duration;
 
 import driver.MobileDriverManager;
+import enums.MobileLogType;
 import enums.WaitStrategy;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
@@ -20,7 +21,7 @@ public class MobileExplicitWaitFactories {
         element.click();
 
         try {
-            MobileExtentLogger.pass(description, true);
+            MobileExtentLogger.log(MobileLogType.PASS,description);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -31,7 +32,7 @@ public class MobileExplicitWaitFactories {
         element.sendKeys(value);
 
         try {
-            MobileExtentLogger.pass("User entered *********" + description, true);
+            MobileExtentLogger.log(MobileLogType.PASS,"User entered *********" + description);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -42,7 +43,7 @@ public class MobileExplicitWaitFactories {
         String str = element.getText();
 
         try {
-            MobileExtentLogger.pass(description, true);
+            MobileExtentLogger.log(MobileLogType.PASS,description);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -50,7 +51,7 @@ public class MobileExplicitWaitFactories {
     }
 
     private static void waitUntilCondition(WebElement element, WaitStrategy waitStrategy) {
-        WebDriverWait wait = new WebDriverWait(MobileDriverManager.getDriver(), Duration.ofSeconds(40));
+        WebDriverWait wait = new WebDriverWait(MobileDriverManager.getDriver(), Duration.ofSeconds(10));
 
         switch (waitStrategy) {
             case CLICKABLE:
@@ -96,7 +97,7 @@ public class MobileExplicitWaitFactories {
         public static void pressEnter(String description) {
             MobileDriverManager.getDriver().pressKey(new KeyEvent().withKey(AndroidKey.ENTER));
             try {
-                MobileExtentLogger.pass(description, true);
+                MobileExtentLogger.log(MobileLogType.PASS,description);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -105,7 +106,7 @@ public class MobileExplicitWaitFactories {
 
 
     public static void waitUntilTextVisible(WebElement element, WaitStrategy waitStrategy, String enterExpectedText) {
-        WebDriverWait wait = new WebDriverWait(MobileDriverManager.getDriver(), Duration.ofSeconds(40));
+        WebDriverWait wait = new WebDriverWait(MobileDriverManager.getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.textToBePresentInElement(element, enterExpectedText));
 
 

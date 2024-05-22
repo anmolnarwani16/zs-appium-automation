@@ -10,7 +10,7 @@ import reports.MobileTestLog;
 
 public class LeftHandNavigationPage {
     @FindBy(id = "com.zopsmart.stg.scarlet:id/tv_sign_in")
-    private WebElement signedInUser;
+    public WebElement signedInUser;
 
     public LeftHandNavigationPage(){
         PageFactory.initElements(MobileDriverManager.getDriver(),this);
@@ -28,3 +28,4 @@ public class LeftHandNavigationPage {
         return new MyAccountPage();
     }
 }
+

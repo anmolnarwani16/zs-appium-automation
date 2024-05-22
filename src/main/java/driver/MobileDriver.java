@@ -59,13 +59,13 @@ public class MobileDriver {
             } else if (platformName.equalsIgnoreCase("browserStack")) {
                 UiAutomator2Options option = new UiAutomator2Options();
 
-                option.setCapability("browserstack.user", "sameerrathod_Vf9kdJ"); //update your user
-                option.setCapability("browserstack.key", "KzoKV6HYE3Ev15RLcfXT"); //update your key
+                option.setCapability("browserstack.user", "freeredical_oidEA6"); //update your user
+                option.setCapability("browserstack.key", "Vq4yobskngnpj86Li1Um"); //update your key
                 option.setCapability("project", "Test Java Project");
                 option.setCapability("build", "Java Android demo");
-                option.setCapability("name", "some name");
+                option.setCapability("name", "tamimi mobile application test");
                 option.setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2);
-                option.setApp("bs://a8c5841ab33d67a0ec6020bf5b1d56f831efe6e3");
+                option.setApp("bs://af58663a405373dbc7db6480f0dd2884486b91ca");
                 option.setPlatformName(data.get("PlatformName").toString());
 
 
@@ -82,18 +82,17 @@ public class MobileDriver {
 
         }
 
-
     }
-    public static void initialize(String platformName ,String udid , String platformVersion) throws IOException {
+    public static void initialize(String platformName ,String udid , String platformVersion) {
         if(MobileDriverManager.getDriver()==null)
             new MobileDriver(platformName,udid,platformVersion);
     }
 
 
-
     public static void quitDriver() {
 
         if (Objects.nonNull(MobileDriverManager.getDriver())) {
+
             MobileDriverManager.getDriver().quit();
             MobileDriverManager.unload();
 
@@ -102,3 +101,4 @@ public class MobileDriver {
 
 
 }
+

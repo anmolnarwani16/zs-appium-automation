@@ -12,7 +12,7 @@ import reports.MobileTestLog;
 import java.util.Arrays;
 import java.util.List;
 
-public class MyAccountPage {
+public final class MyAccountPage {
     @FindBy(xpath = "(//android.view.ViewGroup[@resource-id='com.zopsmart.stg.scarlet:id/account_item'])[12]")
     private WebElement logoutButton;
     @FindBy(xpath = "(//android.widget.ImageView[@resource-id='com.zopsmart.stg.scarlet:id/itemImage'])[8]")

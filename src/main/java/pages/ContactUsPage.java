@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import reports.MobileTestLog;
 
-public class ContactUsPage {
+public final class ContactUsPage {
 
     public ContactUsPage() {
         PageFactory.initElements(MobileDriverManager.getDriver(), this);

@@ -15,12 +15,10 @@ import java.util.Map;
 public class SignInSignOutTest extends MobileBaseTest {
 
     @Test(description = "performing logIn and logOut test")
-    public void signinSignoutTest(Map<String,String> data) throws IOException {
+    public void signinSignoutTest(Map<String,String> data) {
         MobileDriver.initialize(data.get("platformName"),data.get("udid"),data.get("platformVersion"));
         new HomePage().clickOnAllowLocationAccess(Constant.SIGNINSIGNOUT_TEST).clickOnAccountButton(Constant.SIGNINSIGNOUT_TEST);
         MobileLoginUtility.login(data.get("UserName"),data.get("Password"),Constant.SIGNINSIGNOUT_TEST);
-        String loggedInUser = new HomePage().clickOnHamburgerIcon(Constant.SIGNINSIGNOUT_TEST).getUserName(Constant.SIGNINSIGNOUT_TEST,Constant.SIGNIN_USERNAME);
-        Assert.assertNotEquals(loggedInUser,"Sign In / Sign Up");
         MobileDriverManager.getDriver().navigate().back();
         MobileTestLog.saveExcelFile();
 

@@ -11,6 +11,9 @@ import reports.MobileTestLog;
 public class FruitCategoryPage {
     @FindBy(xpath = "(//android.widget.ImageView[@resource-id='com.zopsmart.stg.scarlet:id/ib_add'])[1]")
     private WebElement addIcon;
+
+    @FindBy(xpath = "//android.widget.ImageView[@resource-id='com.zopsmart.stg.scarlet:id/ib_add']")
+    public WebElement addIcons;
     @FindBy(id = "//android.widget.Button[@resource-id='com.zopsmart.stg.scarlet:id/btn_sort']")
     private WebElement sortByButton;
     public FruitCategoryPage(){
@@ -18,6 +21,10 @@ public class FruitCategoryPage {
     }
     public void clickOnAddIcon(String testname){
         MobileExplicitWaitFactories.click(addIcon, WaitStrategy.CLICKABLE,"User clicked on add icon to add product into the cart");
+        MobileTestLog.logTestStep(testname,"Click Add  Button","User clicked on add icon to add product into the cart");
+    }
+    public void clickOnAddIcons(String testname){
+        MobileExplicitWaitFactories.click(addIcons, WaitStrategy.CLICKABLE,"User clicked on add icon to add product into the cart");
         MobileTestLog.logTestStep(testname,"Click Add  Button","User clicked on add icon to add product into the cart");
     }
     public FruitCategoryPage performClickOnSortBy(String testname) {
