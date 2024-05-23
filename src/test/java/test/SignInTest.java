@@ -16,7 +16,7 @@ public final class SignInTest extends MobileBaseTest {
 
     }
     @Test(description = "performing logIn and logOut test")
-    public void signInTest(Map<String, String> data) throws InterruptedException {
+    public void signInTest(Map<String, String> data){
         MobileDriver.initialize(data.get("platformName"), data.get("udid"), data.get("platformVersion"));
         new HomePage().clickOnAllowLocationAccess(Constant.SIGNINSIGNOUT_TEST).clickOnAccountButton(Constant.SIGNINSIGNOUT_TEST);
         MobileLoginUtility.login(data.get("UserName"), data.get("Password"), Constant.SIGNINSIGNOUT_TEST);

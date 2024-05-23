@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import reports.MobileTestLog;
 
-public class ForgotPasswordPage {
+public final class ForgotPasswordPage {
     @FindBy(xpath = "//android.widget.EditText[@resource-id='com.zopsmart.stg.scarlet:id/et_phone_no']")
     private WebElement phoneNo;
 
@@ -34,44 +34,52 @@ public class ForgotPasswordPage {
 
     @FindBy(xpath = "//android.widget.TextView[@resource-id='android:id/message']")
     private WebElement passwordReset;
-    public ForgotPasswordPage(){
-        PageFactory.initElements(MobileDriverManager.getDriver(),this);
+
+    public ForgotPasswordPage() {
+        PageFactory.initElements(MobileDriverManager.getDriver(), this);
     }
-    public ForgotPasswordPage enterPhoneNumber(String phoneNumber,String enterActualText,String testname){
-        MobileExplicitWaitFactories.sendKeys(phoneNo,phoneNumber,WaitStrategy.VISIBLE,"PhoneNumber");
-        MobileExplicitWaitFactories.click( validate, WaitStrategy.CLICKABLE,"user clicked on validate phone number");
-        MobileExplicitWaitFactories.getText(OtpSent,enterActualText, WaitStrategy.ELEMENT_TO_HAVE_TEXT,"OTP sent to your number");
-        MobileExplicitWaitFactories.click( ok, WaitStrategy.CLICKABLE,"user clicked on Ok button");
+
+    public ForgotPasswordPage enterPhoneNumber(String phoneNumber, String enterActualText, String testname) {
+        MobileExplicitWaitFactories.sendKeys(phoneNo, phoneNumber, WaitStrategy.VISIBLE, "PhoneNumber");
+        MobileExplicitWaitFactories.click(validate, WaitStrategy.CLICKABLE, "user clicked on validate phone number");
+        MobileExplicitWaitFactories.getText(OtpSent, enterActualText, WaitStrategy.ELEMENT_TO_HAVE_TEXT, "OTP sent to your number");
+        MobileExplicitWaitFactories.click(ok, WaitStrategy.CLICKABLE, "user clicked on Ok button");
         MobileTestLog.logTestStep(testname, "Enter Phone Number", "User entered valid phone number");
         return this;
     }
-    public ForgotPasswordPage enterOtp(String otp,String testname){
-        MobileExplicitWaitFactories.sendKeys(enterOtp,otp,WaitStrategy.VISIBLE,"Otp");
+
+    public ForgotPasswordPage enterOtp(String otp, String testname) {
+        MobileExplicitWaitFactories.sendKeys(enterOtp, otp, WaitStrategy.VISIBLE, "Otp");
         MobileTestLog.logTestStep(testname, "Enter Otp", "User entered otp");
         return this;
     }
-    public ForgotPasswordPage enterNewPassword(String newPassword,String testname){
-        MobileExplicitWaitFactories.sendKeys(enterNewPassword,newPassword,WaitStrategy.VISIBLE,"currentPassword");
+
+    public ForgotPasswordPage enterNewPassword(String newPassword, String testname) {
+        MobileExplicitWaitFactories.sendKeys(enterNewPassword, newPassword, WaitStrategy.VISIBLE, "currentPassword");
         MobileTestLog.logTestStep(testname, "Enter New Password", "User entered new password");
         return this;
     }
-    public ForgotPasswordPage enterConfirmPassword(String confirmPassword,String testname){
-        MobileExplicitWaitFactories.sendKeys(enterConfirmPassword,confirmPassword,WaitStrategy.VISIBLE,"currentPassword");
+
+    public ForgotPasswordPage enterConfirmPassword(String confirmPassword, String testname) {
+        MobileExplicitWaitFactories.sendKeys(enterConfirmPassword, confirmPassword, WaitStrategy.VISIBLE, "currentPassword");
         MobileTestLog.logTestStep(testname, "Enter Confirm Password", "User entered current password");
         return this;
     }
-    public void performClickOnSubmit(String testname){
-        MobileExplicitWaitFactories.click(submitButton, WaitStrategy.CLICKABLE,"user clicked on submit button");
+
+    public void performClickOnSubmit(String testname) {
+        MobileExplicitWaitFactories.click(submitButton, WaitStrategy.CLICKABLE, "user clicked on submit button");
         MobileTestLog.logTestStep(testname, "Perform Click On Submit", "User clicked on submit button");
     }
-    public String getPasswordResetText(String enterActualText,String testname)  {
+
+    public String getPasswordResetText(String enterActualText, String testname) {
         MobileTestLog.logTestStep(testname, "Get Password Reset Text", "password reset successfully");
-        return MobileExplicitWaitFactories.getText(passwordReset,enterActualText, WaitStrategy.ELEMENT_TO_HAVE_TEXT,"PasswordResetSuccessfully");
+        return MobileExplicitWaitFactories.getText(passwordReset, enterActualText, WaitStrategy.ELEMENT_TO_HAVE_TEXT, "PasswordResetSuccessfully");
 
     }
-    public void performClickOnOkButton(String testname){
+
+    public void performClickOnOkButton(String testname) {
         MobileTestLog.logTestStep(testname, "Perform Click On Ok Button", "user clicked on ok button");
-        MobileExplicitWaitFactories.click(ok, WaitStrategy.CLICKABLE,"user clicked on ok button");
+        MobileExplicitWaitFactories.click(ok, WaitStrategy.CLICKABLE, "user clicked on ok button");
     }
 
 }

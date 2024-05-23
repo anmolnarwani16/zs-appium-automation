@@ -14,7 +14,6 @@ public class MobileAnnotationTransfer implements IAnnotationTransformer {
                           @SuppressWarnings("rawtypes") Constructor testConstructor, Method testMethod) {
         annotation.setDataProvider("getData");
         annotation.setDataProviderClass(MobileDataProvider.class);
-        // annotation.setRetryAnalyzer(RateShopperRetry.class);
         annotation.getAlwaysRun();
 
     }

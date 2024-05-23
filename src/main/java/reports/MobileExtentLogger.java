@@ -43,18 +43,18 @@ public class MobileExtentLogger {
 	}
 
 	public static void log(MobileLogType status, String message)  {
-		try {
-			if(!MobilePropertyUtils.get(ConfigProperties.PASSEDSTEPSSCREENSHOTS).equalsIgnoreCase("yes")) {
-				MAP.getOrDefault(status,EXTENTANDCONSOLE).accept(message);
-			}
-			else{
-				SCREENSHOTMAP.getOrDefault(status,EXTENTANDCONSOLE).accept(message);
-			}
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
+        try {
+            if(!MobilePropertyUtils.get(ConfigProperties.PASSEDSTEPSSCREENSHOTS).equalsIgnoreCase("yes")) {
+                MAP.getOrDefault(status,EXTENTANDCONSOLE).accept(message);
+            }
+            else{
+                SCREENSHOTMAP.getOrDefault(status,EXTENTANDCONSOLE).accept(message);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
 
-	}
+    }
 
 }

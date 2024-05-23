@@ -27,9 +27,7 @@ public class MobileTestLog {
     }
 
     public static void logTestStep(String testName, String step, String logMessage) {
-        initializeExcelSheet(); // Ensure the sheet is initialized
-
-        // Initialize variables to track the previous test name
+        initializeExcelSheet();
         String prevTestName = "";
         int prevRowIndex = rowNum - 1;
 
@@ -41,7 +39,6 @@ public class MobileTestLog {
             prevTestName = sheet.getRow(prevRowIndex).getCell(1).getStringCellValue();
         }
 
-        // Check if the test name matches the previous test name
         if (prevTestName.equals(testName)) {
             Row row = sheet.createRow(rowNum++);
             row.createCell(0).setCellValue("");

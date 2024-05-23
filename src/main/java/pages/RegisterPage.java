@@ -65,8 +65,8 @@ public class RegisterPage {
     @FindBy(id = "com.zopsmart.stg.scarlet:id/et_otp")
     private WebElement otpField;
 
-    public RegisterPage(){
-        PageFactory.initElements(MobileDriverManager.getDriver(),this);
+    public RegisterPage() {
+        PageFactory.initElements(MobileDriverManager.getDriver(), this);
     }
 
     public RegisterPage enterFirstName(String firstName, String testname) {

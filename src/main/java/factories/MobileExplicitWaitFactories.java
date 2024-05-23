@@ -70,12 +70,12 @@ public class MobileExplicitWaitFactories {
                 wait.until(ExpectedConditions.elementToBeSelected(element));
                 break;
             case ATTRIBUTE_CONTAINS:
-                String attributeName = "data-id"; // Default attribute name
+                String attributeName = "data-id";
                 String attributeValue = element.getAttribute(attributeName);
                 wait.until(ExpectedConditions.attributeContains(element, attributeName, attributeValue));
                 break;
             case URL_CONTAINS:
-                String partialUrl = MobileDriverManager.getDriver().getCurrentUrl(); // Default to current URL
+                String partialUrl = MobileDriverManager.getDriver().getCurrentUrl();
                 wait.until(ExpectedConditions.urlContains(partialUrl));
                 break;
             case ALERT_PRESENT:
@@ -85,10 +85,11 @@ public class MobileExplicitWaitFactories {
                 wait.until(ExpectedConditions.elementToBeSelected(element));
                 break;
             case ELEMENT_TO_HAVE_TEXT:
-// Infer expected text dynamically
+                // Infer expected text dynamically
                 String expectedText = element.getText();
                 wait.until(ExpectedConditions.textToBePresentInElement(element, expectedText));
                 break;
+            // Add more cases for other wait strategies if needed
         }
     }
 

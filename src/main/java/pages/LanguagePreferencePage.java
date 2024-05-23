@@ -8,8 +8,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import reports.MobileTestLog;
 
-import java.util.Objects;
-
 public class LanguagePreferencePage {
     @FindBy(xpath = "//android.view.ViewGroup[@resource-id='com.zopsmart.stg.scarlet:id/tv_select_arab']")
     private WebElement arabicLanguage;

@@ -1,0 +1,246 @@
+13:41:09.966 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.21.0
+13:41:09.968 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 9.2.2
+13:41:10.056 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+13:41:10.056 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : /Users/rararmuri/Desktop/zs-appium-automation/browserstack.yml
+13:41:10.087 [main] INFO  c.b.config.BrowserStackConfig - Detected Framework testng
+13:41:10.575 [main] DEBUG c.b.logger.BrowserstackLoggerFactory - Log Level set to DEBUG
+13:41:10.575 [main] DEBUG c.b.logger.BrowserstackLoggerFactory - Log Level set to INFO
+13:41:10.699 [main] DEBUG c.b.utils.FrameworkDetectionUtils - Java command - com.intellij.rt.testng.RemoteTestNGStarter -usedefaultlisteners false -socket55927 @w@/private/var/folders/_w/61dy_tv94sl0858ngzkzbxrm0000gn/T/idea_working_dirs_testng.tmp -temp /private/var/folders/_w/61dy_tv94sl0858ngzkzbxrm0000gn/T/idea_testng.tmp
+13:41:10.699 [main] DEBUG c.b.utils.FrameworkDetectionUtils - Test classes detected: 
+13:41:10.703 [main] DEBUG c.b.utils.FrameworkDetectionUtils - Runner: testng, Engine: none
+13:41:10.708 [main] DEBUG c.b.utils.FrameworkDetectionUtils - Runner: testng, Engine: none from dependencies
+13:41:10.708 [main] DEBUG c.b.utils.FrameworkDetectionUtils - Detected final framework as: testng
+13:41:10.708 [main] DEBUG c.browserstack.BrowserStackJavaAgent - JavaAgent Version 1.14.0
+13:41:10.710 [main] INFO  c.browserstack.BrowserStackJavaAgent - Using app: [bs://af58663a405373dbc7db6480f0dd2884486b91ca]
+13:41:10.710 [main] INFO  c.browserstack.BrowserStackJavaAgent - Framework set to testng
+13:41:10.710 [main] DEBUG c.b.utils.ExitSignalHandler - Registered handler for INT
+13:41:10.710 [main] DEBUG c.b.utils.ExitSignalHandler - Registered handler for TERM
+13:41:10.710 [main] DEBUG c.b.utils.ExitSignalHandler - Registered handler for HUP
+13:41:10.710 [main] DEBUG c.b.utils.ExitSignalHandler - Registered handler for ABRT
+13:41:11.081 [Thread-1] DEBUG c.browserstack.utils.UtilityMethods - NEXT HUBS ARE: ["hub-aps.browserstack.com","hub-euw.browserstack.com","hub-apse.browserstack.com"]
+13:41:11.255 [main] DEBUG c.browserstack.utils.UtilityMethods - EXECUTION TIME OF hub-aps.browserstack.com HUB IS: 173ms
+13:41:12.279 [main] DEBUG c.browserstack.utils.UtilityMethods - EXECUTION TIME OF hub-euw.browserstack.com HUB IS: 1022ms
+13:41:13.657 [main] DEBUG c.browserstack.utils.UtilityMethods - EXECUTION TIME OF hub-apse.browserstack.com HUB IS: 1375ms
+13:41:13.664 [main] DEBUG c.browserstack.utils.UtilityMethods - NEAREST HUB ALLOCATED IS - hub-aps.browserstack.com
+13:41:13.680 [main] DEBUG c.b.utils.FunnelInstrumentation - Sending funnel data for SDKTestAttempted with data: {"event_type":"SDKTestAttempted","accessKey":"Vq4yobskngnpj86Li1Um","userName":"freeredical_oidEA6","event_properties":{"product":"[app-automate, observability]","buildName":"browserstack build","os":"Mac OS X","languageVersion":"17.0.11","appiumVersion":"9.2.2","frameworkDetectionInstrumentation":{"parseLoadClass":4,"parseDependencies":5},"language":"java","sdkRunId":"cd16760c-d8d0-4e27-a0ea-5029e0bbea90","buildIdentifier":"#4","userFramework":"testng","testhub_uuid":"","detectedAppiumVersion":"null","detectedDependencies":"testng","productMap":{"app_automate":true,"accessibility":false,"automate":false,"percy":false,"observability":true},"referrer":"testng-javaagent\/1.14.0","hostname":"172-0-173-242.lightspeed.cicril.sbcglobal.net","language_framework":"java_testng","detectedFramework":"testng","detectedSeleniumVersion":"4.21.0","seleniumVersion":"4.21.0"}}
+13:41:14.255 [main] DEBUG c.b.utils.FunnelInstrumentation - API Event SDKTestAttempted response - {"message":"SDK Event recorded successfully"}
+13:41:14.256 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+13:41:14.404 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:14.404081Z][ OBSERVABILITY ] Processing Request Kind launchTestSession
+
+13:41:14.404 [main] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Sending Observability request: POST api/v1/builds
+13:41:15.957 [main] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Response code: 200
+13:41:15.958 [main] DEBUG com.browserstack.testOps.Listener - BROWSERSTACK_TESTHUB_UUID : rb5g6gbjmefvdejksc7pjtgg4qvpx5tcvomhneji
+13:41:15.958 [main] DEBUG c.browserstack.utils.LogReportingAPI - 
+[2024-05-20T08:11:15.958782Z][ OBSERVABILITY ] Build creation successfull!
+
+13:41:15.958 [main] INFO  c.browserstack.BrowserStackJavaAgent - Starting BrowserStack Local......
+13:41:15.965 [main] DEBUG com.browserstack.LocalFactory - Starting BrowserStack Local with identifier 20_May_1341_172_0_173_242_lightspeed_cicril_sbcglobal_net_Qna3
+13:41:24.081 [main] INFO  com.browserstack.LocalFactory - BrowserStack Local Started Successfully.
+13:41:24.293 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.293812Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.347 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.347202Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.347 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.347445Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.348 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.348836Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.348 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.348950Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.349 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.348997Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.351 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.351829Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.351 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.351906Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.351 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.351988Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.352 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.352028Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.352 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.352085Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.352 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.352547Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.352 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.352600Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.352 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.352670Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.352 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.352710Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.352 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.352907Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.355 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.355461Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.355 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.355536Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.355 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.355605Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.355 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.355650Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.355 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.355685Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.356 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.356931Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.357 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.357024Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.357 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.357103Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.357 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.357145Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.357 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.357180Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.357 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.357383Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.357 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.357429Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.357 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.357490Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.357 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.357530Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.357 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.357571Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.358 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.358777Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.358 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.358836Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.358 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.358893Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.358 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.358928Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.358 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.358960Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.359 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.359623Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.359 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.359677Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.359 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.359732Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.359 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.359767Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.359 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.359797Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.359 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.359955Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.360 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.360013Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.360 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.360111Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.360 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.360156Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.360 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.360192Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.360 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.360755Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.360 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.360954Z][ OBSERVABILITY ] Processing Logs patching stream
+13:41:24.425 [main] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.425224Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.904 [Test-0@0] DEBUG c.b.testNgListeners.TestNGUtils - [populateTestDataForBSTestOps] Event Type :: TestRunStarted, Test ClassName :: test.SignInSignOutTest 
+13:41:24.904 [Test-1@1] DEBUG c.b.testNgListeners.TestNGUtils - [populateTestDataForBSTestOps] Event Type :: TestRunStarted, Test ClassName :: test.SignInSignOutTest 
+13:41:24.904 [Test-2@2] DEBUG c.b.testNgListeners.TestNGUtils - [populateTestDataForBSTestOps] Event Type :: TestRunStarted, Test ClassName :: test.SignInSignOutTest 
+13:41:24.904 [Test-1@1] DEBUG c.browserstack.utils.UtilityMethods - [findFileMatcher] Current Path is :: /Users/rararmuri/Desktop/zs-appium-automation, TestClass :: test/SignInSignOutTest
+13:41:24.904 [Test-0@0] DEBUG c.browserstack.utils.UtilityMethods - [findFileMatcher] Current Path is :: /Users/rararmuri/Desktop/zs-appium-automation, TestClass :: test/SignInSignOutTest
+13:41:24.904 [Test-2@2] DEBUG c.browserstack.utils.UtilityMethods - [findFileMatcher] Current Path is :: /Users/rararmuri/Desktop/zs-appium-automation, TestClass :: test/SignInSignOutTest
+13:41:24.967 [Test-1@1] DEBUG c.b.testNgListeners.TestNGUtils - [populateTestDataForBSTestOps] The filename fetched :: /Users/rararmuri/Desktop/zs-appium-automation/src/test/java/test/SignInSignOutTest.java, fileSeparator :: /, AbsolutePath :: /Users/rararmuri/Desktop/zs-appium-automation/., Normalized Path :: /Users/rararmuri/Desktop/zs-appium-automation, File.Separator :: /
+13:41:24.967 [Test-1@1] DEBUG c.b.testNgListeners.TestNGUtils - [populateTestDataForBSTestOps] Replaced File Name is :: zs-appium-automation/src/test/java/test/SignInSignOutTest.java, Absolute Path :: /Users/rararmuri/Desktop/zs-appium-automation/.., Normalized Path :: /Users/rararmuri/Desktop 
+13:41:24.967 [Test-0@0] DEBUG c.b.testNgListeners.TestNGUtils - [populateTestDataForBSTestOps] The filename fetched :: /Users/rararmuri/Desktop/zs-appium-automation/src/test/java/test/SignInSignOutTest.java, fileSeparator :: /, AbsolutePath :: /Users/rararmuri/Desktop/zs-appium-automation/., Normalized Path :: /Users/rararmuri/Desktop/zs-appium-automation, File.Separator :: /
+13:41:24.967 [Test-0@0] DEBUG c.b.testNgListeners.TestNGUtils - [populateTestDataForBSTestOps] Replaced File Name is :: zs-appium-automation/src/test/java/test/SignInSignOutTest.java, Absolute Path :: /Users/rararmuri/Desktop/zs-appium-automation/.., Normalized Path :: /Users/rararmuri/Desktop 
+13:41:24.967 [Test-2@2] DEBUG c.b.testNgListeners.TestNGUtils - [populateTestDataForBSTestOps] The filename fetched :: /Users/rararmuri/Desktop/zs-appium-automation/src/test/java/test/SignInSignOutTest.java, fileSeparator :: /, AbsolutePath :: /Users/rararmuri/Desktop/zs-appium-automation/., Normalized Path :: /Users/rararmuri/Desktop/zs-appium-automation, File.Separator :: /
+13:41:24.967 [Test-2@2] DEBUG c.b.testNgListeners.TestNGUtils - [populateTestDataForBSTestOps] Replaced File Name is :: zs-appium-automation/src/test/java/test/SignInSignOutTest.java, Absolute Path :: /Users/rararmuri/Desktop/zs-appium-automation/.., Normalized Path :: /Users/rararmuri/Desktop 
+13:41:24.985 [Test-1@1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.985212Z][ OBSERVABILITY ] Processing Request Kind TestRunStarted
+
+13:41:24.985 [Test-2@2] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.985212Z][ OBSERVABILITY ] Processing Request Kind TestRunStarted
+
+13:41:24.985 [Test-0@0] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.985465Z][ OBSERVABILITY ] Processing Request Kind TestRunStarted
+
+13:41:24.987 [Test-2@2] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.987770Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.988 [Test-1@1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.988097Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:24.988 [Test-0@0] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:24.988410Z][ OBSERVABILITY ] Processing Request Kind LogCreated
+
+13:41:26.300 [pool-4-thread-1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:26.300346Z][ OBSERVABILITY ] Time Since Last Batch Processed 1716192686300
+
+13:41:26.306 [pool-5-thread-1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:26.306627Z][ OBSERVABILITY ] Processing Batch 54
+
+13:41:26.306 [pool-5-thread-1] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Sending Observability request: POST api/v1/batch
+13:41:26.784 [pool-5-thread-1] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Response code: 200
+13:41:26.785 [pool-5-thread-1] DEBUG c.browserstack.utils.LogReportingAPI - 
+[2024-05-20T08:11:26.784953Z][ OBSERVABILITY ] Batch event successfull!
+
+13:41:30.298 [pool-4-thread-1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:30.297826Z][ OBSERVABILITY ] Time Since Last Batch Processed 3995
+
+13:41:34.299 [pool-4-thread-1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:34.298708Z][ OBSERVABILITY ] Time Since Last Batch Processed 4000
+
+13:41:34.896 [SIGINT handler] INFO  c.b.utils.ExitSignalHandler - Shutdown triggered by: INT 2
+13:41:36.300 [pool-4-thread-1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:36.300246Z][ OBSERVABILITY ] Time Since Last Batch Processed 2001
+
+13:41:40.297 [pool-4-thread-1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:40.296839Z][ OBSERVABILITY ] Time Since Last Batch Processed 3996
+
+13:41:44.296 [pool-4-thread-1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:44.296065Z][ OBSERVABILITY ] Time Since Last Batch Processed 3997
+
+13:41:46.300 [pool-4-thread-1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:46.300152Z][ OBSERVABILITY ] Time Since Last Batch Processed 2003
+
+13:41:50.296 [pool-4-thread-1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:50.295820Z][ OBSERVABILITY ] Time Since Last Batch Processed 3996
+
+13:41:52.350 [signinSignoutTest@0] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:52.350292Z][ OBSERVABILITY ] Processing Request Kind Screenshot:LogCreated
+
+13:41:52.350 [signinSignoutTest@0] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Sending Observability request: POST api/v1/screenshots
+13:41:53.228 [signinSignoutTest@1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:53.228432Z][ OBSERVABILITY ] Processing Request Kind Screenshot:LogCreated
+
+13:41:53.228 [signinSignoutTest@1] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Sending Observability request: POST api/v1/screenshots
+13:41:54.295 [pool-4-thread-1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:54.295357Z][ OBSERVABILITY ] Time Since Last Batch Processed 3998
+
+13:41:54.735 [signinSignoutTest@0] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Response code: 200
+13:41:55.337 [signinSignoutTest@1] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Response code: 200
+13:41:56.299 [pool-4-thread-1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:56.299468Z][ OBSERVABILITY ] Time Since Last Batch Processed 2003
+
+13:41:56.441 [signinSignoutTest@0] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:56.441606Z][ OBSERVABILITY ] Processing Request Kind Screenshot:LogCreated
+
+13:41:56.441 [signinSignoutTest@0] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Sending Observability request: POST api/v1/screenshots
+13:41:56.447 [signinSignoutTest@1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:56.447526Z][ OBSERVABILITY ] Processing Request Kind Screenshot:LogCreated
+
+13:41:56.447 [signinSignoutTest@1] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Sending Observability request: POST api/v1/screenshots
+13:41:56.739 [signinSignoutTest@0] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Response code: 200
+13:41:56.981 [signinSignoutTest@1] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Response code: 200
+13:41:58.300 [pool-4-thread-1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:58.300276Z][ OBSERVABILITY ] Time Since Last Batch Processed 2001
+
+13:41:58.497 [signinSignoutTest@1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:58.497736Z][ OBSERVABILITY ] Processing Request Kind Screenshot:LogCreated
+
+13:41:58.497 [signinSignoutTest@1] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Sending Observability request: POST api/v1/screenshots
+13:41:58.526 [signinSignoutTest@0] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:58.526425Z][ OBSERVABILITY ] Processing Request Kind Screenshot:LogCreated
+
+13:41:58.526 [signinSignoutTest@0] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Sending Observability request: POST api/v1/screenshots
+13:41:58.799 [signinSignoutTest@1] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Response code: 200
+13:41:58.876 [signinSignoutTest@2] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:11:58.876476Z][ OBSERVABILITY ] Processing Request Kind Screenshot:LogCreated
+
+13:41:58.876 [signinSignoutTest@2] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Sending Observability request: POST api/v1/screenshots
+13:41:59.180 [signinSignoutTest@2] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Response code: 200
+13:42:00.310 [signinSignoutTest@0] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Response code: 200
+13:42:00.713 [signinSignoutTest@1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:12:00.713393Z][ OBSERVABILITY ] Processing Request Kind Screenshot:LogCreated
+
+13:42:00.713 [signinSignoutTest@1] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Sending Observability request: POST api/v1/screenshots
+13:42:01.019 [signinSignoutTest@1] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Response code: 200
+13:42:01.984 [signinSignoutTest@0] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:12:01.984955Z][ OBSERVABILITY ] Processing Request Kind Screenshot:LogCreated
+
+13:42:01.985 [signinSignoutTest@0] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Sending Observability request: POST api/v1/screenshots
+13:42:02.291 [signinSignoutTest@0] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Response code: 200
+13:42:02.299 [pool-4-thread-1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:12:02.299690Z][ OBSERVABILITY ] Time Since Last Batch Processed 3999
+
+13:42:02.336 [signinSignoutTest@1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:12:02.336788Z][ OBSERVABILITY ] Processing Request Kind Screenshot:LogCreated
+
+13:42:02.337 [signinSignoutTest@1] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Sending Observability request: POST api/v1/screenshots
+13:42:02.661 [signinSignoutTest@1] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Response code: 200
+13:42:03.764 [signinSignoutTest@0] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:12:03.764348Z][ OBSERVABILITY ] Processing Request Kind Screenshot:LogCreated
+
+13:42:03.764 [signinSignoutTest@0] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Sending Observability request: POST api/v1/screenshots
+13:42:04.135 [signinSignoutTest@0] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Response code: 200
+13:42:06.300 [pool-4-thread-1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:12:06.300008Z][ OBSERVABILITY ] Time Since Last Batch Processed 4000
+
+13:42:06.679 [signinSignoutTest@2] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:12:06.679210Z][ OBSERVABILITY ] Processing Request Kind Screenshot:LogCreated
+
+13:42:06.679 [signinSignoutTest@2] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Sending Observability request: POST api/v1/screenshots
+13:42:06.999 [signinSignoutTest@2] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Response code: 200
+13:42:10.300 [pool-4-thread-1] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:12:10.300482Z][ OBSERVABILITY ] Time Since Last Batch Processed 3999
+
+13:42:11.588 [signinSignoutTest@2] DEBUG c.browserstack.utils.LogReportingAPI - [2024-05-20T08:12:11.588089Z][ OBSERVABILITY ] Processing Request Kind Screenshot:LogCreated
+
+13:42:11.588 [signinSignoutTest@2] DEBUG c.browserstack.testOps.RequestUtils - requestToTestOps: Sending Observability request: POST api/v1/screenshots

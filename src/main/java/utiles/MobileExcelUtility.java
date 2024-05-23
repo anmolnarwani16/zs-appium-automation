@@ -14,58 +14,56 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
-
 public class MobileExcelUtility {
-	
-	public static List<Map<String, String>> getTestDetails(String sheetName) {
-		List<Map<String,String>> list=null;
-		FileInputStream fileInputStream = null;
-		try {
-			fileInputStream = new FileInputStream(MobileFrameConstant.excelFilePath());
-			@SuppressWarnings("resource")
-			XSSFWorkbook xssfWorkbook = new XSSFWorkbook(fileInputStream);
-			String sheetname = sheetName;
-			XSSFSheet sheet = xssfWorkbook.getSheet(sheetname);
 
-			
-			int lastRowNum = sheet.getLastRowNum();
-			int lastCellNum = sheet.getRow(0).getLastCellNum();
-
-			Map<String, String> map = null;
-			list=new ArrayList<>();
-			for (int i = 0; i <= lastRowNum; i++) {
-				map=new HashMap<>();
-				for (int j = 0; j <lastCellNum; j++) {
-					
-				String key = sheet.getRow(0).getCell(j).getStringCellValue();
-				String value = sheet.getRow(i).getCell(j).getStringCellValue();
-				map.put(key, value);
-
-				}
-				list.add(map);
-
-			}
+    public static List<Map<String, String>> getTestDetails(String sheetName) {
+        List<Map<String, String>> list = null;
+        FileInputStream fileInputStream = null;
+        try {
+            fileInputStream = new FileInputStream(MobileFrameConstant.excelFilePath());
+            @SuppressWarnings("resource")
+            XSSFWorkbook xssfWorkbook = new XSSFWorkbook(fileInputStream);
+            String sheetname = sheetName;
+            XSSFSheet sheet = xssfWorkbook.getSheet(sheetname);
 
 
-		} catch (FileNotFoundException e) {
+            int lastRowNum = sheet.getLastRowNum();
+            int lastCellNum = sheet.getRow(0).getLastCellNum();
 
-			e.printStackTrace();
-		} catch (IOException e) {
+            Map<String, String> map = null;
+            list = new ArrayList<>();
+            for (int i = 0; i <= lastRowNum; i++) {
+                map = new HashMap<>();
+                for (int j = 0; j < lastCellNum; j++) {
 
-			e.printStackTrace();
-		}
-		finally {
-			try {
-				if(Objects.nonNull(fileInputStream))
-				fileInputStream.close();
-			} catch (IOException e) {
-				
-				e.printStackTrace();
-			}
-		}
+                    String key = sheet.getRow(0).getCell(j).getStringCellValue();
+                    String value = sheet.getRow(i).getCell(j).getStringCellValue();
+                    map.put(key, value);
 
-		return list;
-	}
+                }
+                list.add(map);
+
+            }
+
+
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        } finally {
+            try {
+                if (Objects.nonNull(fileInputStream))
+                    fileInputStream.close();
+            } catch (IOException e) {
+
+                e.printStackTrace();
+            }
+        }
+
+        return list;
+    }
 
 
 }
