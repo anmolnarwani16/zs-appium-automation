@@ -79,11 +79,4 @@ public class MobileAssertionUtility {
                 "Current URL does not contain the expected text. Expected: " + expectedText + ", Actual: " + actualUrl);
     }
 
-    // Add more assertion methods as needed
-
-   
-    // AssertionUtility.assertElementIsDisplayed(yourElement);
-    // AssertionUtility.assertElementTextEquals(yourElement, "Expected Text");
-    // AssertionUtility.assertElementAttributeEquals(yourElement, "attributeName", "expectedValue");
-
 }
