@@ -10,10 +10,10 @@ import org.openqa.selenium.support.PageFactory;
 import reports.MobileTestFailure;
 import reports.MobileTestLog;
 
-public class MyCartPage {
+public final class MyCartPage {
     @FindBy(id = "com.zopsmart.stg.scarlet:id/button_checkout")
     private WebElement checkOutButton;
-    @FindBy(xpath = "//android.widget.ImageView[@resource-id='com.zopsmart.stg.scarlet:id/ib_remove']")
+    @FindBy(xpath = "(//android.widget.ImageView[@resource-id='com.zopsmart.stg.scarlet:id/ib_remove'])[1]")
     private static WebElement SubtractButton;
     @FindBy(xpath = "//android.widget.ImageView[@resource-id='com.zopsmart.stg.scarlet:id/ib_add']")
     private WebElement AddButton;
@@ -29,6 +29,10 @@ public class MyCartPage {
     private WebElement selectSubstitutionButton;
     @FindBy(xpath = "(//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_item_name'])[1]")
     private WebElement firstItemName;
+    @FindBy(xpath = "(//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_item_name'])[1]")
+    private WebElement itemName;
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_item_name' and @text='Fancy Flower Bouquet - 1PCS']/../android.view.ViewGroup/android.widget.ImageView[2]")
+    private WebElement itemNameAddButton;
     public MyCartPage(){
         PageFactory.initElements(MobileDriverManager.getDriver(),this);
     }
@@ -47,11 +51,11 @@ public class MyCartPage {
     }
     public static int  checkTheAddedItemValue(String testname) {
        int value = Integer.parseInt(MobileExplicitWaitFactories.getText(ItemQuantity,null,WaitStrategy.VISIBLE,"Quantity of item in the Cart"));
-        if(value<2)
-        {
-            new FruitCategoryPage().clickOnAddIcon(Constant.ADDORSUBTRACT_PRODUCT_TEST_NAME);
-            value++;
-        }
+//        if(value<2)
+//        {
+//            new FruitCategoryPage().clickOnAddIcon(Constant.ADDORSUBTRACT_PRODUCT_TEST_NAME);
+//            value++;
+//        }
         MobileTestLog.logTestStep(testname,"Verifying the Quantity","Verifying the Quantity of Item in Cart");
        return value;
     }
@@ -86,5 +90,12 @@ public class MyCartPage {
     {
        String ItemName=MobileExplicitWaitFactories.getText(firstItemName,null,WaitStrategy.VISIBLE,"User clicked on Item Name");
        return ItemName;
+    }
+    public String checkTheText(String testname)
+    {
+        String str=itemName.getText();
+        new HomePage().clickOnCartIcon(Constant.ADDORSUBTRACT_PRODUCT_TEST_NAME);
+        String dynamicXPath = String.format("//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_item_name' and @text='%s']/../android.view.ViewGroup/android.widget.ImageView[2]",str);
+        return str;
     }
 }

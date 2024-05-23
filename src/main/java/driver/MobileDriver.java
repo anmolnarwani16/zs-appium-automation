@@ -59,13 +59,13 @@ public class MobileDriver {
             } else if (platformName.equalsIgnoreCase("browserStack")) {
                 UiAutomator2Options option = new UiAutomator2Options();
 
-                option.setCapability("browserstack.user", "sameerrathod_Vf9kdJ"); //update your user
-                option.setCapability("browserstack.key", "KzoKV6HYE3Ev15RLcfXT"); //update your key
+                option.setCapability("browserstack.user", "satyajeetkumar_WU8j6g"); //update your user
+                option.setCapability("browserstack.key", "SYCSei61NCa1KjvB9Gih"); //update your key
                 option.setCapability("project", "Test Java Project");
                 option.setCapability("build", "Java Android demo");
-                option.setCapability("name", "some name");
+                option.setCapability("name", "Zopping mobile application testing");
                 option.setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2);
-                option.setApp("bs://a8c5841ab33d67a0ec6020bf5b1d56f831efe6e3");
+                option.setApp("bs://8dfd53caa4007c76a2420f6d24d1e67986aec502");
                 option.setPlatformName(data.get("PlatformName").toString());
 
 

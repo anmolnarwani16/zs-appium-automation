@@ -3,10 +3,10 @@ package factories;
 import java.time.Duration;
 
 import driver.MobileDriverManager;
+import enums.MobileLogType;
 import enums.WaitStrategy;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,7 +20,7 @@ public class MobileExplicitWaitFactories {
         element.click();
 
         try {
-            MobileExtentLogger.pass(description, true);
+            MobileExtentLogger.log(MobileLogType.PASS,description);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -31,10 +31,21 @@ public class MobileExplicitWaitFactories {
         element.sendKeys(value);
 
         try {
-            MobileExtentLogger.pass("User entered *********" + description, true);
+            MobileExtentLogger.log(MobileLogType.PASS,"User entered *********" + description);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public static String getText(WebElement element,WaitStrategy waitStrategy, String description)
+    {
+        waitUntilElementVisible(element,waitStrategy);
+        String str = element.getText();
+        try {
+            MobileExtentLogger.log(MobileLogType.PASS,description);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return str;
     }
 
     public static String getText(WebElement element, String enterExpectedText,WaitStrategy waitStrategy, String description) {
@@ -48,7 +59,7 @@ public class MobileExplicitWaitFactories {
         }
 
         try {
-            MobileExtentLogger.pass(description, true);
+            MobileExtentLogger.log(MobileLogType.PASS,description);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -102,7 +113,7 @@ public class MobileExplicitWaitFactories {
         public static void pressEnter(String description) {
             MobileDriverManager.getDriver().pressKey(new KeyEvent().withKey(AndroidKey.ENTER));
             try {
-                MobileExtentLogger.pass(description, true);
+                MobileExtentLogger.log(MobileLogType.PASS,description);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -111,9 +122,13 @@ public class MobileExplicitWaitFactories {
 
 
     private static void waitUntilTextVisible(WebElement element, WaitStrategy waitStrategy, String enterExpectedText) {
-        WebDriverWait wait = new WebDriverWait(MobileDriverManager.getDriver(), Duration.ofSeconds(40));
+        WebDriverWait wait = new WebDriverWait(MobileDriverManager.getDriver(), Duration.ofSeconds(20));
         wait.until(ExpectedConditions.textToBePresentInElement(element, enterExpectedText));
 
 
+    }
+    private static void waitUntilElementVisible(WebElement element, WaitStrategy waitStrategy) {
+        WebDriverWait wait = new WebDriverWait(MobileDriverManager.getDriver(), Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(element));
     }
 }

@@ -32,7 +32,7 @@ public class Constant {
 
 
     // Sign In and Sign Out Test constant
-    public static final String SIGNINSIGNOUT_TEST = "Sign In Sign Out";
+    public static final String SIGNINSIGNOUT_TEST = "Sign In";
     public static final String SIGNIN_HEADING = "Signup / Login";
     public static final String SIGNIN_USERNAME = "Andreas Andreou";
 
@@ -55,4 +55,8 @@ public class Constant {
     public static final String PLACE_ORDER = "Placing Order";
     // Order Notification Test Constants
     public static final String ORDER_NOTIFICATION = "Order Notification";
+
+
+    public static final String OUT_OF_STOCK="OUT OF STOCK";
+    public static final String MAX_LIMIT="You cannot add more items of this product";
 }

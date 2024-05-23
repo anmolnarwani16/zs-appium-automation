@@ -10,7 +10,7 @@ import reports.MobileTestLog;
 
 import java.util.Objects;
 
-public class LanguagePreferencePage {
+public final class LanguagePreferencePage {
     @FindBy(xpath = "//android.view.ViewGroup[@resource-id='com.zopsmart.stg.scarlet:id/tv_select_arab']")
     private WebElement arabicLanguage;
     @FindBy(xpath = "//android.view.ViewGroup[@resource-id='com.zopsmart.stg.scarlet:id/tv_select_eng']")

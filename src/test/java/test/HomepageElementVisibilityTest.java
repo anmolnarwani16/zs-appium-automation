@@ -7,19 +7,24 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.*;
 import reports.MobileTestLog;
+import utiles.LoginChecker;
 import utiles.MobileAssertionUtility;
 
 import java.util.Map;
 
-public class HomepageElementVisibilityTest extends MobileBaseTest {
+public final class HomepageElementVisibilityTest extends MobileBaseTest {
+    private HomepageElementVisibilityTest() {
+    }
+
     /**
      * Test to verify visibilty of HomePage Elements.
      *
      * @param data Test data containing username, password, Execution(Yes or No), udid, platformName.
      *             Author:-Satyajeet Kumar
      */
-    @Test(description = "Visibility of Homepage Elements", groups = {"smoke","regression"})
-    public void homePageElement(Map<String, String> data) {
+    @Test(description = "Visibility of Homepage Elements", groups = {"smoke", "regression"})
+    public static void homePageElement(Map<String, String> data) {
+        new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(), Constant.HOMEPAGE_ELEMENT_TEST);
         //Search Icon Visibility
         new HomePage().clickOnSearchIcon(Constant.HOMEPAGE_ELEMENT_TEST);
         WebElement searchTab = new SearchPage().getSearchTabElement(Constant.HOMEPAGE_ELEMENT_TEST);

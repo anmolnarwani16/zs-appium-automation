@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import reports.MobileTestLog;
 
-public class FilterProductPage {
+public final class FilterProductPage {
     @FindBy(xpath = "//android.widget.Button[@resource-id='com.zopsmart.stg.scarlet:id/btn_filter']")
     private WebElement filterButton;
     @FindBy(xpath = "//android.widget.ImageView[@resource-id='com.zopsmart.stg.scarlet:id/iv_arrow']")

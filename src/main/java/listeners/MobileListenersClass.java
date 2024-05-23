@@ -1,5 +1,6 @@
 package listeners;
 
+import enums.MobileLogType;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import org.testng.ITestContext;
@@ -11,7 +12,6 @@ import reports.MobileTestFailure;
 
 
 public class MobileListenersClass implements ITestListener, ISuiteListener {
-
 
     @Override
     public void onStart(ISuite suite) {
@@ -42,35 +42,46 @@ public class MobileListenersClass implements ITestListener, ISuiteListener {
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        MobileExtentLogger.pass(result.getMethod().getMethodName() + " is passed");
+        try {
+            MobileExtentLogger.log(MobileLogType.PASS,result.getMethod().getMethodName() + " is passed");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         System.out.println("Test passed: " + result.getMethod().getMethodName());
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-
-        MobileExtentLogger.fail(result.getMethod().getMethodName() + " is failed");
-        MobileExtentLogger.fail(result.getThrowable().toString());
-
-//        System.out.println("Test failed: " + result.getMethod().getMethodName());
-        String methodName = result.getMethod().getMethodName();
-        String failureReason = result.getThrowable().toString();
-
-        // Log failure to console
-        System.out.println("Test failed: " + methodName);
-        System.out.println("Failure reason: " + failureReason);
-        // Print each line of the stack trace on a new line
-        StackTraceElement[] stackTrace = result.getThrowable().getStackTrace();
-        MobileTestFailure.logTestStep(methodName,failureReason);
-//        for (StackTraceElement element : stackTrace) {
-//            MobileExtentLogger.fail(element.toString());
-//            System.out.println("    " + element.toString());
-//        }
+        try {
+            // MobileExtentLogger.log(MobileLogType.FAIL, result.getMethod().getMethodName() + " has failed");
+            Throwable throwable = result.getThrowable();
+            if (throwable != null) {
+                // Log the exception message
+                MobileExtentLogger.log(MobileLogType.FAIL, throwable.getMessage());
+                // Get the stack trace elements
+                StackTraceElement[] stackTrace = throwable.getStackTrace();
+                // Check if the stack trace is not empty
+                if (stackTrace.length > 0) {
+                    // Get the first element of the stack trace
+                    StackTraceElement errorLine = stackTrace[0];
+                    // Log and print only the error line
+                    // MobileExtentLogger.log(MobileLogType.FAIL, errorLine.toString());
+                    System.out.println("Test failed: " + result.getMethod().getMethodName());
+                    System.out.println("    " + errorLine.toString());
+                }
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        MobileExtentLogger.skip(result.getMethod().getMethodName() + " is Skipped");
+        try {
+            MobileExtentLogger.log(MobileLogType.FAIL,result.getMethod().getMethodName() + " is Skipped");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         System.out.println("Test skipped: " + result.getMethod().getMethodName());
     }
 

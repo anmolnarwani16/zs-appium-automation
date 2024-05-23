@@ -1,16 +1,21 @@
 package pages;
 
 import driver.MobileDriverManager;
+import enums.MobileLogType;
 import enums.WaitStrategy;
 import factories.MobileExplicitWaitFactories;
+import frameConstatnt.testConstant.Constant;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import reports.MobileExtentLogger;
 import reports.MobileTestLog;
 import utiles.MobileScrollDownUtility;
 
-public class CheckoutPage {
+import java.util.List;
+
+public final class CheckoutPage {
     @FindBy(id = "com.zopsmart.stg.scarlet:id/et_name")
     private WebElement commentSection;
     @FindBy(id = "com.zopsmart.stg.scarlet:id/radio_debit_card")
@@ -23,37 +28,84 @@ public class CheckoutPage {
     private WebElement orderPlacedTab;
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_slot_time' and @text='Within 30 minutes']")
     private WebElement timeSlotButton;
-    public CheckoutPage(){
-        PageFactory.initElements(MobileDriverManager.getDriver(),this);
+    @FindBy(xpath = "(//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_out_of_stock'])[1]")
+    private List<WebElement> outOfStock;
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='android:id/message']")
+    private List<WebElement> maxLimit;
+
+    public CheckoutPage() {
+        PageFactory.initElements(MobileDriverManager.getDriver(), this);
     }
-    public CheckoutPage enterComment(WebDriver driver,String testname){
+
+    public CheckoutPage enterComment(WebDriver driver, String testname) {
         MobileScrollDownUtility.scrollDown(driver);
-        MobileExplicitWaitFactories.sendKeys(commentSection,"sample text for place order text", WaitStrategy.VISIBLE,"user entered comment related to order");
-        MobileTestLog.logTestStep(testname,"enter text in comment section","user entered comment related to order");
+        MobileScrollDownUtility.scrollDownWithRetry(driver);
+        MobileExplicitWaitFactories.sendKeys(commentSection, "sample text for place order text", WaitStrategy.VISIBLE, "user entered comment related to order");
+        MobileTestLog.logTestStep(testname, "enter text in comment section", "user entered comment related to order");
         return new CheckoutPage();
     }
-    public CheckoutPage clickDebitCardButton(String testname){
-        MobileExplicitWaitFactories.click(debitCardButton,WaitStrategy.CLICKABLE,"user clicked on debit card option");
-        MobileTestLog.logTestStep(testname,"choose payment method","user clicked on debit card option");
+
+    public CheckoutPage clickDebitCardButton(String testname) {
+        MobileExplicitWaitFactories.click(debitCardButton, WaitStrategy.CLICKABLE, "user clicked on debit card option");
+        MobileTestLog.logTestStep(testname, "choose payment method", "user clicked on debit card option");
         return new CheckoutPage();
     }
-    public CheckoutPage clickOnSavedDebitCard(String testname){
-        MobileExplicitWaitFactories.click(savedDebitCard,WaitStrategy.CLICKABLE,"user clicked on saved debit card");
-        MobileTestLog.logTestStep(testname,"choose from saved cards","user clicked on saved debit card");
+
+    public CheckoutPage clickOnSavedDebitCard(String testname) {
+        MobileExplicitWaitFactories.click(savedDebitCard, WaitStrategy.CLICKABLE, "user clicked on saved debit card");
+        MobileTestLog.logTestStep(testname, "choose from saved cards", "user clicked on saved debit card");
         return new CheckoutPage();
     }
-    public CheckoutPage clickOnPlaceOrderButton(String testname){
-        MobileExplicitWaitFactories.click(placeOrderButton,WaitStrategy.CLICKABLE,"user clicked on place order button");
-        MobileTestLog.logTestStep(testname,"click place order button","user clicked on place order button");
+
+    public CheckoutPage clickOnPlaceOrderButton(String testname) {
+        MobileExplicitWaitFactories.click(placeOrderButton, WaitStrategy.CLICKABLE, "user clicked on place order button");
+        MobileTestLog.logTestStep(testname, "click place order button", "user clicked on place order button");
         return new CheckoutPage();
     }
-    public WebElement getOrderPlacedTab(String testname){
-        MobileTestLog.logTestStep(testname,"validate presence of order placed tab","Verifying the visibility of Order placed tab");
+
+    public WebElement getOrderPlacedTab(String testname) {
+        MobileTestLog.logTestStep(testname, "validate presence of order placed tab", "Verifying the visibility of Order placed tab");
         return orderPlacedTab;
     }
-    public CheckoutPage clickOnTimeSlotButton(String testname){
-        MobileExplicitWaitFactories.click(timeSlotButton,WaitStrategy.CLICKABLE,"user clicked on within 30 min time slot");
-        MobileTestLog.logTestStep(testname,"click 30 min time slot","user clicked on within 30 min time slot");
+
+    public CheckoutPage clickOnTimeSlotButton(String testname) {
+        MobileExplicitWaitFactories.click(timeSlotButton, WaitStrategy.CLICKABLE, "user clicked on within 30 min time slot");
+        MobileTestLog.logTestStep(testname, "click 30 min time slot", "user clicked on within 30 min time slot");
         return new CheckoutPage();
     }
+
+    //    public boolean isOutOfStock(String enterActualText, String testname) {
+//        try {
+//            MobileTestLog.logTestStep(testname, "Checking if item is out of stock", "Checking if item is out of stock");
+//            String outOfStockText = MobileExplicitWaitFactories.getText(outOfStock, enterActualText, WaitStrategy.ELEMENT_TO_HAVE_TEXT, "Item is out of stock");
+//            return outOfStockText.equals(Constant.OUT_OF_STOCK);
+//        } catch (Exception e) {
+//            return false;
+//        }
+//    }
+//    public boolean maxLimit(String enterActualText, String testname) {
+//        try {
+//            MobileTestLog.logTestStep(testname, "Checking max limit of an item", "Checking if item reached max limit");
+//            String maxLimitOfItem = MobileExplicitWaitFactories.getText(maxLimit, enterActualText, WaitStrategy.VISIBLE, "Item exceed limit");
+//            return maxLimitOfItem.equals(Constant.MAX_LIMIT);
+//        }
+//        catch (Exception e) {
+//            return false;
+//        }
+    public void addItemToCartAndCheckLimit(String testname) {
+        if (!outOfStock.isEmpty()) {
+            MobileExtentLogger.log(MobileLogType.INFO, "Item out of stock");
+            throw new RuntimeException("Item is out of stock, terminating the test.");
+        } else {
+            for (int i = 0; i < 2; i++) {
+                new FruitCategoryPage().clickOnAddIcon(testname);
+                if (!maxLimit.isEmpty()) {
+                    new HomePage().performClickOnOkButton(testname);
+                }
+            }
+
+        }
+
+    }
+
 }

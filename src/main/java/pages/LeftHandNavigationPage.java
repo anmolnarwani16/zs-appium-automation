@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import reports.MobileTestLog;
 
-public class LeftHandNavigationPage {
+public final class LeftHandNavigationPage {
     @FindBy(id = "com.zopsmart.stg.scarlet:id/tv_sign_in")
     private WebElement signedInUser;
     @FindBy(xpath = "//android.widget.ImageButton[@content-desc='Close navigation drawer']")

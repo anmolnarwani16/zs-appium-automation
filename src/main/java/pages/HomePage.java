@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import reports.MobileTestLog;
 
-public class HomePage {
+public final class HomePage {
     @FindBy(id = "com.zopsmart.stg.scarlet:id/account")
     private WebElement accountButton;
 
@@ -29,7 +29,7 @@ public class HomePage {
 
     @FindBy(xpath = "//android.widget.ImageButton[@content-desc='Open navigation drawer']")
     private WebElement hamburgerIcon;
-     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_category_title' and @text='BAKERY']")
+     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_category_title' and @text='FRUITS & VEGETABLES']")
     private WebElement fruitCategory;
     @FindBy(xpath = "//android.widget.ImageView[@resource-id='com.zopsmart.stg.scarlet:id/search_icon']")
     private WebElement searchIcon;
@@ -49,6 +49,8 @@ public class HomePage {
     private WebElement viewAllButton;
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_subcategory_name' and @text='IMPORTED ✈']")
     private WebElement importedSubCategory;
+    @FindBy(xpath = "//android.widget.Button[@resource-id='android:id/button1']")
+    private WebElement ok;
 
     public HomePage() {
         PageFactory.initElements(MobileDriverManager.getDriver(), this);
@@ -152,5 +154,9 @@ public class HomePage {
     public WebElement getSubCategoryElement(String testname) {
         MobileTestLog.logTestStep(testname, "Sub-Category Visibility", "Verifying the Sub-Category");
         return importedSubCategory;
+    }
+    public void performClickOnOkButton(String testname) {
+        MobileTestLog.logTestStep(testname, "Perform Click On Ok Button", "user clicked on ok button");
+        MobileExplicitWaitFactories.click(ok, WaitStrategy.CLICKABLE, "user clicked on ok button");
     }
 }

@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import reports.MobileTestLog;
 
-public class SearchPage {
+public final class SearchPage {
     @FindBy(xpath = "//android.widget.EditText[@resource-id='com.zopsmart.stg.scarlet:id/et_search']")
     private WebElement searchTab;
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_page_name']")
