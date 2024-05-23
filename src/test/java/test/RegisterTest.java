@@ -10,15 +10,25 @@ import pages.HomePage;
 import pages.RegisterPage;
 import pages.SignInPage;
 import reports.MobileTestLog;
+import utiles.LoginChecker;
 import utiles.MobileDataGenerator;
 
 import java.util.Map;
 
-public class RegisterTest extends MobileBaseTest {
+public final class RegisterTest extends MobileBaseTest {
 
+    private RegisterTest(){
 
+    }
+    /**
+     * Test to verify Registering of New User.
+     *
+     * @param data Test data containing username, password, Execution(Yes or No), udid, platformName.
+     *             Author:-Anmol Narwani
+     */
     @Test(description = "performing new user registration")
     public void newUserRegisterTest(Map<String, String> data) {
+        new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver());
         new HomePage().clickOnAllowLocationAccess(Constant.REGISTER_USER).clickOnAccountButton(Constant.REGISTER_USER);
         new SignInPage().performClickOnRegisterNow(Constant.REGISTER_USER);
         new RegisterPage().enterFirstName(data.get("FirstName"), Constant.REGISTER_USER)

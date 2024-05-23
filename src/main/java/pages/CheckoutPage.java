@@ -1,14 +1,19 @@
 package pages;
 
 import driver.MobileDriverManager;
+import enums.MobileLogType;
 import enums.WaitStrategy;
 import factories.MobileExplicitWaitFactories;
+import frameConstatnt.testConstant.Constant;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import reports.MobileExtentLogger;
 import reports.MobileTestLog;
 import utiles.MobileScrollDownUtility;
+
+import java.util.List;
 
 public class CheckoutPage {
     @FindBy(id = "com.zopsmart.stg.scarlet:id/et_name")
@@ -23,11 +28,16 @@ public class CheckoutPage {
     private WebElement orderPlacedTab;
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_slot_time' and @text='Within 30 minutes']")
     private WebElement timeSlotButton;
+    @FindBy(xpath = "(//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_out_of_stock'])[1]")
+    private List<WebElement> outOfStock;
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='android:id/message']")
+    private List<WebElement> maxLimit;
     public CheckoutPage(){
         PageFactory.initElements(MobileDriverManager.getDriver(),this);
     }
     public CheckoutPage enterComment(WebDriver driver,String testname){
         MobileScrollDownUtility.scrollDown(driver);
+        MobileScrollDownUtility.scrollDownWithRetry(driver);
         MobileExplicitWaitFactories.sendKeys(commentSection,"sample text for place order text", WaitStrategy.VISIBLE,"user entered comment related to order");
         MobileTestLog.logTestStep(testname,"enter text in comment section","user entered comment related to order");
         return new CheckoutPage();
@@ -55,5 +65,27 @@ public class CheckoutPage {
         MobileExplicitWaitFactories.click(timeSlotButton,WaitStrategy.CLICKABLE,"user clicked on within 30 min time slot");
         MobileTestLog.logTestStep(testname,"click 30 min time slot","user clicked on within 30 min time slot");
         return new CheckoutPage();
+    }
+
+    public void addItemToCartAndCheckLimit(String testname) {
+
+        if(!outOfStock.isEmpty()){
+            MobileExtentLogger.log(MobileLogType.INFO,"Item out of stock");
+            throw new RuntimeException("Item is out of stock, terminating the test.");
+        }
+        else {
+            for (int i = 0; i < 5; i++) {
+                new FruitCategoryPage().clickOnAddIcon(testname);
+                if (!maxLimit.isEmpty()) {
+                    new HomePage().performClickOnOkButton(testname);
+                    break;
+                }
+
+            }
+
+        }
+
+
+
     }
 }

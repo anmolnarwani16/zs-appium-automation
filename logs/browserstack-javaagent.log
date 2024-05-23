@@ -1,0 +1,62 @@
+12:03:41.343 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.21.0
+12:03:41.345 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 9.2.2
+12:03:41.485 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+12:03:41.486 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : /Users/raramuri/Desktop/zs-appium-automation/browserstack.yml
+12:03:41.515 [main] INFO  c.b.config.BrowserStackConfig - Detected Framework testng
+12:03:41.520 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+12:03:41.786 [main] INFO  c.browserstack.BrowserStackJavaAgent - Using app: [bs://sample.app]
+12:03:41.786 [main] INFO  c.browserstack.BrowserStackJavaAgent - Framework set to java
+12:03:44.494 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is java. We currently support frameworks testng, cucumber-testng & serenity
+12:03:45.061 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+12:03:49.764 [main] INFO  c.browserstack.BrowserStackJavaAgent - Starting BrowserStack Local......
+12:04:08.589 [main] INFO  com.browserstack.LocalFactory - BrowserStack Local Started Successfully.
+12:04:09.002 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+12:04:09.004 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : /Users/raramuri/Desktop/zs-appium-automation/browserstack.yml
+12:04:09.012 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+12:04:09.011 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+12:04:09.013 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : /Users/raramuri/Desktop/zs-appium-automation/browserstack.yml
+12:04:09.015 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : /Users/raramuri/Desktop/zs-appium-automation/browserstack.yml
+12:04:09.037 [main] INFO  c.b.config.BrowserStackConfig - Detected Framework testng
+12:04:09.041 [main] INFO  c.b.config.BrowserStackConfig - Detected Framework testng
+12:04:09.045 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+12:04:09.046 [main] INFO  c.b.config.BrowserStackConfig - Detected Framework testng
+12:04:09.047 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+12:04:09.052 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+12:04:11.420 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+12:04:11.434 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+12:04:11.437 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+12:04:11.480 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is java. We currently support frameworks testng, cucumber-testng & serenity
+12:04:11.487 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is java. We currently support frameworks testng, cucumber-testng & serenity
+12:04:11.488 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is java. We currently support frameworks testng, cucumber-testng & serenity
+12:06:48.324 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.21.0
+12:06:48.327 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 9.2.2
+12:06:48.457 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+12:06:48.458 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : /Users/raramuri/Desktop/zs-appium-automation/browserstack.yml
+12:06:48.487 [main] INFO  c.b.config.BrowserStackConfig - Detected Framework testng
+12:06:48.492 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+12:06:48.744 [main] INFO  c.browserstack.BrowserStackJavaAgent - Using app: [bs://f1e0261d61176065c4a22b4fb1b09722043f74b0]
+12:06:48.744 [main] INFO  c.browserstack.BrowserStackJavaAgent - Framework set to java
+12:06:51.226 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is java. We currently support frameworks testng, cucumber-testng & serenity
+12:06:51.613 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+12:06:53.472 [main] INFO  c.browserstack.BrowserStackJavaAgent - Starting BrowserStack Local......
+12:07:01.542 [main] INFO  com.browserstack.LocalFactory - BrowserStack Local Started Successfully.
+12:07:02.032 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+12:07:02.037 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : /Users/raramuri/Desktop/zs-appium-automation/browserstack.yml
+12:07:02.065 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+12:07:02.069 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : /Users/raramuri/Desktop/zs-appium-automation/browserstack.yml
+12:07:02.089 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+12:07:02.091 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : /Users/raramuri/Desktop/zs-appium-automation/browserstack.yml
+12:07:02.097 [main] INFO  c.b.config.BrowserStackConfig - Detected Framework testng
+12:07:02.102 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+12:07:02.114 [main] INFO  c.b.config.BrowserStackConfig - Detected Framework testng
+12:07:02.115 [main] INFO  c.b.config.BrowserStackConfig - Detected Framework testng
+12:07:02.119 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+12:07:02.120 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+12:07:04.496 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+12:07:04.497 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+12:07:04.504 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+12:07:04.562 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is java. We currently support frameworks testng, cucumber-testng & serenity
+12:07:04.578 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is java. We currently support frameworks testng, cucumber-testng & serenity
+12:07:04.579 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is java. We currently support frameworks testng, cucumber-testng & serenity
+12:07:57.899 [Thread-0] INFO  c.browserstack.utils.UtilityMethods - View build on BrowserStack dashboard: https://app-automate.browserstack.com/dashboard/v2/builds/ea8bd6fe86cfa220bb9f63ba42dba1f24851e0cc
+12:07:57.899 [Thread-0] INFO  c.b.config.BrowserStackConfig - INFO

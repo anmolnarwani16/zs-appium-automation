@@ -59,16 +59,6 @@ public class MobileFrameConstant {
         return ITERATIONDATASHEET;
     }
 
-	/*public static String extentReportPath() throws Exception {
-		if (PropertyUtils.get(ConfigProperties.OVERRIDEREPORTS).equalsIgnoreCase("yes")) {
-			return EXTENTREPORTPATH + "/" + System.currentTimeMillis() + "/index.html";
-		}
-		else {
-			return EXTENTREPORTPATH+"/index.html";
-			
-		}
-		
-	}*/
 
 
 }

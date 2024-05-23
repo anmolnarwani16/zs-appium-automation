@@ -8,7 +8,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import reports.MobileTestLog;
 
-public class HomePage {
+public final class HomePage {
+
+
     @FindBy(id = "com.zopsmart.stg.scarlet:id/account")
     private WebElement accountButton;
 
@@ -36,6 +38,8 @@ public class HomePage {
     private WebElement searchIcon;
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_forgot_password']")
     private WebElement resetPassword;
+    @FindBy(xpath = "//android.widget.Button[@resource-id='android:id/button1']")
+    private WebElement ok;
 
     public HomePage() {
         PageFactory.initElements(MobileDriverManager.getDriver(), this);
@@ -74,6 +78,15 @@ public class HomePage {
         MobileExplicitWaitFactories.click(searchIcon,WaitStrategy.CLICKABLE,"user clicked on search icon");
         MobileTestLog.logTestStep(testname, "ClickOnSearchIcon", "User clicked on search icon");
         return new SearchPage();
+    }
+    public void clickOnHomeIcon(String testname) {
+        MobileExplicitWaitFactories.click(homeIcon, WaitStrategy.CLICKABLE, "User clicked on Home Icon");
+        MobileTestLog.logTestStep(testname, "Click On HomeIcon", "User clicked on Home Icon");
+
+    }
+    public void performClickOnOkButton(String testname) {
+        MobileTestLog.logTestStep(testname, "Perform Click On Ok Button", "user clicked on ok button");
+        MobileExplicitWaitFactories.click(ok, WaitStrategy.CLICKABLE, "user clicked on ok button");
     }
 
     public ForgotPasswordPage performClickOnResetPasswordButton(String testname) {
