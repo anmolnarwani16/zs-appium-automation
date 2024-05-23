@@ -22,9 +22,9 @@ public class LeftHandNavigationPage {
         return str;
     }
 
-    public MyAccountPage clickOnUserName(String testname,String text){
+    public MyAccountPage clickOnUserName(String testname){
         MobileExplicitWaitFactories.click(signedInUser,WaitStrategy.CLICKABLE,"user clicked on userName");
-        MobileTestLog.logTestStep(testname,"Verifying the UserName ","Verifying the UserName:-"+text);
+        MobileTestLog.logTestStep(testname,"Verifying the UserName ","Verifying the UserName");
         return new MyAccountPage();
     }
 }

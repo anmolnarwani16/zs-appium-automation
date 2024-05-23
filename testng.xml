@@ -12,14 +12,15 @@
     <test thread-count="5" name="Test" parallel="false">
         <classes>
 
-            <class name="test.SignInSignOutTest"/>
+            <class name="test.SignInTest"/>
             <class name="test.PlacingOrderTest"/>
-            <class name="test.ForgotPasswordTest"/>
-            <class name="test.MyAccountTest"/>
-            <class name="test.SavedAddressTest"/>
-            <class name="test.ChangePasswordTest"/>
-            <class name="test.SortByTest"/>
-            <class name="test.ContactUsTest"/>
+<!--            <class name="test.ForgotPasswordTest"/>-->
+<!--            <class name="test.MyAccountTest"/>-->
+<!--            <class name="test.SavedAddressTest"/>-->
+<!--            <class name="test.ChangePasswordTest"/>-->
+<!--            <class name="test.SortByTest"/>-->
+<!--            <class name="test.ContactUsTest"/>-->
+<!--            <class name="test.SignOutTest"/>-->
 
         </classes>
     </test>

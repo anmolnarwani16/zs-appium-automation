@@ -83,6 +83,9 @@ public class Constant {
     public static final String PLACE_ORDER = "Placing Order";
     public static final String OUT_OF_STOCK = "OUT OF STOCK";
     public static final String MAX_LIMIT = "You cannot add more items of this product";
+    //Sign-out Test Constants
+    public static final String SIGN_OUT = "signout test";
+    public static final String EXPECTED_SIGNOUT_HEADING= "Signup / Login";
 
 
 }

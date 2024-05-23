@@ -92,4 +92,4 @@ public final class CheckoutPage {
     }
 
 }
->>>>>>> a897e3104e27781a9c81fb99f317b76a25153b66
+
