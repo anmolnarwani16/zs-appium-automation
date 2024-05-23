@@ -19,7 +19,7 @@ public class LanguagePreferenceTest extends MobileBaseTest {
 
     @Test(description = "login and Selecting the preferred language.")
     public void languagePreference(Map<String,String> data){
-        new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver());
+        new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(),Constant.LANGUAGE_TEST);
         new HomePage().clickOnAllowLocationAccess(Constant.LANGUAGE_TEST).clickOnAccountButton(Constant.LANGUAGE_TEST);
         MobileLoginUtility.login(data.get("UserName"),data.get("Password"),Constant.LANGUAGE_TEST);
             new HomePage().clickOnAccountButton(Constant.LANGUAGE_TEST);

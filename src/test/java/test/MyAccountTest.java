@@ -27,7 +27,7 @@ public final class MyAccountTest extends MobileBaseTest {
     @Test(description = "performing my account test for  text visibility", groups = {"regression"})
     public void myAccountTestForTextVisibility(Map<String, String> data) {
 
-        new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver());
+        new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(),Constant.MY_ACCOUNT);
         new HomePage().clickOnAccountButton(Constant.MY_ACCOUNT);
         String welcomeText = new MyAccountPage().getElementTextForWelcome(Constant.WELCOME, Constant.MY_ACCOUNT);
         Assert.assertEquals(welcomeText, Constant.WELCOME);
@@ -48,7 +48,7 @@ public final class MyAccountTest extends MobileBaseTest {
     @Test(description = "performing my account test for each page", groups = {"regression"})
     public void myAccountTestForPages(Map<String, String> data) {
 
-        new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver());
+        new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(),Constant.MY_ACCOUNT);
         new HomePage().clickOnAccountButton(Constant.MY_ACCOUNT);
         new SavedAddressPage().performClickOnSavedAddress(Constant.SAVED_ADDRESS);
         new SavedAddressPage().performClickOnAddNewAddress(Constant.SAVED_ADDRESS);

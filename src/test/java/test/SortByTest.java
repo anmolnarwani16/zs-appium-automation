@@ -23,7 +23,7 @@ public final class SortByTest extends MobileBaseTest {
 
     @Test(description = "performing sort by test", groups = {"regresssion"})
     public void sortByTest(Map<String, String> data) {
-        new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver());
+        new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(),Constant.SORT_BY);
         new HomePage().clickOnFruit(Constant.SORT_BY);
         new SortByPage().performClickOnSortBy(Constant.SORT_BY);
         new SortByPage().performClickOnNewest(Constant.SORT_BY);

@@ -31,7 +31,7 @@ public final class PlacingOrderTest extends MobileBaseTest {
     @Test(description = "Placing an order",groups = {"regression"})
     public void placeOrderTest(Map<String, String> data) {
         try {
-            new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver());
+            new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(),Constant.PLACE_ORDER);
             new HomePage().clickOnFruit(Constant.PLACE_ORDER);
             new HomePage().clickOnSearchIcon(Constant.PLACE_ORDER);
             new SearchPage().enterValueForSearchTab(Constant.SEARCH_TEST_NAME_2, Constant.ITEM_NAME3);

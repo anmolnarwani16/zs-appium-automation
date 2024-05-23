@@ -90,6 +90,7 @@ public final class HomePage {
         MobileTestLog.logTestStep(testname, "Click On HomeIcon", "User clicked on Home Icon");
 
     }
+
     public void performClickOnOkButton(String testname) {
         MobileTestLog.logTestStep(testname, "Perform Click On Ok Button", "user clicked on ok button");
         MobileExplicitWaitFactories.click(ok, WaitStrategy.CLICKABLE, "user clicked on ok button");

@@ -29,7 +29,7 @@ public class SearchProductTest extends MobileBaseTest {
 
     @Test(description = "login and searching for an item")
     public void searchItem(Map<String,String> data){
-        new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver());
+        new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(),Constant.SEARCH_TEST_NAME_2);
         new HomePage().clickOnAllowLocationAccess(Constant.SEARCH_TEST_NAME_2).clickOnAccountButton(Constant.SEARCH_TEST_NAME_2);
         MobileLoginUtility.login(data.get("UserName"),data.get("Password"),Constant.SEARCH_TEST_NAME_2);
         new HomePage().clickOnSearchIcon(Constant.SEARCH_TEST_NAME_2);

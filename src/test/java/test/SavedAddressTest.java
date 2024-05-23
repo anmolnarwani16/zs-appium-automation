@@ -26,7 +26,7 @@ public final class SavedAddressTest extends MobileBaseTest {
     @Test(description = "performing saved address test", groups = {"regression"})
     public void savedAddressTest(Map<String, String> data) {
 
-        new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver());
+        new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(),Constant.SAVED_ADDRESS);
         new HomePage().clickOnAccountButton(Constant.SAVED_ADDRESS);
         new SavedAddressPage().performClickOnSavedAddress(Constant.SAVED_ADDRESS);
         new SavedAddressPage().performClickOnAddNewAddress(Constant.SAVED_ADDRESS);
@@ -35,7 +35,6 @@ public final class SavedAddressTest extends MobileBaseTest {
         new SavedAddressPage().performClickOnOkButton(Constant.SAVED_ADDRESS);
         new HomePage().clickOnHomeIcon(Constant.SAVED_ADDRESS);
         MobileTestLog.saveExcelFile();
-
 
     }
 }

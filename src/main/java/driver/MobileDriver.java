@@ -8,7 +8,6 @@ import io.appium.java_client.remote.AutomationName;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import utiles.JsonFileRederUtils;
-
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;

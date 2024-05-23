@@ -18,7 +18,7 @@ import java.util.Map;
 public class AddProductToCartTest extends MobileBaseTest {
     @Test(description = "login and add item to the cart")
     public void addProductToCart(Map<String,String> data){
-        new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver());
+        new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(),Constant.ADD_PRODUCT_TEST_NAME);
         new HomePage().clickOnAllowLocationAccess(Constant.ADD_PRODUCT_TEST_NAME).clickOnAccountButton(Constant.ADD_PRODUCT_TEST_NAME);
         MobileLoginUtility.login(data.get("UserName"),data.get("Password"),Constant.ADD_PRODUCT_TEST_NAME);
         new HomePage().clickOnFruit(Constant.ADD_PRODUCT_TEST_NAME);

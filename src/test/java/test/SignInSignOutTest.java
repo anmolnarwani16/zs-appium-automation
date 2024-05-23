@@ -1,15 +1,14 @@
 package test;
 
 import baseTest.MobileBaseTest;
+import driver.MobileDriver;
 import driver.MobileDriverManager;
 import frameConstatnt.testConstant.Constant;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import reports.MobileTestLog;
 import utiles.MobileLoginUtility;
-import driver.MobileDriver;
-import java.io.IOException;
+
 import java.util.Map;
 
 public class SignInSignOutTest extends MobileBaseTest {

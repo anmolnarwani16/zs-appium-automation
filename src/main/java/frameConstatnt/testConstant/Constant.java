@@ -4,21 +4,19 @@ public class Constant {
 
     //    All constant for change password test
     public static final String CHANGE_PASSWORD = "password change test";
- public static final String PASSWORD_SUCCESSFULLY_CHANGE= "Password successfully changed.";
+    public static final String PASSWORD_SUCCESSFULLY_CHANGE = "Password successfully changed.";
 
-   //   Forgot Password Test constant
+    //   Forgot Password Test constant
     public static final String FORGOT_PASSWORD = "forgot password Test";
 
- public static final String OTP_SENT= "OTP sent to your number";
- public static final String PASSWORD_SUCCESSFULLY_RESET= "Password successfully reset.";
-
-
+    public static final String OTP_SENT = "OTP sent to your number";
+    public static final String PASSWORD_SUCCESSFULLY_RESET = "Password successfully reset.";
 
 
     // Search Product Test Constants
     public static final String CATEGORY_NAME = "FRUITS AND VEGETABLES";
     public static final String ITEM_NAME = "Cut Mixed Fruit -350G";
-   public static final String ITEM_NAME1 = "Pineapple - 1PCS";
+    public static final String ITEM_NAME1 = "Pineapple - 1PCS";
     public static final String ITEM_NAME2 = "Chinese Fresh Ginger - 500 g";
 
     public static final String ITEM_NAME3 = "Red Currants Holland - 125G";
@@ -48,45 +46,43 @@ public class Constant {
 
     //    SAVED ADDRESS TEST CONSTANTS
     public static final String SAVED_ADDRESS = "Saved Address";
-    public static final String ADDRESS_ADDED= "Address added!";
+    public static final String ADDRESS_ADDED = "Address added!";
     public static final String SEARCH_ADDRESS = "Kumaraswamy Layout, Bengaluru, Karnataka, India";
     public static final String HOUSE_NO = "1";
 
 //    MY ACCOUNT TEST CONSTANTS
 
     public static final String MY_ACCOUNT = "My Account";
-    public static final String WELCOME="Welcome";
+    public static final String WELCOME = "Welcome";
 
-    public static final String SAVED_ADDRESS_TEXT="Select your delivery Location";
+    public static final String SAVED_ADDRESS_TEXT = "Select your delivery Location";
 
-    public static final String SAVE_PASSWORD="SAVE PASSWORD";
+    public static final String SAVE_PASSWORD = "SAVE PASSWORD";
 
-    public static final String CHECK_CARD="Debit Card";
-    public static final String BALANCE="Available Balance";
-    public static final String DELIVERING="Delivering To";
-    public static final String LANGUAGE_PREFERENCE="Choose your favorite language";
+    public static final String CHECK_CARD = "Debit Card";
+    public static final String BALANCE = "Available Balance";
+    public static final String DELIVERING = "Delivering To";
+    public static final String LANGUAGE_PREFERENCE = "Choose your favorite language";
 
-    public static final String CONTACT_TEXT="Company Information";
-
-
-//    SORT BY TEST CONSTANTS
-   public static final String SORT_BY="sort by test";
-   //    CONTACT US  TEST CONSTANTS
-   public static final String CONTACT_US ="contact us";
-   public static final String PHONE_NO="8003030010";
-
-   public static final String SUBMIT = "SUBMIT";
-   public static final String USER_NAME= "Andrew";
-   public static final String PHONE_NUMBER = "99123456";
-   public static final String COMPLAIN_DESCRIPTION="not able to add items";
-   public static final String SUBMIT_BUTTON="SUBMIT";
-
-   //Placing Order Test Constants
-   public static final String PLACE_ORDER = "Placing Order";
-   public static final String OUT_OF_STOCK="OUT OF STOCK";
-   public static final String MAX_LIMIT="You cannot add more items of this product";
+    public static final String CONTACT_TEXT = "Company Information";
 
 
+    //    SORT BY TEST CONSTANTS
+    public static final String SORT_BY = "sort by test";
+    //    CONTACT US  TEST CONSTANTS
+    public static final String CONTACT_US = "contact us";
+    public static final String PHONE_NO = "8003030010";
+
+    public static final String SUBMIT = "SUBMIT";
+    public static final String USER_NAME = "Andrew";
+    public static final String PHONE_NUMBER = "99123456";
+    public static final String COMPLAIN_DESCRIPTION = "not able to add items";
+    public static final String SUBMIT_BUTTON = "SUBMIT";
+
+    //Placing Order Test Constants
+    public static final String PLACE_ORDER = "Placing Order";
+    public static final String OUT_OF_STOCK = "OUT OF STOCK";
+    public static final String MAX_LIMIT = "You cannot add more items of this product";
 
 
 }

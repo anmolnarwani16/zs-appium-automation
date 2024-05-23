@@ -21,7 +21,7 @@ public class MobileExplicitWaitFactories {
         element.click();
 
         try {
-            MobileExtentLogger.log(MobileLogType.PASS,description);
+            MobileExtentLogger.log(MobileLogType.PASS, description);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -32,18 +32,18 @@ public class MobileExplicitWaitFactories {
         element.sendKeys(value);
 
         try {
-            MobileExtentLogger.log(MobileLogType.PASS,"User entered *********" + description);
+            MobileExtentLogger.log(MobileLogType.PASS, "User entered *********" + description);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static String getText(WebElement element, String enterExpectedText,WaitStrategy waitStrategy, String description) {
-        waitUntilTextVisible(element, waitStrategy,enterExpectedText);
+    public static String getText(WebElement element, String enterExpectedText, WaitStrategy waitStrategy, String description) {
+        waitUntilTextVisible(element, waitStrategy, enterExpectedText);
         String str = element.getText();
 
         try {
-            MobileExtentLogger.log(MobileLogType.PASS,description);
+            MobileExtentLogger.log(MobileLogType.PASS, description);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -70,14 +70,12 @@ public class MobileExplicitWaitFactories {
                 wait.until(ExpectedConditions.elementToBeSelected(element));
                 break;
             case ATTRIBUTE_CONTAINS:
-                // Infer attribute name and value dynamically
-                String attributeName = "data-id"; // Default attribute name
+                String attributeName = "data-id";
                 String attributeValue = element.getAttribute(attributeName);
                 wait.until(ExpectedConditions.attributeContains(element, attributeName, attributeValue));
                 break;
             case URL_CONTAINS:
-                // Infer URL dynamically
-                String partialUrl = MobileDriverManager.getDriver().getCurrentUrl(); // Default to current URL
+                String partialUrl = MobileDriverManager.getDriver().getCurrentUrl();
                 wait.until(ExpectedConditions.urlContains(partialUrl));
                 break;
             case ALERT_PRESENT:
@@ -91,18 +89,18 @@ public class MobileExplicitWaitFactories {
                 String expectedText = element.getText();
                 wait.until(ExpectedConditions.textToBePresentInElement(element, expectedText));
                 break;
-            // Add more cases for other wait strategies if needed
         }
     }
-        public static void pressEnter(String description) {
-            MobileDriverManager.getDriver().pressKey(new KeyEvent().withKey(AndroidKey.ENTER));
-            try {
-                MobileExtentLogger.log(MobileLogType.PASS,description);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
 
+    public static void pressEnter(String description) {
+        MobileDriverManager.getDriver().pressKey(new KeyEvent().withKey(AndroidKey.ENTER));
+        try {
+            MobileExtentLogger.log(MobileLogType.PASS, description);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
+    }
 
 
     public static void waitUntilTextVisible(WebElement element, WaitStrategy waitStrategy, String enterExpectedText) {

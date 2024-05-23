@@ -23,7 +23,7 @@ public final class ForgotPasswordTest extends MobileBaseTest {
     @Test(description = "performing reset password test",groups = {"regression"})
     public void forgotPasswordTest(Map<String,String> data){
 
-        new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver());
+        new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(),Constant.FORGOT_PASSWORD);
         new HomePage().clickOnAccountButton(Constant.FORGOT_PASSWORD);
         new HomePage().performClickOnResetPasswordButton(Constant.FORGOT_PASSWORD);
         new ForgotPasswordPage().enterPhoneNumber(data.get("UserName"),Constant.OTP_SENT,Constant.FORGOT_PASSWORD);
