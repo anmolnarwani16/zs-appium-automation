@@ -4,7 +4,6 @@ package dataProvider;
 import frameConstatnt.MobileFrameConstant;
 import org.testng.annotations.DataProvider;
 import utiles.MobileExcelUtility;
-
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;

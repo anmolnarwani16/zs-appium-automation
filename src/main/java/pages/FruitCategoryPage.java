@@ -13,6 +13,11 @@ public final class FruitCategoryPage {
     private WebElement addIcon;
     @FindBy(xpath = "(//android.view.ViewGroup[@resource-id='com.zopsmart.stg.scarlet:id/linearLayout'])[1]")
     private WebElement item;
+
+    @FindBy(xpath = "//android.widget.ImageView[@resource-id='com.zopsmart.stg.scarlet:id/ib_add']")
+    public WebElement addIcons;
+    @FindBy(id = "//android.widget.Button[@resource-id='com.zopsmart.stg.scarlet:id/btn_sort']")
+    private WebElement sortByButton;
     public FruitCategoryPage(){
         PageFactory.initElements(MobileDriverManager.getDriver(),this);
     }
@@ -23,5 +28,14 @@ public final class FruitCategoryPage {
     public void clickOnItem(String testname){
         MobileExplicitWaitFactories.click(item, WaitStrategy.CLICKABLE,"User clicked on Item");
         MobileTestLog.logTestStep(testname,"Click Item","User clicked on Item");
+    }
+    public void clickOnAddIcons(String testname){
+        MobileExplicitWaitFactories.click(addIcons, WaitStrategy.CLICKABLE,"User clicked on add icon to add product into the cart");
+        MobileTestLog.logTestStep(testname,"Click Add  Button","User clicked on add icon to add product into the cart");
+    }
+    public FruitCategoryPage performClickOnSortBy(String testname) {
+        MobileExplicitWaitFactories.click(sortByButton, WaitStrategy.CLICKABLE,"user clicked on sort by button");
+        MobileTestLog.logTestStep(testname, "Perform Click On Sort By Button", "User clicked on sort by button");
+        return new FruitCategoryPage();
     }
 }

@@ -29,7 +29,8 @@ public final class HomePage {
 
     @FindBy(xpath = "//android.widget.ImageButton[@content-desc='Open navigation drawer']")
     private WebElement hamburgerIcon;
-     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_category_title' and @text='FRUITS & VEGETABLES']")
+
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_category_title' and @text='FRUITS & VEGETABLES']")
     private WebElement fruitCategory;
     @FindBy(xpath = "//android.widget.ImageView[@resource-id='com.zopsmart.stg.scarlet:id/search_icon']")
     private WebElement searchIcon;
@@ -58,19 +59,19 @@ public final class HomePage {
 
     public HomePage clickOnAllowLocationAccess(String testname) {
         MobileExplicitWaitFactories.click(locationAccessButton, WaitStrategy.CLICKABLE, "user clicked on location access");
-        MobileTestLog.logTestStep(testname, "Click On Allow LocationAccess", "User clicked on location access");
+        MobileTestLog.logTestStep(testname, "ClickOnAllowLocationAccess", "User clicked on location access");
         return this;
     }
 
     public SignInPage clickOnAccountButton(String testname) {
         MobileExplicitWaitFactories.click(accountButton, WaitStrategy.CLICKABLE, "user clicked on account button");
-        MobileTestLog.logTestStep(testname, "Click On AccountButton", "User clicked on account button");
+        MobileTestLog.logTestStep(testname, "ClickOnAccountButton", "User clicked on account button");
         return new SignInPage();
     }
 
     public LeftHandNavigationPage clickOnHamburgerIcon(String testname) {
         MobileExplicitWaitFactories.click(hamburgerIcon, WaitStrategy.CLICKABLE, "user clicked on hamburgerIcon");
-        MobileTestLog.logTestStep(testname, "Click On HamburgerIcon", "User clicked on hamburger icon");
+        MobileTestLog.logTestStep(testname, "ClickOnHamburgerIcon", "User clicked on hamburger icon");
         return new LeftHandNavigationPage();
     }
 
@@ -90,15 +91,14 @@ public final class HomePage {
         MobileTestLog.logTestStep(testname, "Click On CartIcon", "User clicked on cart icon");
         return new MyCartPage();
     }
-
-    public SearchPage clickOnSearchIcon(String testname) {
-        MobileExplicitWaitFactories.click(searchIcon, WaitStrategy.CLICKABLE, "user clicked on search icon");
+    public SearchPage clickOnSearchIcon(String testname){
+        MobileExplicitWaitFactories.click(searchIcon,WaitStrategy.CLICKABLE,"user clicked on search icon");
         MobileTestLog.logTestStep(testname, "ClickOnSearchIcon", "User clicked on search icon");
         return new SearchPage();
     }
 
     public ForgotPasswordPage performClickOnResetPasswordButton(String testname) {
-        MobileExplicitWaitFactories.click(resetPassword, WaitStrategy.CLICKABLE, "user clicked on reset password button");
+        MobileExplicitWaitFactories.click(resetPassword, WaitStrategy.CLICKABLE,"user clicked on reset password button");
         MobileTestLog.logTestStep(testname, "perform Click On Reset Password Button", "user clicked on reset password button");
         return new ForgotPasswordPage();
     }

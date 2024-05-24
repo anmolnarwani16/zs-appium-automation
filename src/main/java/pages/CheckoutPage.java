@@ -16,7 +16,7 @@ import utiles.MobileScrollDownUtility;
 import java.util.List;
 
 public final class CheckoutPage {
-    @FindBy(id = "com.zopsmart.stg.scarlet:id/et_name")
+    @FindBy(xpath = "//android.widget.EditText[@resource-id='com.zopsmart.stg.scarlet:id/et_name']")
     private WebElement commentSection;
     @FindBy(id = "com.zopsmart.stg.scarlet:id/radio_debit_card")
     private WebElement debitCardButton;
@@ -74,24 +74,6 @@ public final class CheckoutPage {
         return new CheckoutPage();
     }
 
-    //    public boolean isOutOfStock(String enterActualText, String testname) {
-//        try {
-//            MobileTestLog.logTestStep(testname, "Checking if item is out of stock", "Checking if item is out of stock");
-//            String outOfStockText = MobileExplicitWaitFactories.getText(outOfStock, enterActualText, WaitStrategy.ELEMENT_TO_HAVE_TEXT, "Item is out of stock");
-//            return outOfStockText.equals(Constant.OUT_OF_STOCK);
-//        } catch (Exception e) {
-//            return false;
-//        }
-//    }
-//    public boolean maxLimit(String enterActualText, String testname) {
-//        try {
-//            MobileTestLog.logTestStep(testname, "Checking max limit of an item", "Checking if item reached max limit");
-//            String maxLimitOfItem = MobileExplicitWaitFactories.getText(maxLimit, enterActualText, WaitStrategy.VISIBLE, "Item exceed limit");
-//            return maxLimitOfItem.equals(Constant.MAX_LIMIT);
-//        }
-//        catch (Exception e) {
-//            return false;
-//        }
     public void addItemToCartAndCheckLimit(String testname) {
         if (!outOfStock.isEmpty()) {
             MobileExtentLogger.log(MobileLogType.INFO, "Item out of stock");

@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import reports.MobileTestLog;
 
-public class ChangePasswordPage {
+public final class ChangePasswordPage {
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/itemTextView' and @text='Change Password']")
     private WebElement changePassword;
 
@@ -28,48 +28,51 @@ public class ChangePasswordPage {
     private WebElement ok;
 
 
-
-
-    public ChangePasswordPage(){
-        PageFactory.initElements(MobileDriverManager.getDriver(),this);
+    public ChangePasswordPage() {
+        PageFactory.initElements(MobileDriverManager.getDriver(), this);
     }
+
     public ChangePasswordPage performClickOnChangePasswordButton(String testname) {
-        MobileExplicitWaitFactories.click( changePassword, WaitStrategy.CLICKABLE,"user clicked on change password button");
+        MobileExplicitWaitFactories.click(changePassword, WaitStrategy.CLICKABLE, "user clicked on change password button");
         MobileTestLog.logTestStep(testname, "Perform Click On Change Password Button", "User clicked on change password");
         return new ChangePasswordPage();
     }
-    public ChangePasswordPage enterCurrentPassword(String currPassword,String testname){
-        MobileExplicitWaitFactories.sendKeys(enterCurrentPassword,currPassword,WaitStrategy.VISIBLE,"currentPassword");
+
+    public ChangePasswordPage enterCurrentPassword(String currPassword, String testname) {
+        MobileExplicitWaitFactories.sendKeys(enterCurrentPassword, currPassword, WaitStrategy.VISIBLE, "currentPassword");
         MobileTestLog.logTestStep(testname, "Enter Current Password", "User enter current password");
         return this;
     }
-    public ChangePasswordPage enterNewPassword(String newPassword,String testname){
-        MobileExplicitWaitFactories.sendKeys(enterNewPassword,newPassword,WaitStrategy.VISIBLE,"newPassword");
+
+    public ChangePasswordPage enterNewPassword(String newPassword, String testname) {
+        MobileExplicitWaitFactories.sendKeys(enterNewPassword, newPassword, WaitStrategy.VISIBLE, "newPassword");
         MobileTestLog.logTestStep(testname, "Enter New Password", "User enter new password");
         return this;
     }
-    public ChangePasswordPage ReEnterNewPassword(String reEnterNewPassword,String testname){
-        MobileExplicitWaitFactories.sendKeys(ReEnterNewPassword,reEnterNewPassword,WaitStrategy.VISIBLE,"ReEntered newPassword");
+
+    public ChangePasswordPage ReEnterNewPassword(String reEnterNewPassword, String testname) {
+        MobileExplicitWaitFactories.sendKeys(ReEnterNewPassword, reEnterNewPassword, WaitStrategy.VISIBLE, "ReEntered newPassword");
         MobileTestLog.logTestStep(testname, "Enter New Password", "User  re enter new password");
         return this;
     }
 
-    public void performClickOnSavePassword(String testname){
-        MobileExplicitWaitFactories.click(SavePassword, WaitStrategy.CLICKABLE,"user clicked on save password");
+    public void performClickOnSavePassword(String testname) {
+        MobileExplicitWaitFactories.click(SavePassword, WaitStrategy.CLICKABLE, "user clicked on save password");
         MobileTestLog.logTestStep(testname, "Perform Click On Save Password", "User clicked on save password");
     }
-    public String getPasswordChangeText(String text,String testname) {
+
+    public String getPasswordChangeText(String text, String testname) {
 
         MobileTestLog.logTestStep(testname, "Get Password Change Text", "Change Password Successfully");
-        return MobileExplicitWaitFactories.getText(ChangePasswordSuccessfully,text, WaitStrategy.ELEMENT_TO_HAVE_TEXT,"ChangePasswordSuccessfully");
+        return MobileExplicitWaitFactories.getText(ChangePasswordSuccessfully, text, WaitStrategy.ELEMENT_TO_HAVE_TEXT, "ChangePasswordSuccessfully");
+
+
     }
-    public void performClickOnOkButton(String testname){
+
+    public void performClickOnOkButton(String testname) {
         MobileTestLog.logTestStep(testname, "Perform Click On Ok Button", "User clicked on OK button");
-        MobileExplicitWaitFactories.click(ok, WaitStrategy.CLICKABLE,"User clicked on ok button");
+        MobileExplicitWaitFactories.click(ok, WaitStrategy.CLICKABLE, "User clicked on ok button");
     }
-
-
-
 
 
 }

@@ -10,7 +10,7 @@ import reports.MobileTestLog;
 
 public final class LeftHandNavigationPage {
     @FindBy(id = "com.zopsmart.stg.scarlet:id/tv_sign_in")
-    private WebElement signedInUser;
+    public WebElement signedInUser;
     @FindBy(xpath = "//android.widget.ImageButton[@content-desc='Close navigation drawer']")
     private WebElement SignInLogo;
 

@@ -16,20 +16,20 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 public class MobileExcelUtility {
-	
-	public static List<Map<String, String>> getTestDetails(String sheetName) {
-		List<Map<String,String>> list=null;
-		FileInputStream fileInputStream = null;
-		try {
-			fileInputStream = new FileInputStream(MobileFrameConstant.excelFilePath());
-			@SuppressWarnings("resource")
-			XSSFWorkbook xssfWorkbook = new XSSFWorkbook(fileInputStream);
-			String sheetname = sheetName;
-			XSSFSheet sheet = xssfWorkbook.getSheet(sheetname);
 
-			
-			int lastRowNum = sheet.getLastRowNum();
-			int lastCellNum = sheet.getRow(0).getLastCellNum();
+    public static List<Map<String, String>> getTestDetails(String sheetName) {
+        List<Map<String, String>> list = null;
+        FileInputStream fileInputStream = null;
+        try {
+            fileInputStream = new FileInputStream(MobileFrameConstant.excelFilePath());
+            @SuppressWarnings("resource")
+            XSSFWorkbook xssfWorkbook = new XSSFWorkbook(fileInputStream);
+            String sheetname = sheetName;
+            XSSFSheet sheet = xssfWorkbook.getSheet(sheetname);
+
+
+            int lastRowNum = sheet.getLastRowNum();
+            int lastCellNum = sheet.getRow(0).getLastCellNum();
 
 			Map<String, String> map = null;
 			list=new ArrayList<>();
@@ -41,31 +41,30 @@ public class MobileExcelUtility {
 				String value = sheet.getRow(i).getCell(j).getStringCellValue();
 				map.put(key, value);
 
-				}
-				list.add(map);
+                }
+                list.add(map);
 
-			}
+            }
 
 
-		} catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
 
-			e.printStackTrace();
-		} catch (IOException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
 
-			e.printStackTrace();
-		}
-		finally {
-			try {
-				if(Objects.nonNull(fileInputStream))
-				fileInputStream.close();
-			} catch (IOException e) {
-				
-				e.printStackTrace();
-			}
-		}
+            e.printStackTrace();
+        } finally {
+            try {
+                if (Objects.nonNull(fileInputStream))
+                    fileInputStream.close();
+            } catch (IOException e) {
 
-		return list;
-	}
+                e.printStackTrace();
+            }
+        }
+
+        return list;
+    }
 
 
 }

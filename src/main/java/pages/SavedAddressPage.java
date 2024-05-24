@@ -3,13 +3,15 @@ package pages;
 import driver.MobileDriverManager;
 import enums.WaitStrategy;
 import factories.MobileExplicitWaitFactories;
+import frameConstatnt.testConstant.Constant;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import reports.MobileTestLog;
 
 
-public class SavedAddressPage {
+public final class SavedAddressPage {
 
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/itemTextView' and @text='Saved Address']")
     private WebElement savedAddress;
@@ -34,7 +36,7 @@ public class SavedAddressPage {
 
     public SavedAddressPage performClickOnSavedAddress(String testname) {
         MobileExplicitWaitFactories.click(savedAddress, WaitStrategy.CLICKABLE, "user clicked on saved address");
-        MobileTestLog.logTestStep(testname, "Perform Click On Change Password Button", "User clicked on change password");
+        MobileTestLog.logTestStep(testname, "Perform Click on saved address", "User clicked on saved address");
         return new SavedAddressPage();
     }
 
@@ -49,16 +51,19 @@ public class SavedAddressPage {
         MobileExplicitWaitFactories.click(searchAddress, WaitStrategy.CLICKABLE, "user clicked on search Address");
         MobileExplicitWaitFactories.sendKeys(searchAddress, searchaddress, WaitStrategy.VISIBLE, "search Address");
         MobileExplicitWaitFactories.click(searchNewAddress, WaitStrategy.CLICKABLE, "user clicked on add new address");
-        MobileExplicitWaitFactories.click(enterHouseNo, WaitStrategy.CLICKABLE, "user clicked on search Address");
-        MobileExplicitWaitFactories.sendKeys(enterHouseNo, houseNo, WaitStrategy.VISIBLE, "search Address");
+        MobileDriverManager.getDriver().navigate().back();
+        MobileExplicitWaitFactories.click(enterHouseNo, WaitStrategy.CLICKABLE, "user clicked on add house number ");
+        MobileExplicitWaitFactories.sendKeys(enterHouseNo, houseNo, WaitStrategy.VISIBLE, " house  number");
+//        MobileDriverManager.getDriver().navigate().back();
         MobileExplicitWaitFactories.click(submitButton, WaitStrategy.CLICKABLE, "user clicked on submit button");
         MobileTestLog.logTestStep(testname, "New Address Added", "User added new address");
         return this;
     }
 
-    public String getAddressAddedText(String enterActualText, String testname) {
-        MobileTestLog.logTestStep(testname, "Get Password Reset Text", "password reset successfully");
-        return MobileExplicitWaitFactories.getText(addedAddress, enterActualText, WaitStrategy.ELEMENT_TO_HAVE_TEXT, "New address set successfully");
+    public void getAddressAddedText(String enterActualText, String testname) {
+        MobileTestLog.logTestStep(testname, "Get Added address Text", "added address");
+        String addedNewAddress = MobileExplicitWaitFactories.getText(addedAddress, enterActualText, WaitStrategy.ELEMENT_TO_HAVE_TEXT, "New address set successfully");
+        Assert.assertEquals(addedNewAddress, Constant.ADDRESS_ADDED);
     }
 
     public void performClickOnOkButton(String testname) {
