@@ -34,8 +34,7 @@ public final class MyAccountPage {
     private WebElement savedCards;
     @FindBy(xpath = "  //android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/itemTextView' and @text='Saved Address']")
     private WebElement savedAddress;
-    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/itemTextView' and @text='Change Password']")
-    private WebElement changePassword;
+
     //android.widget.TextView[@resource-id="com.zopsmart.stg.scarlet:id/itemTextView" and @text="اللغة"]
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/itemTextView' and @text='اللغة']")
     private WebElement languageText;

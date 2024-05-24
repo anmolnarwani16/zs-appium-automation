@@ -19,6 +19,7 @@ public class Constant {
     // Search Product Test Constants
     public static final String CATEGORY_NAME = "FRUITS AND VEGETABLES";
     public static final String ITEM_NAME = "Chilli Red - 100G";
+    public static final String ITEM_NAME1 = "Pineapple - 1PCS";
     public static final String SEARCH_TEST_NAME_1 = "Category Search";
     public static final String SEARCH_TEST_NAME_2 = "Item Search";
 

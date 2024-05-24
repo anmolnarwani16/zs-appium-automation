@@ -103,7 +103,11 @@
 <!--            <version>LATEST</version>-->
 <!--        </dependency>-->
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
-
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>1.0.2</version>
+        </dependency>
 
     </dependencies>
 

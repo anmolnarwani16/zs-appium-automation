@@ -14,12 +14,24 @@
         </groups>
         <classes>
                         <class name="test.SignInTest"/>
-                        <class name="test.SearchProductTest"/>
-                        <class name="test.LanguagePreferenceTest"/>
-                        <class name="test.AddProductToCartTest"/>
-                        <class name="test.HomepageElementVisibilityTest"/>
-                        <class name="test.FilterProductsTest"/>
-                        <class name="test.OrderNotificationTest"/>
+            <class name="test.SortByTest"/>
+            <class name="test.RegisterTest"/>
+            <class name="test.PlacingOrderTest"/>
+            <class name="test.SignOutTest"/>
+
+            <!--                        <class name="test.SearchProductTest"/>-->
+<!--                        <class name="test.LanguagePreferenceTest"/>-->
+<!--                        <class name="test.AddProductToCartTest"/>-->
+<!--                        <class name="test.HomepageElementVisibilityTest"/>-->
+<!--                        <class name="test.FilterProductsTest"/>-->
+<!--                        <class name="test.OrderNotificationTest"/>-->
+<!--                        <class name="test.ForgotPasswordTest"/>-->
+<!--                        <class name="test.MyAccountTest"/>-->
+<!--                        <class name="test.SavedAddressTest"/>-->
+<!--                        <class name="test.ChangePasswordTest"/>-->
+
+<!--                        <class name="test.ContactUsTest"/>-->
+
         </classes>
-    </test> <!-- Test -->
-</suite> <!-- Suite -->
+    </test>
+</suite>
