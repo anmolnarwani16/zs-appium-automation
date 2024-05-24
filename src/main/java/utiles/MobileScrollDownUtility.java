@@ -10,7 +10,6 @@ import org.openqa.selenium.interactions.Sequence;
 import java.time.Duration;
 import java.util.Collections;
 
-
 public class MobileScrollDownUtility {
 
     public static void scrollDown(WebDriver driver) {
@@ -25,12 +24,15 @@ public class MobileScrollDownUtility {
 
         scroll.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY));
         scroll.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
-        scroll.addAction(new Pause(finger, Duration.ofMillis(200)));
+        scroll.addAction(new Pause(finger, Duration.ofMillis(200))); // Adding a small pause for stability
+
+        // Adding intermediate points to make the scroll smoother
         scroll.addAction(finger.createPointerMove(Duration.ofMillis(500), PointerInput.Origin.viewport(), startX, midY));
-        scroll.addAction(new Pause(finger, Duration.ofMillis(200)));
+        scroll.addAction(new Pause(finger, Duration.ofMillis(200))); // Pause for stability
         scroll.addAction(finger.createPointerMove(Duration.ofMillis(500), PointerInput.Origin.viewport(), startX, endY));
-        scroll.addAction(new Pause(finger, Duration.ofMillis(200)));
+        scroll.addAction(new Pause(finger, Duration.ofMillis(200))); // Pause for stability
         scroll.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
         try {
             MobileDriverManager.getDriver().perform(Collections.singletonList(scroll));
         } catch (Exception e) {

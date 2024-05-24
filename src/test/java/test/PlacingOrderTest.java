@@ -27,7 +27,7 @@ public final class PlacingOrderTest extends MobileBaseTest {
      *
      *             Author:-Anmol Narwani
      */
-    @Test(description = "Placing an order")
+    @Test(description = "Placing an order",groups = {"smoke","regression"})
     public void placeOrderTest(Map<String, String> data) {
         try {
             new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(),Constant.PLACE_ORDER);

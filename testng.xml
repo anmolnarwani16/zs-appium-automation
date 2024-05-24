@@ -1,26 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-
     <listeners>
         <listener class-name="listeners.MobileListenersClass"></listener>
         <listener class-name="listeners.MobileMEthodInterceptor"></listener>
         <listener class-name="listeners.MobileAnnotationTransfer"></listener>
-
-
     </listeners>
     <test thread-count="5" name="Test" parallel="false">
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
         <classes>
-
-            <class name="test.SignInTest"/>
+                        <class name="test.SignInTest"/>
+            <class name="test.SortByTest"/>
+            <class name="test.RegisterTest"/>
             <class name="test.PlacingOrderTest"/>
-<!--            <class name="test.ForgotPasswordTest"/>-->
-<!--            <class name="test.MyAccountTest"/>-->
-<!--            <class name="test.SavedAddressTest"/>-->
-<!--            <class name="test.ChangePasswordTest"/>-->
-<!--            <class name="test.SortByTest"/>-->
-<!--            <class name="test.ContactUsTest"/>-->
-<!--            <class name="test.SignOutTest"/>-->
+            <class name="test.SignOutTest"/>
+
+            <!--                        <class name="test.SearchProductTest"/>-->
+<!--                        <class name="test.LanguagePreferenceTest"/>-->
+<!--                        <class name="test.AddProductToCartTest"/>-->
+<!--                        <class name="test.HomepageElementVisibilityTest"/>-->
+<!--                        <class name="test.FilterProductsTest"/>-->
+<!--                        <class name="test.OrderNotificationTest"/>-->
+<!--                        <class name="test.ForgotPasswordTest"/>-->
+<!--                        <class name="test.MyAccountTest"/>-->
+<!--                        <class name="test.SavedAddressTest"/>-->
+<!--                        <class name="test.ChangePasswordTest"/>-->
+
+<!--                        <class name="test.ContactUsTest"/>-->
 
         </classes>
     </test>

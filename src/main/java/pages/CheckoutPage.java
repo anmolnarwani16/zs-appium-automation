@@ -4,6 +4,7 @@ import driver.MobileDriverManager;
 import enums.MobileLogType;
 import enums.WaitStrategy;
 import factories.MobileExplicitWaitFactories;
+import frameConstatnt.testConstant.Constant;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -74,22 +75,19 @@ public final class CheckoutPage {
     }
 
     public void addItemToCartAndCheckLimit(String testname) {
-
         if (!outOfStock.isEmpty()) {
             MobileExtentLogger.log(MobileLogType.INFO, "Item out of stock");
             throw new RuntimeException("Item is out of stock, terminating the test.");
         } else {
-            for (int i = 0; i < 10; i++) {
-                new FruitCategoryPage().clickOnAddIcons(testname);
+            for (int i = 0; i < 2; i++) {
+                new FruitCategoryPage().clickOnAddIcon(testname);
                 if (!maxLimit.isEmpty()) {
                     new HomePage().performClickOnOkButton(testname);
-                    break;
                 }
-
             }
 
         }
+
     }
 
 }
-

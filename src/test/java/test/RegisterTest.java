@@ -26,7 +26,7 @@ public final class RegisterTest extends MobileBaseTest {
      * @param data Test data containing username, password, Execution(Yes or No), udid, platformName.
      *             Author:-Anmol Narwani
      */
-    @Test(description = "performing new user registration")
+    @Test(description = "performing new user registration",groups = {"smoke","regression"})
     public void newUserRegisterTest(Map<String, String> data) {
         new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(),Constant.REGISTER_USER);
         new HomePage().clickOnAllowLocationAccess(Constant.REGISTER_USER).clickOnAccountButton(Constant.REGISTER_USER);

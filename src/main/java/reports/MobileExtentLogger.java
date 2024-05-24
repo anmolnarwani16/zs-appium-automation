@@ -54,7 +54,7 @@ public class MobileExtentLogger {
             throw new RuntimeException(e);
         }
 
-
-    }
+	}
 
 }
+

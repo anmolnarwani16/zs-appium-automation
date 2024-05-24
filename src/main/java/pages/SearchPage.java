@@ -8,15 +8,17 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import reports.MobileTestLog;
 
-public class SearchPage {
+public final class SearchPage {
     @FindBy(xpath = "//android.widget.EditText[@resource-id='com.zopsmart.stg.scarlet:id/et_search']")
     private WebElement searchTab;
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_page_name']")
     private WebElement categoryTitle;
-    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_item_name' and @text='Cut Mixed Fruit - 350G']")
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_item_name' and @text='Chilli Red - 100G']")
     private WebElement item;
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_item_name']")
     private WebElement itemTitle;
+    @FindBy(xpath = "//android.widget.ImageView[@resource-id='com.zopsmart.stg.scarlet:id/navigation_icon']")
+    private WebElement backButton;
 
     public SearchPage(){
         PageFactory.initElements(MobileDriverManager.getDriver(),this);
@@ -41,5 +43,13 @@ public class SearchPage {
         MobileTestLog.logTestStep(testname, "Validate Item", "Valid Item is displayed");
         return itemTitle;
     }
+    public void clickOnBackButton(String testname){
+        MobileExplicitWaitFactories.click(backButton,WaitStrategy.CLICKABLE,"Going Back On Home Page");
+        MobileTestLog.logTestStep(testname, "Back On HomePage", "Going Back On Home Page");
 
+    }
+    public WebElement  getSearchTabElement(String testname) {
+        MobileTestLog.logTestStep(testname,"SearchTab Visibility","Verifying the appearance of Search Tab");
+        return searchTab;
+    }
 }

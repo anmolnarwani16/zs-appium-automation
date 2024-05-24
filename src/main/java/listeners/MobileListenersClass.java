@@ -8,6 +8,7 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import reports.MobileExtendReport;
 import reports.MobileExtentLogger;
+import reports.MobileTestFailure;
 
 
 public class MobileListenersClass implements ITestListener, ISuiteListener {
@@ -53,12 +54,19 @@ public class MobileListenersClass implements ITestListener, ISuiteListener {
     @Override
     public void onTestFailure(ITestResult result) {
         try {
+            // MobileExtentLogger.log(MobileLogType.FAIL, result.getMethod().getMethodName() + " has failed");
             Throwable throwable = result.getThrowable();
             if (throwable != null) {
+                // Log the exception message
                 MobileExtentLogger.log(MobileLogType.FAIL, throwable.getMessage());
+                // Get the stack trace elements
                 StackTraceElement[] stackTrace = throwable.getStackTrace();
+                // Check if the stack trace is not empty
                 if (stackTrace.length > 0) {
+                    // Get the first element of the stack trace
                     StackTraceElement errorLine = stackTrace[0];
+                    // Log and print only the error line
+                    // MobileExtentLogger.log(MobileLogType.FAIL, errorLine.toString());
                     System.out.println("Test failed: " + result.getMethod().getMethodName());
                     System.out.println("    " + errorLine.toString());
                 }
@@ -71,9 +79,8 @@ public class MobileListenersClass implements ITestListener, ISuiteListener {
     @Override
     public void onTestSkipped(ITestResult result) {
         try {
-            MobileExtentLogger.log(MobileLogType.SKIP, result.getMethod().getMethodName() + " is Skipped");
-        }
-        catch (Exception e) {
+            MobileExtentLogger.log(MobileLogType.FAIL,result.getMethod().getMethodName() + " is Skipped");
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
         System.out.println("Test skipped: " + result.getMethod().getMethodName());

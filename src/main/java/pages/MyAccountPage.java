@@ -17,6 +17,8 @@ public final class MyAccountPage {
     private WebElement logoutButton;
     @FindBy(xpath = "(//android.widget.ImageView[@resource-id='com.zopsmart.stg.scarlet:id/itemImage'])[8]")
     private WebElement languageButton;
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/itemTextView' and @text='Change Password']")
+    private WebElement changePassword;
 
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/welcome']")
     private WebElement welcome;
@@ -32,8 +34,7 @@ public final class MyAccountPage {
     private WebElement savedCards;
     @FindBy(xpath = "  //android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/itemTextView' and @text='Saved Address']")
     private WebElement savedAddress;
-    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/itemTextView' and @text='Change Password']")
-    private WebElement changePassword;
+
     //android.widget.TextView[@resource-id="com.zopsmart.stg.scarlet:id/itemTextView" and @text="اللغة"]
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/itemTextView' and @text='اللغة']")
     private WebElement languageText;
@@ -95,6 +96,11 @@ public final class MyAccountPage {
         MobileExplicitWaitFactories.click(languageButton, WaitStrategy.CLICKABLE, "User clicked on LogoutButton");
         MobileTestLog.logTestStep(testname, "Click on Language Tab ", "User clicked on Language Tab");
         return new HomePage();
+    }
+    public WebElement getChangePasswordElement(String testname)
+    {
+        MobileTestLog.logTestStep(testname,"Change Password Visibility","Verifying the change password");
+        return changePassword;
     }
 
     public String getElementTextForWelcome(String text, String testname) {

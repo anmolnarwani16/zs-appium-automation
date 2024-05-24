@@ -1,18 +1,19 @@
 package driver;
 
-import frameConstatnt.MobileFrameConstant;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.options.UiAutomator2Options;
-import io.appium.java_client.ios.options.XCUITestOptions;
-import io.appium.java_client.remote.AutomationName;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.ParseException;
-import utiles.JsonFileRederUtils;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 import java.util.Objects;
+import frameConstatnt.MobileFrameConstant;
+import io.appium.java_client.ios.options.XCUITestOptions;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.remote.AutomationName;
+
+import utiles.JsonFileRederUtils;
 
 public class MobileDriver {
 
@@ -58,13 +59,13 @@ public class MobileDriver {
             } else if (platformName.equalsIgnoreCase("browserStack")) {
                 UiAutomator2Options option = new UiAutomator2Options();
 
-                option.setCapability("browserstack.user", "freeredical_oidEA6"); //update your user
-                option.setCapability("browserstack.key", "Vq4yobskngnpj86Li1Um"); //update your key
+                option.setCapability("browserstack.user", "satyajeetkumar_WU8j6g"); //update your user
+                option.setCapability("browserstack.key", "SYCSei61NCa1KjvB9Gih"); //update your key
                 option.setCapability("project", "Test Java Project");
                 option.setCapability("build", "Java Android demo");
-                option.setCapability("name", "tamimi mobile application test");
+                option.setCapability("name", "Zopping mobile application testing");
                 option.setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2);
-                option.setApp("bs://af58663a405373dbc7db6480f0dd2884486b91ca");
+                option.setApp("bs://8dfd53caa4007c76a2420f6d24d1e67986aec502");
                 option.setPlatformName(data.get("PlatformName").toString());
 
 
@@ -82,11 +83,10 @@ public class MobileDriver {
         }
 
     }
-    public static void initialize(String platformName ,String udid , String platformVersion) {
+    public static void initialize(String platformName ,String udid , String platformVersion)  {
         if(MobileDriverManager.getDriver()==null)
             new MobileDriver(platformName,udid,platformVersion);
     }
-
 
     public static void quitDriver() {
 
@@ -100,4 +100,3 @@ public class MobileDriver {
 
 
 }
-

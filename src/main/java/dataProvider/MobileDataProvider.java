@@ -32,6 +32,7 @@ public class MobileDataProvider {
                 }
             }
         }
+        list.removeAll(iterationList);
         return iterationList.toArray();
     }
 

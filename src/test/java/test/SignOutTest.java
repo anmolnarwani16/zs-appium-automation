@@ -1,6 +1,7 @@
 package test;
 
 
+import baseTest.MobileBaseTest;
 import frameConstatnt.testConstant.Constant;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -12,7 +13,7 @@ import utiles.MobileLogoutUtility;
 
 import java.util.Map;
 
-public final class SignOutTest {
+public final class SignOutTest extends MobileBaseTest {
     private SignOutTest(){
 
     }
@@ -22,7 +23,7 @@ public final class SignOutTest {
      * @param data Test data containing username, password, Execution(Yes or No), udid, platformName.
      *             Author:-Anmol Narwani
      */
-    @Test
+    @Test(description = "Signing out",groups = {"smoke","regression"})
     public void signOutTest(Map<String,String> data){
         new HomePage().clickOnAccountButton(Constant.SIGN_OUT);
         MobileLogoutUtility.logout(Constant.SIGN_OUT);

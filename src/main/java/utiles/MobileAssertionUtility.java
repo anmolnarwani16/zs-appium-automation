@@ -8,10 +8,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+
+
+
+
 public class MobileAssertionUtility {
+	
 
-
-    private static final int DEFAULT_TIMEOUT_SECONDS = 20;
+	private static final int DEFAULT_TIMEOUT_SECONDS = 20;
 
     public static void assertElementIsDisplayed(WebElement element) {
         WebDriverWait wait = new WebDriverWait(MobileDriverManager.getDriver(), Duration.ofSeconds(DEFAULT_TIMEOUT_SECONDS));
@@ -59,7 +63,7 @@ public class MobileAssertionUtility {
         wait.until(ExpectedConditions.not(ExpectedConditions.elementToBeSelected(element)));
         Assert.assertFalse(element.isSelected(), "Element is still selected");
     }
-
+    
     public static void assertCurrentUrlEquals(String expectedUrl) {
         WebDriverWait wait = new WebDriverWait(MobileDriverManager.getDriver(), Duration.ofSeconds(DEFAULT_TIMEOUT_SECONDS));
         wait.until(ExpectedConditions.urlToBe(expectedUrl));
@@ -74,5 +78,12 @@ public class MobileAssertionUtility {
         Assert.assertTrue(actualUrl.contains(expectedText),
                 "Current URL does not contain the expected text. Expected: " + expectedText + ", Actual: " + actualUrl);
     }
+
+    public static boolean ElementIsDisplayed(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(MobileDriverManager.getDriver(), Duration.ofSeconds(DEFAULT_TIMEOUT_SECONDS));
+        wait.until(ExpectedConditions.visibilityOf(element));
+        return true;
+    }
+
 
 }

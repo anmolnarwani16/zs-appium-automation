@@ -3,29 +3,24 @@ package reports;
 import com.aventstack.extentreports.ExtentTest;
 
 public class MobileExtentManager {
-	private MobileExtentManager() {
+    private MobileExtentManager() {
 
-	}
+    }
 
-	private static ThreadLocal<ExtentTest> exTest = new ThreadLocal<ExtentTest>(); // all three method used to make
-																					// thread
-	// safe
-	// to avoid to call this method if some one call this method
-	// its not affect to
-// our frame work
+    private static ThreadLocal<ExtentTest> exTest = new ThreadLocal<ExtentTest>();
 
-	static ExtentTest getExtentTest() {
-		return exTest.get();
-	}
+    static ExtentTest getExtentTest() {
+        return exTest.get();
+    }
 
-	static void setExtentTest(ExtentTest test) {
+    static void setExtentTest(ExtentTest test) {
 
-		exTest.set(test);
+        exTest.set(test);
 
-	}
+    }
 
-	static void unload() {
-		exTest.remove();
-	}
+    static void unload() {
+        exTest.remove();
+    }
 
 }
