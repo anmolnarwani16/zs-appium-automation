@@ -27,7 +27,8 @@ public final class  ChangePasswordTest extends MobileBaseTest {
         new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(),Constant.CHANGE_PASSWORD);
         new HomePage().clickOnAccountButton(Constant.CHANGE_PASSWORD);
         new ChangePasswordPage().performClickOnChangePasswordButton(Constant.CHANGE_PASSWORD);
-        new ChangePasswordPage().enterCurrentPassword(data.get("Password"), Constant.CHANGE_PASSWORD);
+        System.out.println("registered password:"+data.get("RegisterPassword"));
+        new ChangePasswordPage().enterCurrentPassword(data.get("RegisterPassword"), Constant.CHANGE_PASSWORD);
         new ChangePasswordPage().enterNewPassword(data.get("NewPassword"), Constant.CHANGE_PASSWORD);
         new ChangePasswordPage().ReEnterNewPassword(data.get("ReEnterCnfPassword"), Constant.CHANGE_PASSWORD);
         new ChangePasswordPage().performClickOnSavePassword(Constant.CHANGE_PASSWORD);

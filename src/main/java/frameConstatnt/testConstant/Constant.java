@@ -18,15 +18,19 @@ public class Constant {
 
     // Search Product Test Constants
     public static final String CATEGORY_NAME = "FRUITS AND VEGETABLES";
-    public static final String ITEM_NAME = "Chilli Red - 100G";
+    public static final String ITEM_NAME = "Chilli Crushed-100G";
     public static final String ITEM_NAME1 = "Pineapple - 1PCS";
     public static final String SEARCH_TEST_NAME_1 = "Category Search";
     public static final String SEARCH_TEST_NAME_2 = "Item Search";
+    public static final String AUSTRALIAN_ORGANIC_BEEF = "Australian Organic Beef Tenderloin-500g";
+    public static final String CATEGORY_MEAT = "MEAT";
+    public static final String EGG_PLANT = "Eggplant Big";
 
 
     // Add Product To Cart Test Constants
     public static final String ADD_PRODUCT_TEST_NAME = "Add Product To Cart";
     public static final String ADDORSUBTRACT_PRODUCT_TEST_NAME = "Subtract Or Add Product From Cart";
+    public static final String ADD_DIFFERENT_VARIANT_PRODUCT_TEST_NAME = "Add Different Variant To Cart";
 
     // Home Page Element Visibility Test Constants
 
@@ -81,11 +85,12 @@ public class Constant {
 
     public static final String CHECK_CARD = "Debit Card";
     public static final String BALANCE = "Available Balance";
-    public static final String DELIVERING = "Delivering To";
+    public static final String DELIVERING = "Delivering To :";
     public static final String LANGUAGE_PREFERENCE = "Choose your favorite language";
 
     public static final String CONTACT_TEXT = "Company Information";
 
+    public static final String MY_PROFILE = "My Profile";
 
     //    SORT BY TEST CONSTANTS
     public static final String SORT_BY = "sort by test";
@@ -98,6 +103,12 @@ public class Constant {
     public static final String PHONE_NUMBER = "99123456";
     public static final String COMPLAIN_DESCRIPTION = "not able to add items";
     public static final String SUBMIT_BUTTON = "SUBMIT";
+
+    //VARIANT'S INDEX
+    public static final String FIRST_VARIANT = "1";
+    public static final String SECOND_VARIANT = "2";
+    public static final String THIRD_VARIANT = "3";
+
 
 
 }

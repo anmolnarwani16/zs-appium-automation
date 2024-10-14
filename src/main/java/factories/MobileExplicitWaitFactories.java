@@ -1,6 +1,7 @@
 package factories;
 
 import java.time.Duration;
+import java.util.List;
 
 import driver.MobileDriverManager;
 import enums.MobileLogType;
@@ -31,7 +32,7 @@ public class MobileExplicitWaitFactories {
         element.sendKeys(value);
 
         try {
-            MobileExtentLogger.log(MobileLogType.PASS,"User entered *********" + description);
+            MobileExtentLogger.log(MobileLogType.PASS,value +" : User entered *********" + description);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -130,5 +131,17 @@ public class MobileExplicitWaitFactories {
     private static void waitUntilElementVisible(WebElement element, WaitStrategy waitStrategy) {
         WebDriverWait wait = new WebDriverWait(MobileDriverManager.getDriver(), Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public static int getCount(List<WebElement> element)
+    {
+        //waitUntilElementVisible(element,waitStrategy);
+        int elementCount = element.size();
+        try {
+            MobileExtentLogger.log(MobileLogType.PASS,"Count of element "+element+":"+elementCount);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return elementCount;
     }
 }

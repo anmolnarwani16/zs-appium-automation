@@ -32,6 +32,8 @@ public final class CheckoutPage {
     private List<WebElement> outOfStock;
     @FindBy(xpath = "//android.widget.TextView[@resource-id='android:id/message']")
     private List<WebElement> maxLimit;
+    @FindBy(xpath="//android.widget.RadioButton[@resource-id='com.zopsmart.stg.scarlet:id/radio_cash_on_delivery']")
+    private WebElement cashOnCollectionBtn;
 
     public CheckoutPage() {
         PageFactory.initElements(MobileDriverManager.getDriver(), this);
@@ -88,6 +90,12 @@ public final class CheckoutPage {
 
         }
 
+    }
+
+    public CheckoutPage clickCashOnCollectionButton(String testname) {
+        MobileExplicitWaitFactories.click(cashOnCollectionBtn, WaitStrategy.CLICKABLE, "user clicked on Cash on Collection radio btn");
+        MobileTestLog.logTestStep(testname, "choose payment method", "user clicked on Cash on Collection radio btn");
+        return new CheckoutPage();
     }
 
 }

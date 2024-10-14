@@ -29,8 +29,8 @@ public final class MyAccountTest extends MobileBaseTest {
 
         new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(),Constant.MY_ACCOUNT);
         new HomePage().clickOnAccountButton(Constant.MY_ACCOUNT);
-        String welcomeText = new MyAccountPage().getElementTextForWelcome(Constant.WELCOME, Constant.MY_ACCOUNT);
-        Assert.assertEquals(welcomeText, Constant.WELCOME);
+        String welcomeText = new MyAccountPage().getElementTextForWelcome(Constant.MY_PROFILE, Constant.MY_ACCOUNT);
+        Assert.assertEquals(welcomeText, Constant.MY_PROFILE);
         new MyAccountPage().verifyElementTexts(Constant.MY_ACCOUNT);
         new HomePage().clickOnHomeIcon(Constant.MY_ACCOUNT);
         MobileTestLog.saveExcelFile();
@@ -45,13 +45,14 @@ public final class MyAccountTest extends MobileBaseTest {
      *             Author:-Ashif Alam
      */
 
-    @Test(description = "performing my account test for each page", groups = {"regression"})
+   @Test(description = "performing my account test for each page", groups = {"regression"})
     public void myAccountTestForPages(Map<String, String> data) {
 
         new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(),Constant.MY_ACCOUNT);
         new HomePage().clickOnAccountButton(Constant.MY_ACCOUNT);
         new SavedAddressPage().performClickOnSavedAddress(Constant.SAVED_ADDRESS);
         new SavedAddressPage().performClickOnAddNewAddress(Constant.SAVED_ADDRESS);
+        new HomePage().clickOnAllowLocationAccessMap(Constant.REGISTER_USER);
         new MyAccountPage().validateSavedAddress(Constant.SAVED_ADDRESS_TEXT, Constant.MY_ACCOUNT);
         new ChangePasswordPage().performClickOnChangePasswordButton(Constant.CHANGE_PASSWORD);
         new MyAccountPage().validateChangePassword(Constant.SAVE_PASSWORD, Constant.MY_ACCOUNT);

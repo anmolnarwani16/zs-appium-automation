@@ -5,6 +5,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
+
 import frameConstatnt.MobileFrameConstant;
 import io.appium.java_client.ios.options.XCUITestOptions;
 import org.json.simple.JSONObject;
@@ -81,6 +83,7 @@ public class MobileDriver {
 
 
         }
+        MobileDriverManager.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     }
     public static void initialize(String platformName ,String udid , String platformVersion)  {

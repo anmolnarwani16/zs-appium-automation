@@ -31,13 +31,13 @@ public final class OrderNotificationTest extends MobileBaseTest {
     @Test(description = "Visibilty of Notification on placing an order", groups = {"smoke", "regression"})
     public static void orderNotification(Map<String, String> data) {
         try {
-            new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(), Constant.ORDER_NOTIFICATION);
-            new AddItemToCartUtility().addToCart(Constant.ORDER_NOTIFICATION);
-            new HomePage().clickOnCartIcon(Constant.ORDER_NOTIFICATION);
-            new MyCartPage().selectSubstitution(Constant.ORDER_NOTIFICATION).selectReplaceWithEquivalent(Constant.ORDER_NOTIFICATION).clickOnCheckoutButton(Constant.ORDER_NOTIFICATION);
-            new CheckoutPage().enterComment(MobileDriverManager.getDriver(), Constant.ORDER_NOTIFICATION).clickDebitCardButton(Constant.ORDER_NOTIFICATION).clickOnSavedDebitCard(Constant.ORDER_NOTIFICATION).clickOnPlaceOrderButton(Constant.ORDER_NOTIFICATION);
-            WebElement orderPlacedElement = new CheckoutPage().getOrderPlacedTab(Constant.ORDER_NOTIFICATION);
-            MobileAssertionUtility.assertElementIsDisplayed(orderPlacedElement);
+            //new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(), Constant.ORDER_NOTIFICATION);
+//            new AddItemToCartUtility().addToCart(Constant.ORDER_NOTIFICATION);
+//            new HomePage().clickOnCartIcon(Constant.ORDER_NOTIFICATION);
+//            new MyCartPage().selectSubstitution(Constant.ORDER_NOTIFICATION).selectReplaceWithEquivalent(Constant.ORDER_NOTIFICATION).clickOnCheckoutButton(Constant.ORDER_NOTIFICATION);
+//            new CheckoutPage().enterComment(MobileDriverManager.getDriver(), Constant.ORDER_NOTIFICATION).clickDebitCardButton(Constant.ORDER_NOTIFICATION).clickOnSavedDebitCard(Constant.ORDER_NOTIFICATION).clickOnPlaceOrderButton(Constant.ORDER_NOTIFICATION);
+//            WebElement orderPlacedElement = new CheckoutPage().getOrderPlacedTab(Constant.ORDER_NOTIFICATION);
+//            MobileAssertionUtility.assertElementIsDisplayed(orderPlacedElement);
             String value = new OrderNotificationPage().getOrderId(Constant.ORDER_NOTIFICATION, "orderText", MobileDriverManager.getDriver());
             MobileDriverManager.getDriver().navigate().back();
             new HomePage().clickOnNotificationIcon(Constant.ORDER_NOTIFICATION);

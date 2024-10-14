@@ -12,7 +12,7 @@ public class LoginChecker {
 
     public void checkLoginFunctionality(String loginNeeded, String userName, String password, WebDriver driver,String testname) {
         try {
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

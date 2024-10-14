@@ -1,15 +1,24 @@
 package pages;
 
 import driver.MobileDriverManager;
+import enums.MobileLogType;
 import enums.WaitStrategy;
 import factories.MobileExplicitWaitFactories;
 import frameConstatnt.testConstant.Constant;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import reports.MobileExtentLogger;
 import reports.MobileTestFailure;
 import reports.MobileTestLog;
 import utiles.MobileRegExUtility;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static pages.SearchPage.itemNamePath;
 
 public final   class MyCartPage {
     @FindBy(id = "com.zopsmart.stg.scarlet:id/button_checkout")
@@ -38,6 +47,12 @@ public final   class MyCartPage {
     private WebElement subTotal;
     @FindBy(id = "com.zopsmart.stg.scarlet:id/tv_total_vat_amount")
     private WebElement vatAmount;
+    @FindBy(id ="(//android.view.ViewGroup[@resource-id='com.zopsmart.stg.scarlet:id/variant_layout_container'])[2]/android.view.ViewGroup")
+    private WebElement secondVariant;
+    @FindBy(xpath ="//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_price']")
+    private WebElement itemPrice;
+    String itemPriceLocator="//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_price']";
+
     public MyCartPage(){
         PageFactory.initElements(MobileDriverManager.getDriver(),this);
     }
@@ -115,5 +130,35 @@ public boolean orderAmountGreaterThanFifty(String testname){
         return false;
     }
 }
+
+    public String selectDifferentVariant(String testname){
+        String variantPrice=secondVariant.getText();
+        MobileExplicitWaitFactories.click(secondVariant,WaitStrategy.CLICKABLE,"user clicked on second variant");
+        MobileTestLog.logTestStep(testname,"user clicked on substitution preference","user clicked on second variant");
+        return variantPrice;
+    }
+
+    public void validateItemPrice(String expectedItemPrice, String testname){
+        MobileTestLog.logTestStep(testname, "Get item price text", "Get item price text");
+        String actualItemPrice=itemPrice.getText();
+        Assert.assertEquals(expectedItemPrice, actualItemPrice);
+    }
+
+    public void validateItemsAddedSeparately(String itemName, ArrayList<String> expectedItemPrice, String testname){
+        for(int i=1; i<=expectedItemPrice.size(); i++) {
+            WebElement itemNameElement = MobileDriverManager.getDriver().findElement(By.xpath("(" + itemNamePath.replaceAll("\\$\\{.+?\\}", itemName) + ")[" + i + "]"));
+            String actualItemName = itemNameElement.getText();
+
+            MobileTestLog.logTestStep(testname, "Get item price text", "Get item price text");
+            WebElement itemPriceElement = MobileDriverManager.getDriver().findElement(By.xpath("(" + itemPriceLocator + ")[" + i + "]"));
+            String actualItemPrice = itemPriceElement.getText();
+
+            if(actualItemName.contains(itemName) && actualItemPrice.contains(expectedItemPrice.get(i-1))){
+                MobileExtentLogger.log(MobileLogType.PASS,"Validated items added separately");
+            }else{
+                MobileExtentLogger.log(MobileLogType.FAIL,"Unable to validated items added separately");
+            }
+        }
+    }
 }
 

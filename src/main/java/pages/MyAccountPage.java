@@ -5,12 +5,14 @@ import enums.WaitStrategy;
 import factories.MobileExplicitWaitFactories;
 import frameConstatnt.testConstant.Constant;
 import junit.framework.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import reports.MobileTestLog;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public final class MyAccountPage {
     @FindBy(xpath = "(//android.view.ViewGroup[@resource-id='com.zopsmart.stg.scarlet:id/account_item'])[12]")
@@ -69,6 +71,14 @@ public final class MyAccountPage {
 
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/item_name' and @text='Company Information']")
     private WebElement contactUsText;
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_add_new_card']")
+    private WebElement addNewCardLnk;
+    @FindBy(xpath = "//android.widget.Button[@resource-id='android:id/button1']")
+    private WebElement addConfirmationOkBtn;
+
+    @FindBy(id = "android:id/tv_name_on_card_debit")
+    private WebElement cardName;
+
     private List<WebElement> elements;
 
     public MyAccountPage() {
@@ -197,5 +207,4 @@ public final class MyAccountPage {
             MobileTestLog.logTestStep(testName, "Verified " + expectedTexts.get(i) + " Text", "Verified " + expectedTexts.get(i) + " Text");
         }
     }
-
 }
