@@ -2,14 +2,15 @@ package test;
 
 import baseTest.MobileBaseTest;
 import driver.MobileDriverManager;
+import frameConstatnt.testConstant.Constant;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.ChangePasswordPage;
 import pages.HomePage;
 import reports.MobileTestLog;
-import java.util.Map;
-import frameConstatnt.testConstant.Constant;
 import utiles.LoginChecker;
+
+import java.util.Map;
 
 public final class  ChangePasswordTest extends MobileBaseTest {
 
@@ -27,7 +28,7 @@ public final class  ChangePasswordTest extends MobileBaseTest {
         new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(),Constant.CHANGE_PASSWORD);
         new HomePage().clickOnAccountButton(Constant.CHANGE_PASSWORD);
         new ChangePasswordPage().performClickOnChangePasswordButton(Constant.CHANGE_PASSWORD);
-        new ChangePasswordPage().enterCurrentPassword(data.get("Password"), Constant.CHANGE_PASSWORD);
+        new ChangePasswordPage().enterCurrentPassword(data.get("RegisterPassword"), Constant.CHANGE_PASSWORD);
         new ChangePasswordPage().enterNewPassword(data.get("NewPassword"), Constant.CHANGE_PASSWORD);
         new ChangePasswordPage().ReEnterNewPassword(data.get("ReEnterCnfPassword"), Constant.CHANGE_PASSWORD);
         new ChangePasswordPage().performClickOnSavePassword(Constant.CHANGE_PASSWORD);

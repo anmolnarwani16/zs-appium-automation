@@ -1,15 +1,24 @@
 package pages;
 
 import driver.MobileDriverManager;
+import enums.MobileLogType;
 import enums.WaitStrategy;
 import factories.MobileExplicitWaitFactories;
 import frameConstatnt.testConstant.Constant;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import reports.MobileTestFailure;
+import org.testng.Assert;
+import reports.MobileExtentLogger;
 import reports.MobileTestLog;
 import utiles.MobileRegExUtility;
+import utiles.MobileScrollDownUtility;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static pages.SearchPage.itemNamePath;
 
 public final   class MyCartPage {
     @FindBy(id = "com.zopsmart.stg.scarlet:id/button_checkout")
@@ -38,6 +47,26 @@ public final   class MyCartPage {
     private WebElement subTotal;
     @FindBy(id = "com.zopsmart.stg.scarlet:id/tv_total_vat_amount")
     private WebElement vatAmount;
+    @FindBy(id ="(//android.view.ViewGroup[@resource-id='com.zopsmart.stg.scarlet:id/variant_layout_container'])[2]/android.view.ViewGroup")
+    private WebElement secondVariant;
+    @FindBy(xpath ="//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_price']")
+    private WebElement itemPrice;
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_item_selling_price']")
+    private List<WebElement> sellingPrice;
+    @FindBy(xpath = "//android.widget.ImageView[@resource-id='com.zopsmart.stg.scarlet:id/ib_add']")
+    private List<WebElement> addIcon;
+    @FindBy(xpath ="//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_quantity']")
+    private List<WebElement> itemQuantity;
+    @FindBy(xpath ="//android.widget.EditText[@resource-id='com.zopsmart.stg.scarlet:id/et_value']")
+    private WebElement quantityTextField;
+    @FindBy(xpath ="//android.widget.Button[@resource-id='com.zopsmart.stg.scarlet:id/btn_YES']")
+    private WebElement submitBtn;
+    @FindBy(xpath ="//android.widget.Button[@resource-id='android:id/button1']")
+    private WebElement continueBtn;
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/textView4']")
+    private WebElement cartEmptyText;
+    String itemPriceLocator="//android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_price']";
+
     public MyCartPage(){
         PageFactory.initElements(MobileDriverManager.getDriver(),this);
     }
@@ -115,5 +144,72 @@ public boolean orderAmountGreaterThanFifty(String testname){
         return false;
     }
 }
+
+    public String selectDifferentVariant(String testname){
+        String variantPrice=secondVariant.getText();
+        MobileExplicitWaitFactories.click(secondVariant,WaitStrategy.CLICKABLE,"user clicked on second variant");
+        MobileTestLog.logTestStep(testname,"user clicked on substitution preference","user clicked on second variant");
+        return variantPrice;
+    }
+
+    public void validateItemPrice(String expectedItemPrice, String testname){
+        MobileTestLog.logTestStep(testname, "Get item price text", "Get item price text");
+        String actualItemPrice=itemPrice.getText();
+        Assert.assertEquals(expectedItemPrice, actualItemPrice);
+    }
+
+    public void validateItemsAddedSeparately(String itemName, ArrayList<String> expectedItemPrice, String testname) {
+        for (int i = 1; i <= expectedItemPrice.size(); i++) {
+            WebElement itemNameElement = MobileDriverManager.getDriver().findElement(By.xpath("(" + itemNamePath.replaceAll("\\$\\{.+?\\}", itemName) + ")[" + i + "]"));
+            String actualItemName = itemNameElement.getText();
+
+            MobileTestLog.logTestStep(testname, "Get item price text", "Get item price text");
+            WebElement itemPriceElement = MobileDriverManager.getDriver().findElement(By.xpath("(" + itemPriceLocator + ")[" + i + "]"));
+            String actualItemPrice = itemPriceElement.getText();
+
+            if (actualItemName.contains(itemName) && actualItemPrice.contains(expectedItemPrice.get(i - 1))) {
+                MobileExtentLogger.log(MobileLogType.PASS, "Validated items added separately");
+            } else {
+                MobileExtentLogger.log(MobileLogType.FAIL, "Unable to validated items added separately");
+            }
+        }
+    }
+
+        public void clickOrderAmountGreaterThanFifty(String testname){
+            MobileTestLog.logTestStep(testname,"check for cart value greater than 50","checking if the cart value is greater than 50 or not");
+            MobileScrollDownUtility.scrollDown(MobileDriverManager.getDriver());
+            for (int i = 1; i < sellingPrice.size(); i++) {
+                // Get the price element at index i
+                WebElement priceElement = sellingPrice.get(i);
+                Double itemPrice = MobileRegExUtility.extractNumbersFromString(priceElement);
+                String addCartLocator="(//android.widget.ImageView[@resource-id='com.zopsmart.stg.scarlet:id/iv_item_image'])["+i+"]/following-sibling::android.widget.TextView[@resource-id='com.zopsmart.stg.scarlet:id/tv_out_of_stock']";
+
+                if (itemPrice > 50.00 && MobileExplicitWaitFactories.getCount(addCartLocator) == 0) {
+                    WebElement addIconElement = addIcon.get(i);
+                    MobileExplicitWaitFactories.click(addIconElement, WaitStrategy.CLICKABLE, "User clicked on add icon to add product into the cart");
+                }
+
+            }
+        }
+
+    public void clearCart(String testname){
+        System.out.println("itemQuantity.size()==="+itemQuantity.size());
+        while(itemQuantity.size()>0){
+            MobileExplicitWaitFactories.click(itemQuantity.get(0), WaitStrategy.CLICKABLE,"Clicking the quantity field on cart page");
+            MobileTestLog.logTestStep(testname,"Quantity text field Clicked","Clicking the quantity field on cart page");
+            MobileExplicitWaitFactories.sendKeys(quantityTextField, "0", WaitStrategy.VISIBLE, "quantity value");
+            MobileTestLog.logTestStep(testname, "Enter Current Password", "User enter current password");
+            MobileExplicitWaitFactories.click(submitBtn, WaitStrategy.CLICKABLE,"Clicking the submit btn on quantity change panel");
+            MobileTestLog.logTestStep(testname,"Submit button Clicked","Clicking the submit btn on quantity change panel");
+            MobileExplicitWaitFactories.click(continueBtn, WaitStrategy.CLICKABLE,"Clicking the continue btn on quantity change panel");
+            MobileTestLog.logTestStep(testname,"Continue button Clicked","Clicking the continue btn on quantity change panel");
+        }
+
+        if(cartEmptyText.getText().contains("Your cart is empty")) {
+            MobileExtentLogger.log(MobileLogType.PASS, "Cart is empty");
+        }else{
+            MobileExtentLogger.log(MobileLogType.FAIL, "Cart is not empty");
+        }
+    }
 }
 

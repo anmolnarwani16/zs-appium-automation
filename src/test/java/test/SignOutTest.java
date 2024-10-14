@@ -6,7 +6,6 @@ import frameConstatnt.testConstant.Constant;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.MyAccountPage;
 import pages.SignInPage;
 import reports.MobileTestLog;
 import utiles.MobileLogoutUtility;

@@ -2,6 +2,7 @@ package test;
 
 import baseTest.MobileBaseTest;
 import driver.MobileDriverManager;
+import frameConstatnt.testConstant.Constant;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.HomePage;
@@ -10,7 +11,6 @@ import pages.MyAccountPage;
 import reports.MobileTestLog;
 import utiles.LoginChecker;
 import utiles.MobileAssertionUtility;
-import frameConstatnt.testConstant.Constant;
 
 import java.util.Map;
 

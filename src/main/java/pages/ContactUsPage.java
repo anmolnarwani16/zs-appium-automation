@@ -62,13 +62,13 @@ public final class ContactUsPage {
         MobileExplicitWaitFactories.click(writeToUs, WaitStrategy.CLICKABLE, "user clicked on write to us");
         MobileExplicitWaitFactories.click(name, WaitStrategy.CLICKABLE, "user click on name section");
         MobileExplicitWaitFactories.sendKeys(name, userName, WaitStrategy.VISIBLE, " their name");
-        MobileDriverManager.getDriver().navigate().back();
+        //MobileDriverManager.getDriver().navigate().back();
         MobileExplicitWaitFactories.click(phoneNo, WaitStrategy.CLICKABLE, "user click on  phoneNumber section");
         MobileExplicitWaitFactories.sendKeys(phoneNo, phoneNumber, WaitStrategy.VISIBLE, "user enter their phoneNo.");
-        MobileDriverManager.getDriver().navigate().back();
+        //MobileDriverManager.getDriver().navigate().back();
         MobileExplicitWaitFactories.click(description, WaitStrategy.CLICKABLE, "user click on description");
         MobileExplicitWaitFactories.sendKeys(description, complainDescription, WaitStrategy.VISIBLE, " description ");
-        MobileDriverManager.getDriver().navigate().back();
+        //MobileDriverManager.getDriver().navigate().back();
         String submit = MobileExplicitWaitFactories.getText(submitButton, submitText, WaitStrategy.ELEMENT_TO_HAVE_TEXT, "Check submit button is enable or not ");
         Assert.assertEquals(submit, Constant.SUBMIT);
         MobileTestLog.logTestStep(testname, "User clicked on write to us", "user clicked on write to us");

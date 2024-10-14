@@ -2,6 +2,7 @@ package test;
 
 import baseTest.MobileBaseTest;
 import driver.MobileDriverManager;
+import frameConstatnt.testConstant.Constant;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.FilterProductPage;
@@ -10,7 +11,6 @@ import pages.SearchPage;
 import reports.MobileTestLog;
 import utiles.LoginChecker;
 import utiles.MobileAssertionUtility;
-import frameConstatnt.testConstant.Constant;
 
 import java.util.Map;
 
@@ -29,7 +29,8 @@ public final class FilterProductsTest extends MobileBaseTest {
     @Test(description = "Filtering products based on brand", groups = {"regression"})
     public static void filterProducts(Map<String, String> data) throws InterruptedException {
         new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(), Constant.FILTER_TEST);
-        new HomePage().clickOnSearchIcon(Constant.FILTER_TEST);
+        //new HomePage().clickOnSearchIcon(Constant.FILTER_TEST);
+        new HomePage().clickOnSearchTextField(Constant.FILTER_TEST);
         new SearchPage().enterValueForSearchTab(Constant.FILTER_TEST, "Floral");
         new FilterProductPage().clickonFilterButton(Constant.FILTER_TEST);
         new FilterProductPage().clickonBrandButton(Constant.FILTER_TEST);

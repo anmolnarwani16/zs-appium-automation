@@ -1,23 +1,23 @@
 package driver;
 
+import frameConstatnt.MobileFrameConstant;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.ios.options.XCUITestOptions;
+import io.appium.java_client.remote.AutomationName;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
+import utiles.JsonFileRederUtils;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 import java.util.Objects;
-import frameConstatnt.MobileFrameConstant;
-import io.appium.java_client.ios.options.XCUITestOptions;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.ParseException;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.options.UiAutomator2Options;
-import io.appium.java_client.remote.AutomationName;
-
-import utiles.JsonFileRederUtils;
 
 public class MobileDriver {
 
-    private MobileDriver(String platformName ,String udid , String platformVersion){
+    private MobileDriver(String platformName , String udid , String platformVersion){
         JSONObject data = null;
         try {
             data = JsonFileRederUtils.readJSONFromFile(MobileFrameConstant.jsonFilePath());
@@ -77,8 +77,6 @@ public class MobileDriver {
 
 
             }
-
-
 
         }
 
