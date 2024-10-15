@@ -52,10 +52,8 @@ public final class SavedAddressPage {
         MobileExplicitWaitFactories.sendKeys(searchAddress, searchaddress, WaitStrategy.VISIBLE, "search Address");
         MobileExplicitWaitFactories.waitForElementToBeVisible(searchNewAddress, 5000);
         MobileExplicitWaitFactories.click(searchNewAddress, WaitStrategy.CLICKABLE, "user clicked on add new address");
-        //MobileDriverManager.getDriver().navigate().back();
         MobileExplicitWaitFactories.click(enterHouseNo, WaitStrategy.CLICKABLE, "user clicked on add house number ");
         MobileExplicitWaitFactories.sendKeys(enterHouseNo, houseNo, WaitStrategy.VISIBLE, " house  number");
-//        MobileDriverManager.getDriver().navigate().back();
         MobileExplicitWaitFactories.click(submitButton, WaitStrategy.CLICKABLE, "user clicked on submit button");
         MobileTestLog.logTestStep(testname, "New Address Added", "User added new address");
         return this;

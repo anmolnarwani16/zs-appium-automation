@@ -28,7 +28,6 @@ public final class RegisterTest extends MobileBaseTest {
      */
     @Test(description = "performing new user registration",groups = {"smoke","regression"})
     public void newUserRegisterTest(Map<String, String> data) throws InterruptedException {
-        //new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(),Constant.REGISTER_USER);
         phoneNumber = MobileDataGenerator.getPhoneNo();
         new HomePage().clickOnAllowLocationAccessMap(Constant.REGISTER_USER);
         new SignInPage().performClickOnRegisterNow(Constant.REGISTER_USER);

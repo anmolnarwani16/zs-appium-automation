@@ -36,7 +36,6 @@ public final class PlacingOrderTest extends MobileBaseTest {
             new HomePage().clickOnHomeIcon(Constant.PLACE_ORDER);
             new HomePage().clickOnSearchTextField(Constant.PLACE_ORDER);
             new SearchPage().enterValueForSearchTab(Constant.SEARCH_TEST_NAME_2, Constant.AUSTRALIAN_ORGANIC_BEEF);
-            //new CheckoutPage().addItemToCartAndCheckLimit(Constant.PLACE_ORDER);
             Thread.sleep(5000);
             new MyCartPage().clickOrderAmountGreaterThanFifty(Constant.PLACE_ORDER);
             new HomePage().clickOnCartIcon(Constant.PLACE_ORDER);

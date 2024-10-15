@@ -29,7 +29,6 @@ public final class FilterProductsTest extends MobileBaseTest {
     @Test(description = "Filtering products based on brand", groups = {"regression"})
     public static void filterProducts(Map<String, String> data) throws InterruptedException {
         new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(), Constant.FILTER_TEST);
-        //new HomePage().clickOnSearchIcon(Constant.FILTER_TEST);
         new HomePage().clickOnSearchTextField(Constant.FILTER_TEST);
         new SearchPage().enterValueForSearchTab(Constant.FILTER_TEST, "Floral");
         new FilterProductPage().clickonFilterButton(Constant.FILTER_TEST);
