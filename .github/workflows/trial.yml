@@ -10,7 +10,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest  # Switch to a Linux runner
+    runs-on: ubuntu-latest  # Switch to a Linux runner for better emulator compatibility
 
     steps:
       - name: Checkout code
@@ -29,10 +29,17 @@ jobs:
           target: android-30
           ndk: '23.1.7779620'
 
-      - name: Install Appium and dependencies
+      - name: Install Appium and dependencies (Linux)
+        if: runner.os != 'macOS'
         run: |
           sudo apt-get update
-          sudo apt-get install -y carthage
+          npm install -g appium
+          appium --version
+
+      - name: Install Appium and dependencies (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          brew install carthage
           npm install -g appium
           appium --version
 
