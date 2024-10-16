@@ -3,54 +3,53 @@ name: Run Android Test
 on:
   push:
     branches:
-      - main  # or the branch you want to trigger on
+      - main  # or any branch you want to trigger the workflow
 
 jobs:
   run-mobile-tests:
     runs-on: macos-latest
 
+    env:
+      JAVA_HOME: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.11-9/arm64/Contents/Home
+      JAVA_HOME_17_ARM64: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.11-9/arm64/Contents/Home
+
     steps:
       # Step 1: Set up Java
-      - name: Set up Java
+      - name: Setup Java
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '17.0.11'
 
-      # Step 2: Pull the project into the runner
-      - name: Checkout the project
+      # Step 2: Checkout the project
+      - name: Checkout project
         uses: actions/checkout@v3
 
-      # Step 3: Set up Android SDK
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v2
-        with:
-          api-level: 30             # Specify the API level for the emulator
-          build-tools: 30.0.3        # The version of build-tools
-          target: android-30         # The target Android SDK version
-          arch: arm64-v8a            # Architecture for the emulator (ARM)
-
-      # Step 4: Set up Appium
-      - name: Set up Appium
+      # Step 3: Set up Appium
+      - name: Setup Appium
         run: |
           npm install -g appium@2.5.3
           appium -v
-          appium &>/dev/null &      # Corrected the typo here
+          appium &>/dev/null &  # Launch Appium in the background
 
-      # Step 5: Run Android emulator
+      # Step 4: Run Android Emulator
       - name: Run Android Emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 30
-          target: google_apis        # Use google_apis for the emulator image
-          arch: arm64-v8a            # Specify architecture as arm64-v8a
-          profile: Nexus_5X          # Optional: specify a device profile
-          emulator-options: '-no-window -no-snapshot'  # Run in headless mode
+          arch: arm64-v8a
+          api-level: 30  # Specify the API level here
+          target: google_apis  # Choose target image like google_apis
+          cores: 2
+          avd-name: test  # Name of the emulator
+          force-avd-creation: true
+          emulator-boot-timeout: 600
+          emulator-options: '-no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim'
+          disable-animations: true
 
-      # Step 6: Wait for emulator to boot
-      - name: Wait for Emulator
+      # Step 5: Wait for the Emulator to boot
+      - name: Wait for Emulator to boot
         run: adb wait-for-device
 
-      # Step 7: Run Appium Android Tests
+      # Step 6: Run Appium Android Tests
       - name: Run Appium Android Tests
         run: mvn clean test -Pandroid
