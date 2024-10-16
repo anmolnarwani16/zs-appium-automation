@@ -10,16 +10,19 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17.0.11'
-      - name: pull the project in to the runner
+
+      - name: pull the project into the runner
         uses: actions/checkout@v3
 
       - name: setup appium
         run: |
           npm install -g appium@2.5.3
           appium -v
-          appium &>/dev/numm &
+          appium &>/dev/null &
+
       - name: run appium android tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
+          api-level: 30  # You can change this to the API level you are targeting
           arch: arm64-v8a
           script: mvn clean test -Pandroid
