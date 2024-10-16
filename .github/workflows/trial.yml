@@ -10,7 +10,7 @@ on:
 
 jobs:
   test:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest  # Switch to a Linux runner
 
     steps:
       - name: Checkout code
@@ -31,7 +31,8 @@ jobs:
 
       - name: Install Appium and dependencies
         run: |
-          brew install carthage
+          sudo apt-get update
+          sudo apt-get install -y carthage
           npm install -g appium
           appium --version
 
@@ -40,25 +41,33 @@ jobs:
           yes | sdkmanager --licenses
           sdkmanager "platform-tools" "platforms;android-30" "emulator" "system-images;android-30;google_apis;x86_64"
 
+      - name: Cleanup Previous Emulator
+        run: |
+          adb kill-server || true
+          pkill -f 'emulator' || true
+
       - name: Start Android Emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 30
           target: google_apis
           arch: x86_64
-          profile: Pixel_3a
+          profile: Nexus_5X  # Use a simpler emulator profile
           disk-size: 2048M
-          force-avd-creation: true
+          force-avd-creation: false
           emulator-options: "-no-window -no-boot-anim"
           disable-animations: true
           emulator-boot-timeout: 600
           script: adb shell input keyevent 82
 
-      - name: Debugging - Check Emulator Status
+      - name: Debugging - Emulator State and Logs
         run: |
           adb devices
           adb shell getprop | grep ro.build.version
           adb logcat -d > emulator-log.txt
+          ls -la $ANDROID_SDK_ROOT
+          df -h  # Check disk space
+          cat $ANDROID_SDK_ROOT/emulator/emulator64-crash.log || echo "No crash log found"
 
       - name: Upload Emulator Logs
         uses: actions/upload-artifact@v3
