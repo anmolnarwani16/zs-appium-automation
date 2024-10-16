@@ -48,7 +48,8 @@ jobs:
           profile: Pixel_3a
           emulator-options: "-no-window -no-boot-anim"
           disable-animations: true
-          boot-timeout: 600
+          emulator-boot-timeout: 600  # Corrected input name
+          script: adb shell input keyevent 82  # Unlocks the emulator screen
 
       - name: Debug Emulator
         run: |
