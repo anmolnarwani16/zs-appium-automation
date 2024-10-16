@@ -46,7 +46,12 @@ jobs:
       - name: Install Android SDK Components
         run: |
           yes | sdkmanager --licenses
-          sdkmanager "platform-tools" "platforms;android-30" "emulator" "system-images;android-30;google_apis;x86_64"
+          sdkmanager "platform-tools" "platforms;android-30" "emulator" "system-images;android-30;google_apis;x86_64" "system-images;android-30;google_apis;x86"
+
+      - name: List Available AVDs
+        run: |
+          avdmanager list avd
+          avdmanager list device
 
       - name: Cleanup Previous Emulator
         run: |
@@ -59,9 +64,9 @@ jobs:
           api-level: 30
           target: google_apis
           arch: x86_64
-          profile: Nexus_5X  # Use a simpler emulator profile
+          profile: Pixel_4  # Switch to Pixel_4
           disk-size: 2048M
-          force-avd-creation: false
+          force-avd-creation: true  # Force AVD creation
           emulator-options: "-no-window -no-boot-anim"
           disable-animations: true
           emulator-boot-timeout: 600
