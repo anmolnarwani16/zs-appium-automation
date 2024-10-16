@@ -9,24 +9,20 @@ jobs:
   run-mobile-tests:
     runs-on: macos-latest
 
-    env:
-      JAVA_HOME: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.11-9/arm64/Contents/Home
-      JAVA_HOME_17_ARM64: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.11-9/arm64/Contents/Home
-
     steps:
       # Step 1: Set up Java
-      - name: Setup Java
+      - name: Set up Java
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '17.0.11'
 
-      # Step 2: Checkout the project
-      - name: Checkout project
+      # Step 2: Pull the project into the runner
+      - name: Checkout the project
         uses: actions/checkout@v3
 
       # Step 3: Set up Appium
-      - name: Setup Appium
+      - name: Set up Appium
         run: |
           npm install -g appium@2.5.3
           appium -v
@@ -36,20 +32,24 @@ jobs:
       - name: Run Android Emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          arch: arm64-v8a
-          api-level: 30  # Specify the API level here
-          target: google_apis  # Choose target image like google_apis
+          api-level: 30                # Specify the API level here
+          target: google_apis           # Choose target image like google_apis
+          arch: arm64-v8a               # Architecture for the emulator
           cores: 2
-          avd-name: test  # Name of the emulator
+          avd-name: test                # Name of the emulator
           force-avd-creation: true
           emulator-boot-timeout: 600
           emulator-options: '-no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim'
           disable-animations: true
 
-      # Step 5: Wait for the Emulator to boot
+      # Step 5: Wait for the emulator to boot
       - name: Wait for Emulator to boot
         run: adb wait-for-device
 
       # Step 6: Run Appium Android Tests
       - name: Run Appium Android Tests
         run: mvn clean test -Pandroid
+
+    env:
+      JAVA_HOME: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.11-9/arm64/Contents/Home
+      JAVA_HOME_17_ARM64: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.11-9/arm64/Contents/Home
