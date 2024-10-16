@@ -4,59 +4,30 @@ on:
   push:
     branches:
       - '**'
-  pull_request:
-    branches:
-      - '**'
 
 jobs:
-  test:
-    runs-on: ubuntu-latest  # Switch to a Linux runner for better emulator compatibility
+  build:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Java 17
+      - name: Set up JDK 1.17
         uses: actions/setup-java@v3
         with:
-          distribution: 'zulu'
+          distribution: 'temurin'
           java-version: '17'
 
-      - name: Set up Android SDK
+      - name: Install Android SDK
         uses: android-actions/setup-android@v2
         with:
-          api-level: 30
-          target: android-30
-          ndk: '23.1.7779620'
-
-      - name: Install Appium and dependencies (Linux)
-        if: runner.os != 'macOS'
-        run: |
-          sudo apt-get update
-          npm install -g appium
-          appium --version
-
-      - name: Install Appium and dependencies (macOS)
-        if: runner.os == 'macOS'
-        run: |
-          brew install carthage
-          npm install -g appium
-          appium --version
+          sdk-version: '30.0.3'
 
       - name: Install Android SDK Components
         run: |
           yes | sdkmanager --licenses
-          sdkmanager "platform-tools" "platforms;android-30" "emulator" "system-images;android-30;google_apis;x86_64" "system-images;android-30;google_apis;x86"
-
-      - name: List Available AVDs
-        run: |
-          avdmanager list avd
-          avdmanager list device
-
-      - name: Cleanup Previous Emulator
-        run: |
-          adb kill-server || true
-          pkill -f 'emulator' || true
+          sdkmanager "platform-tools" "platforms;android-30" "emulator" "system-images;android-30;google_apis;x86_64"
 
       - name: Start Android Emulator
         uses: reactivecircus/android-emulator-runner@v2
@@ -64,37 +35,23 @@ jobs:
           api-level: 30
           target: google_apis
           arch: x86_64
-          profile: Pixel_4  # Switch to Pixel_4
+          profile: Pixel_5
           disk-size: 2048M
-          force-avd-creation: true  # Force AVD creation
+          force-avd-creation: true
           emulator-options: "-no-window -no-boot-anim"
           disable-animations: true
           emulator-boot-timeout: 600
           script: adb shell input keyevent 82
 
-      - name: Debugging - Emulator State and Logs
+      - name: Debug AVD Configuration
         run: |
+          avdmanager list avd
+          emulator -list-avds
           adb devices
-          adb shell getprop | grep ro.build.version
-          adb logcat -d > emulator-log.txt
-          ls -la $ANDROID_SDK_ROOT
-          df -h  # Check disk space
-          cat $ANDROID_SDK_ROOT/emulator/emulator64-crash.log || echo "No crash log found"
 
-      - name: Upload Emulator Logs
-        uses: actions/upload-artifact@v3
-        with:
-          name: Emulator Logs
-          path: emulator-log.txt
+      - name: Run Tests
+        run: ./gradlew connectedAndroidTest
 
-      - name: Run Appium Tests
+      - name: Retrieve Emulator Logs
         run: |
-          appium &
-          mvn clean test
-
-      - name: Upload Test Results
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: Test Results
-          path: target/surefire-reports/
+          cat $ANDROID_SDK_ROOT/emulator/emulator64-crash.log || echo "No crash log found"
