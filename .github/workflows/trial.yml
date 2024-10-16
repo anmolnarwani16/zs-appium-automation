@@ -10,13 +10,7 @@ on:
 
 jobs:
   test:
-    runs-on: macos-latest  # Use macOS machine
-
-    services:
-      appium:
-        image: appium/appium
-        ports:
-          - 4723:4723
+    runs-on: macos-latest  # Use macOS runner
 
     steps:
       - name: Checkout code
@@ -35,8 +29,9 @@ jobs:
           target: android-30
           ndk: '23.1.7779620'
 
-      - name: Install Appium
+      - name: Install Appium and dependencies
         run: |
+          brew install carthage
           npm install -g appium
           appium --version
 
