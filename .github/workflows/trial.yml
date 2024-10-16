@@ -3,14 +3,14 @@ name: Run Android Test
 on:
   push:
     branches:
-      - '**'  # Trigger on any branch
+      - '**'
   pull_request:
     branches:
-      - '**'  # Trigger on pull requests to any branch
+      - '**'
 
 jobs:
   test:
-    runs-on: macos-latest  # Use macOS runner
+    runs-on: macos-latest
 
     steps:
       - name: Checkout code
@@ -35,6 +35,10 @@ jobs:
           npm install -g appium
           appium --version
 
+      - name: Install Android SDK Components
+        run: |
+          sdkmanager "platform-tools" "platforms;android-30" "emulator" "system-images;android-30;google_apis_playstore;x86_64"
+
       - name: Start Android Emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
@@ -44,8 +48,12 @@ jobs:
           profile: Pixel_3a
           emulator-options: "-no-window -no-boot-anim"
           disable-animations: true
-          script: |
-            adb shell input keyevent 82
+          boot-timeout: 600
+
+      - name: Debug Emulator
+        run: |
+          adb devices
+          adb shell getprop
 
       - name: Run Appium Tests
         run: |
