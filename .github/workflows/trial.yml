@@ -37,24 +37,34 @@ jobs:
 
       - name: Install Android SDK Components
         run: |
-          sdkmanager "platform-tools" "platforms;android-30" "emulator" "system-images;android-30;google_apis_playstore;x86_64"
+          yes | sdkmanager --licenses
+          sdkmanager "platform-tools" "platforms;android-30" "emulator" "system-images;android-30;google_apis;x86_64"
 
       - name: Start Android Emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 30
-          target: google_apis_playstore
+          target: google_apis
           arch: x86_64
           profile: Pixel_3a
+          disk-size: 2048M
+          force-avd-creation: true
           emulator-options: "-no-window -no-boot-anim"
           disable-animations: true
-          emulator-boot-timeout: 600  # Corrected input name
-          script: adb shell input keyevent 82  # Unlocks the emulator screen
+          emulator-boot-timeout: 600
+          script: adb shell input keyevent 82
 
-      - name: Debug Emulator
+      - name: Debugging - Check Emulator Status
         run: |
           adb devices
-          adb shell getprop
+          adb shell getprop | grep ro.build.version
+          adb logcat -d > emulator-log.txt
+
+      - name: Upload Emulator Logs
+        uses: actions/upload-artifact@v3
+        with:
+          name: Emulator Logs
+          path: emulator-log.txt
 
       - name: Run Appium Tests
         run: |
