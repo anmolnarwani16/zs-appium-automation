@@ -1,26 +1,56 @@
-name: rum android test
-on: push
+name: Run Android Test
+
+on:
+  push:
+    branches:
+      - main  # or the branch you want to trigger on
+
 jobs:
   run-mobile-tests:
     runs-on: macos-latest
 
     steps:
-      - name: setup java
+      # Step 1: Set up Java
+      - name: Set up Java
         uses: actions/setup-java@v3
         with:
-            distribution: 'temurin'
-            java-version: '17.0.11'
-      - name: pull the project in to the runner
+          distribution: 'temurin'
+          java-version: '17.0.11'
+
+      # Step 2: Pull the project into the runner
+      - name: Checkout the project
         uses: actions/checkout@v3
 
-      - name: setup appium
+      # Step 3: Set up Android SDK
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v2
+        with:
+          api-level: 30             # Specify the API level for the emulator
+          build-tools: 30.0.3        # The version of build-tools
+          target: android-30         # The target Android SDK version
+          arch: arm64-v8a            # Architecture for the emulator (ARM)
+
+      # Step 4: Set up Appium
+      - name: Set up Appium
         run: |
           npm install -g appium@2.5.3
           appium -v
-          appium &>/dev/numm &
+          appium &>/dev/null &      # Corrected the typo here
 
-      - name: run appium android tests
+      # Step 5: Run Android emulator
+      - name: Run Android Emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
-            arch: arm64-v8a
-            script: mvn clean test -Pandroid
+          api-level: 30
+          target: google_apis        # Use google_apis for the emulator image
+          arch: arm64-v8a            # Specify architecture as arm64-v8a
+          profile: Nexus_5X          # Optional: specify a device profile
+          emulator-options: '-no-window -no-snapshot'  # Run in headless mode
+
+      # Step 6: Wait for emulator to boot
+      - name: Wait for Emulator
+        run: adb wait-for-device
+
+      # Step 7: Run Appium Android Tests
+      - name: Run Appium Android Tests
+        run: mvn clean test -Pandroid

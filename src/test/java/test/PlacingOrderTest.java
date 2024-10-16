@@ -24,8 +24,7 @@ public final class PlacingOrderTest extends MobileBaseTest {
      * Test to verify whether customers are able to place order
      *
      * @param data Test data containing username, password, Execution(Yes or No), udid, platformName.
-     *             <p>
-     *             Author:-Anmol Narwani
+     * Author:-Anmol Narwani
      */
     @Test(description = "Placing an order", groups = {"smoke", "regression"})
     public void placeOrderTest(Map<String, String> data) {

@@ -193,7 +193,6 @@ public boolean orderAmountGreaterThanFifty(String testname){
         }
 
     public void clearCart(String testname){
-        System.out.println("itemQuantity.size()==="+itemQuantity.size());
         while(itemQuantity.size()>0){
             MobileExplicitWaitFactories.click(itemQuantity.get(0), WaitStrategy.CLICKABLE,"Clicking the quantity field on cart page");
             MobileTestLog.logTestStep(testname,"Quantity text field Clicked","Clicking the quantity field on cart page");
