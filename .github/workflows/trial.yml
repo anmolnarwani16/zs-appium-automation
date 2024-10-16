@@ -23,6 +23,6 @@ jobs:
       - name: run appium android tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 30  # You can change this to the API level you are targeting
-          arch: arm64-v8a
+          api-level: 30
+          arch: x86_64  # Changed to x86_64
           script: mvn clean test -Pandroid
