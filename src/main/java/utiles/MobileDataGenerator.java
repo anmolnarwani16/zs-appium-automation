@@ -9,4 +9,9 @@ public class MobileDataGenerator {
         int randomNumber = faker.number().numberBetween(10000000, 99999999);
         return String.valueOf(randomNumber);
     }
+
+    public static String getRandomNumber() {
+        int randomNumber = faker.number().numberBetween(000000, 999999);
+        return String.valueOf(randomNumber);
+    }
 }

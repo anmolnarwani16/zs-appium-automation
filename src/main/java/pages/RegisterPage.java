@@ -1,26 +1,14 @@
 package pages;
 
-import com.google.common.collect.ImmutableMap;
 import driver.MobileDriverManager;
 import enums.WaitStrategy;
 import factories.MobileExplicitWaitFactories;
-import io.appium.java_client.PerformsActions;
-import io.appium.java_client.PerformsTouchActions;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.offset.PointOption;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.PointerInput;
-import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import reports.MobileTestLog;
 import utiles.MobileScrollDownUtility;
-
-import java.time.Duration;
-import java.util.Collections;
 
 public class RegisterPage {
     @FindBy(id = "com.zopsmart.stg.scarlet:id/et_username")

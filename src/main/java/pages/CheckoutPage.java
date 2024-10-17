@@ -4,7 +4,6 @@ import driver.MobileDriverManager;
 import enums.MobileLogType;
 import enums.WaitStrategy;
 import factories.MobileExplicitWaitFactories;
-import frameConstatnt.testConstant.Constant;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,7 +19,7 @@ public final class CheckoutPage {
     private WebElement commentSection;
     @FindBy(id = "com.zopsmart.stg.scarlet:id/radio_debit_card")
     private WebElement debitCardButton;
-    @FindBy(xpath = "(//android.view.View[@resource-id='com.zopsmart.stg.scarlet:id/view_selection'])[3]")
+    @FindBy(xpath = "//android.view.View[@resource-id='com.zopsmart.stg.scarlet:id/view_selection']")
     private WebElement savedDebitCard;
     @FindBy(id = "com.zopsmart.stg.scarlet:id/btn_place_order")
     private WebElement placeOrderButton;
@@ -32,6 +31,8 @@ public final class CheckoutPage {
     private List<WebElement> outOfStock;
     @FindBy(xpath = "//android.widget.TextView[@resource-id='android:id/message']")
     private List<WebElement> maxLimit;
+    @FindBy(xpath="//android.widget.RadioButton[@resource-id='com.zopsmart.stg.scarlet:id/radio_cash_on_delivery']")
+    private WebElement cashOnCollectionBtn;
 
     public CheckoutPage() {
         PageFactory.initElements(MobileDriverManager.getDriver(), this);
@@ -88,6 +89,12 @@ public final class CheckoutPage {
 
         }
 
+    }
+
+    public CheckoutPage clickCashOnCollectionButton(String testname) {
+        MobileExplicitWaitFactories.click(cashOnCollectionBtn, WaitStrategy.CLICKABLE, "user clicked on Cash on Collection radio btn");
+        MobileTestLog.logTestStep(testname, "choose payment method", "user clicked on Cash on Collection radio btn");
+        return new CheckoutPage();
     }
 
 }

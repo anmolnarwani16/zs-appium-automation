@@ -26,7 +26,8 @@ public final class HomepageElementVisibilityTest extends MobileBaseTest {
     public static void homePageElement(Map<String, String> data) {
         new LoginChecker().checkLoginFunctionality(data.get("LoginNeeded"), data.get("UserName"), data.get("Password"), MobileDriverManager.getDriver(), Constant.HOMEPAGE_ELEMENT_TEST);
         //Search Icon Visibility
-        new HomePage().clickOnSearchIcon(Constant.HOMEPAGE_ELEMENT_TEST);
+        //new HomePage().clickOnSearchIcon(Constant.HOMEPAGE_ELEMENT_TEST);
+        new HomePage().clickOnSearchTextField(Constant.HOMEPAGE_ELEMENT_TEST);
         WebElement searchTab = new SearchPage().getSearchTabElement(Constant.HOMEPAGE_ELEMENT_TEST);
         MobileAssertionUtility.assertElementIsDisplayed(searchTab);
         new HomePage().clickBackToHome(Constant.HOMEPAGE_ELEMENT_TEST);
